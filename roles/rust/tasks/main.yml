@@ -1,0 +1,9 @@
+- name: Check if rustup is installed
+  stat:
+    path: '~/.rustup'
+  register: rustup
+
+- name: 'Install rustup, rust & cargo'
+  shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+  changed_when: false
+  when: rustup.stat.exists == False

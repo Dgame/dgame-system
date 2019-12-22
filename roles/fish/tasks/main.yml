@@ -1,0 +1,33 @@
+- name: make sure fish is installed
+  package:
+    name: fish
+    state: present
+
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/fish/files/{{ item }}"
+    path: ~/.config/fish/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - config.fish
+    - fish_variables
+
+- name: Check if fisher is installed
+  stat:
+    path: '~/.config/fisher'
+  register: fisher
+
+- name: "Install fisher"
+  shell: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
+  changed_when: false
+  when: fisher.stat.exists == False
+
+- name: "Install matchai/spacefish (prompt)"
+  shell: "fisher add matchai/spacefish"
+  changed_when: false
+
+- name: "Install joehillen/to-fish (bookmarks)"
+  shell: "fisher add joehillen/to-fish"
+  changed_when: false

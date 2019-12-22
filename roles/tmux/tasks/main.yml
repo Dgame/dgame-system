@@ -1,0 +1,28 @@
+- name: make sure tmux is installed
+  package:
+    name: tmux
+    state: present
+  become: yes
+
+- name: make sure xclip is installed
+  package:
+    name: xclip
+    state: present
+  become: yes
+
+- name: Check if tpm is installed
+  stat:
+    path: '~/.tmux/plugins/tpm'
+  register: tpm
+
+- name: Install tpm
+  shell: "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+  changed_when: false
+  when: tpm.stat.exists == False
+
+- name: symlink .tmux.conf
+  file:
+    src: "{{ ansible_env.PWD }}/roles/tmux/files/.tmux.conf"
+    path: ~/.tmux.conf
+    state: link
+    force: yes

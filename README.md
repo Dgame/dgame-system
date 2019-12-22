@@ -1,0 +1,17 @@
+ - [x] git
+ - [x] Fira-Code
+ - [ ] profanity
+ - [ ] keepass
+ - [x] alacritty
+ - [x] fish
+     - [x] fisher
+     - [x] spacefish (prompt) with fisher
+ - [x] tmux
+     - [x] xclip
+ - [x] rust
+ - [x] php
+     - [x] composer
+     - [x] php-pear / pecl
+ - [x] docker
+     - [x] docker-compose
+ - [x] vim

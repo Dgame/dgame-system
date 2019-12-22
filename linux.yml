@@ -1,0 +1,13 @@
+- name: Setup local environment
+  hosts: localhost
+  roles:
+    - git
+    - font
+    - alacritty
+    - tmux
+    - fish
+    - vim
+    - code
+    - docker
+    - php
+    - rust
