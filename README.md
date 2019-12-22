@@ -1,7 +1,7 @@
  - [x] git
  - [x] Fira-Code
- - [ ] profanity
- - [ ] keepass
+ - [x] profanity
+ - [x] keepass
  - [x] alacritty
  - [x] fish
      - [x] fisher
