@@ -11,8 +11,9 @@
     state: link
     follow: false
     force: yes
+  become: yes
 
- - name: make sure composer is installed
+- name: make sure composer is installed
   package:
     name: composer
     state: present
@@ -26,10 +27,10 @@
 - name: check if php-pear was downloaded
   stat:
     path: ~/workspace/php-pear
-  register: php-pear
+  register: php_pear
 
 - name: install php-pear for pecl
   command: makepkg -si --noconfirm
   args:
     chdir: ~/workspace/php-pear
-  when: php-pear.stat.exists
+  when: php_pear.stat.exists
