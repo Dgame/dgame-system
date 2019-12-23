@@ -4,3 +4,4 @@
     pacman-mirrors --fasttrack 5 && sudo pacman -Syyu
   become: yes
   changed_when: false
+  when: ansible_facts['os_family'] == "ArchLinux"
