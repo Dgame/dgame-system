@@ -20,10 +20,14 @@
     - config.fish
     - fish_variables
 
+- name: Add fish to /etc/shells
+  shell: grep -q "/usr/bin/fish" /etc/shells || echo /usr/bin/fish | tee -a /etc/shells
+  become: yes
+
 - name: Set fish as default shell
-  shell: |
-    grep -q "/usr/bin/fish" /etc/shells || echo /usr/bin/fish | tee -a /etc/shells
-    chsh -s /usr/bin/fish
+  user:
+    name: "{{ ansible_env.USER }}"
+    shell: /usr/bin/fish
   become: yes
 
 - name: Check if fisher is installed
