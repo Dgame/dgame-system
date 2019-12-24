@@ -1,5 +1,5 @@
 - name: 'Set pacman branch to unstable'
-  command: |
+  shell: |
     j | pacman-mirrors --api --set-branch unstable
     pacman-mirrors --fasttrack 5 && sudo pacman -Syyu
   become: yes
