@@ -1,7 +1,0 @@
-- name: 'Set pacman branch to unstable'
-  shell: |
-    j | pacman-mirrors --api --set-branch unstable
-    pacman-mirrors --fasttrack 5 && sudo pacman -Syyu
-  become: yes
-  changed_when: false
-  when: ansible_facts['os_family'] == "Archlinux"

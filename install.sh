@@ -1,15 +1,11 @@
 #!/usr/bin/env sh
 help() {
     echo "Usage: ./install [-g arg]"
-    echo "-g (the password for the github account)"
     echo "-h (print this message)"
 }
 
-while getopts ':g:h' opt; do
+while getopts ':h' opt; do
     case $opt in
-        g)
-            github_pw=$OPTARG
-            ;;
         h)
             help
             ;;
@@ -22,7 +18,9 @@ done
 os="$(uname)"
 
 if [ "$os" = "Linux" ]; then
-    GITHUB_PW=$github_pw \
+    sudo pacman-mirrors --api --set-branch unstable && \
+    sudo pacman-mirrors --fasttrack 5 && \
+    yes j | sudo pacman -Syyu && \
     ansible-playbook --ask-become-pass -i hosts linux.yml
 else
    echo "Unknow OS: $os"
