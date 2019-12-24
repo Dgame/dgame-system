@@ -18,11 +18,14 @@ done
 os="$(uname)"
 
 if [ "$os" = "Linux" ]; then
-    sudo pacman-mirrors --api --set-branch unstable && \
-    sudo pacman-mirrors --fasttrack 5 && \
-    yes j | sudo pacman -Syyu && \
+    branch = "$(pacman-mirrors -G)"
+    if [ "$branch" -ne "unstable"]; then
+        sudo pacman-mirrors --api --set-branch unstable && \
+            sudo pacman-mirrors --fasttrack 5 && \
+            yes j | sudo pacman -Syyu
+    fi
     yes j | sudo pacman -S ansible && \
-    ansible-playbook --ask-become-pass -i hosts linux.yml
+        ansible-playbook --ask-become-pass -i hosts linux.yml
 else
    echo "Unknow OS: $os"
    exit 1
