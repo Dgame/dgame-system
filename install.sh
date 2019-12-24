@@ -19,7 +19,7 @@ os="$(uname)"
 
 if [ "$os" = "Linux" ]; then
     branch = "$(pacman-mirrors -G)"
-    if [ "$branch" -ne "unstable"]; then
+    if [ "$branch" -ne "unstable" ]; then
         sudo pacman-mirrors --api --set-branch unstable && \
             sudo pacman-mirrors --fasttrack 5 && \
             yes j | sudo pacman -Syyu
