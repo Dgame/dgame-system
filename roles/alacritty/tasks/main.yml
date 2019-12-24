@@ -4,6 +4,11 @@
     state: present
   become: yes
 
+- name: Create alacritty folder in .config
+  file:
+    path: ~/.config/alacritty/
+    state: directory
+
 - name: symlink files
   file:
     src: "{{ ansible_env.PWD }}/roles/alacritty/files/{{ item }}"

@@ -21,6 +21,7 @@ if [ "$os" = "Linux" ]; then
     sudo pacman-mirrors --api --set-branch unstable && \
     sudo pacman-mirrors --fasttrack 5 && \
     yes j | sudo pacman -Syyu && \
+    yes j | sudo pacman -S ansible && \
     ansible-playbook --ask-become-pass -i hosts linux.yml
 else
    echo "Unknow OS: $os"
