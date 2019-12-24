@@ -20,6 +20,9 @@
     - config.fish
     - fish_variables
 
+- name: Set fish as default shell
+  shell: echo /usr/bin/fish | sudo tee -a /etc/shells && chsh -s /usr/bin/fish && fish
+
 - name: Check if fisher is installed
   stat:
     path: '~/.config/fisher'
