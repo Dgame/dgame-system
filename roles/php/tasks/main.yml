@@ -30,7 +30,7 @@
   register: php_pear
 
 - name: install php-pear for pecl
-  command: makepkg -si --noconfirm
+  command: makepkg -sic --noconfirm --skippgpcheck
   args:
     chdir: ~/workspace/php-pear
   when: php_pear.stat.exists
