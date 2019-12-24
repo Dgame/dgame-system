@@ -2,7 +2,13 @@
   package:
     name: fish
     state: present
+  become: yes
 
+- name: Create fish folder in .config
+  file:
+    path: ~/.config/fish/
+    state: directory
+  
 - name: symlink dotfiles
   file:
     src: "{{ ansible_env.PWD }}/roles/fish/files/{{ item }}"
