@@ -19,4 +19,8 @@
     state: present
   become: yes
 
+- name: install hirak/prestissimo for composer
+  shell: composer global require hirak/prestissimo
+  changed_when: false
+
 - import_tasks: pecl.yml
