@@ -1,0 +1,11 @@
+- name: install Brave (Browser)
+  package:
+    name: brave
+    state: present
+  become: yes
+
+- name: install Google Chrome (Browser)
+  package:
+    name: google-chrome
+    state: present
+  become: yes
