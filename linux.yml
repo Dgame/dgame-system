@@ -1,13 +1,13 @@
 - name: Setup local environment
   hosts: localhost
   roles:
+    - vim
+    - code
     - git
     - font
     - alacritty
     - tmux
     - fish
-    - vim
-    - code
     - docker
     - php
     - rust

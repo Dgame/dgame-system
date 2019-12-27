@@ -4,8 +4,4 @@
     state: present
   become: yes
 
-- name: install Google Chrome (Browser)
-  package:
-    name: google-chrome
-    state: present
-  become: yes
+- import_tasks: google_chrome.yml

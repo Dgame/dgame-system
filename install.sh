@@ -39,7 +39,7 @@ if [ "$os" = "Manjaro Linux"  ]; then
             sudo pacman-mirrors --fasttrack 5 && \
             yes j | sudo pacman -Syyu
     fi
-    yes j | sudo pacman -S ansible && \
+    yes j | sudo pacman -S ansible --needed && \
         ansible-playbook --ask-become-pass -i hosts linux.yml
 else
    echo "Unknow OS: $os"

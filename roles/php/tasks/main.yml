@@ -19,18 +19,4 @@
     state: present
   become: yes
 
-- name: download php-pear for pecl
-  git:
-    repo: https://aur.archlinux.org/php-pear.git
-    dest: ~/workspace/php-pear
-
-- name: check if php-pear was downloaded
-  stat:
-    path: ~/workspace/php-pear
-  register: php_pear
-
-- name: install php-pear for pecl
-  command: makepkg -sic --noconfirm --skippgpcheck
-  args:
-    chdir: ~/workspace/php-pear
-  when: php_pear.stat.exists
+- import_tasks: pecl.yml
