@@ -15,9 +15,23 @@ while getopts ':h' opt; do
     esac
 done
 
-os="$(uname)"
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    os=$NAME
+elif type lsb_release >/dev/null 2>&1; then
+    os=$(lsb_release -sd)
+    os="${os%\"}" # remove suffix "
+    os="${os#\"}" # remove prefix "
+elif [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+    os=$DISTRIB_DESCRIPTION
+else
+    os=$(uname -s)
+fi
 
-if [ "$os" = "Linux" ]; then
+echo "OS is $os"
+
+if [ "$os" = "Manjaro Linux"  ]; then
     branch="$(pacman-mirrors -G)"
     echo "Branch is $branch";
     if [ "$branch" != "unstable" ]; then

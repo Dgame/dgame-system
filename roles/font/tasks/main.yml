@@ -1,5 +1,2 @@
-- name: make sure fira-code is installed
-  package:
-    name: otf-fira-code
-    state: present
-  become: yes
+- import_tasks: install_manjaro.yml
+  when: ansible_distribution == 'Manjaro Linux'
