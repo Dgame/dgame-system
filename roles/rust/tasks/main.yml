@@ -9,3 +9,11 @@
     warn: false
   changed_when: false
   when: rustup.stat.exists == False
+
+- name: 'Install rustfmt'
+  shell: source $HOME/.cargo/env && rustup component add rustfmt
+  changed_when: false
+
+- name: 'Install clippy'
+  shell: source $HOME/.cargo/env && rustup component add clippy
+  changed_when: false
