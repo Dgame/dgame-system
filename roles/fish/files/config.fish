@@ -1,4 +1,4 @@
-alias dotfiles 'git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+#alias dotfiles 'git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
 #export PATH="$PATH:/$HOME/.config/composer/vendor/bin/"
 #ssh-add
@@ -8,7 +8,6 @@ function _current_branch
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
 end
 
-alias e 'thunar'
 alias g 'git'
 alias ga 'git add'
 alias gaa 'git add --all'
