@@ -1,2 +1,2 @@
 - import_tasks: install_manjaro.yml
-  when: ansible_distribution == 'Manjaro Linux'
+  when: ansible_distribution == "Archlinux"
