@@ -1,17 +1,17 @@
 - name: check if php-pear was downloaded
   stat:
-    path: ~/workspace/php-pear
+    path: ~/.workspace/php-pear
   register: php_pear
 
 - name: download php-pear for pecl
   git:
     repo: https://aur.archlinux.org/php-pear.git
-    dest: ~/workspace/php-pear
+    dest: ~/.workspace/php-pear
   when: php_pear.stat.exists == False
 
 - name: check if php-pear was downloaded
   stat:
-    path: ~/workspace/php-pear
+    path: ~/.workspace/php-pear
   register: php_pear
 
 - name: make sure base-devel (e.g. binutils) is installed
@@ -23,5 +23,5 @@
 - name: build php-pear for pecl
   command: makepkg -sic --noconfirm --skippgpcheck
   args:
-    chdir: ~/workspace/php-pear
+    chdir: ~/.workspace/php-pear
   when: php_pear.stat.exists
