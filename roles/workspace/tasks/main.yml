@@ -1,0 +1,32 @@
+- name: 'Install workspace'
+  shell: source $HOME/.cargo/env && cargo install --git https://github.com/Dgame/workspace.git --force
+
+- name: 'Checking workspace folders'
+  stat:
+    path: "{{item}}"
+  register: workspace
+  with_items:
+    - ["~/workspace/dgame"]
+
+- name: 'Creating workspace folders'
+  file:
+    path: "{{item.item}}"
+    state: directory
+  when: item.stat.exists == false
+  with_items:
+    - "{{workspace.results}}"
+
+- name: 'symlink files'
+  file:
+    src: "{{ ansible_env.PWD }}/roles/workspace/files/{{ item }}"
+    path: "~/workspace/{{ item }}"
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - dgame/workspace.toml
+  
+- name: 'sync dgame/workspace.toml'
+  shell: source $HOME/.cargo/env && workspace sync
+  args:
+    chdir: ~/workspace/dgame

@@ -39,17 +39,14 @@
   shell: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
   args:
     warn: false
-  changed_when: false
   when: fisher.stat.exists == False
 
 - name: "Install matchai/spacefish (prompt)"
   shell: "fisher add matchai/spacefish"
   args:
     executable: "/usr/bin/fish"
-  changed_when: false
 
 - name: "Install joehillen/to-fish (bookmarks)"
   shell: "fisher add joehillen/to-fish"
   args:
     executable: "/usr/bin/fish"
-  changed_when: false

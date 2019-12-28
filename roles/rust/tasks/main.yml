@@ -7,13 +7,13 @@
   shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
   args:
     warn: false
-  changed_when: false
   when: rustup.stat.exists == False
 
 - name: 'Install rustfmt'
   shell: source $HOME/.cargo/env && rustup component add rustfmt
-  changed_when: false
 
 - name: 'Install clippy'
   shell: source $HOME/.cargo/env && rustup component add clippy
-  changed_when: false
+
+- name: 'Install cargo-edit'
+  shell: source $HOME/.cargo/env && cargo install cargo-edit --force

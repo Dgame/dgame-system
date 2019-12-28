@@ -15,3 +15,5 @@
     - keepass
     - browser
     - credentials
+    - taskwarrior
+    - workspace
