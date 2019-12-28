@@ -31,7 +31,7 @@ fi
 
 echo "OS is $os"
 
-if [ "$os" = "Manjaro Linux"  ]; then
+if [ "$os" = "Manjaro Linux" ]; then
     branch="$(pacman-mirrors -G)"
     echo "Branch is $branch";
     if [ "$branch" != "unstable" ]; then
