@@ -1,5 +1,11 @@
+- name: Check if workspace is installed
+  stat:
+    path: '~/.cargo/bin/workspace'
+  register: workspace
+
 - name: 'Install workspace'
   shell: source $HOME/.cargo/env && cargo install --git https://github.com/Dgame/workspace.git --force
+  when: workspace.stat.exists == False
 
 - name: 'Checking workspace folders'
   stat:
@@ -12,7 +18,7 @@
   file:
     path: "{{item.item}}"
     state: directory
-  when: item.stat.exists == false
+  when: item.stat.exists == False
   with_items:
     - "{{workspace.results}}"
 

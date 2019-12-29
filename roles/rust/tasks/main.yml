@@ -9,11 +9,29 @@
     warn: false
   when: rustup.stat.exists == False
 
+- name: Check if rustfmt is installed
+  stat:
+    path: '~/.cargo/bin/cargo-fmt'
+  register: cargo_fmt
+
 - name: 'Install rustfmt'
   shell: source $HOME/.cargo/env && rustup component add rustfmt
+  when: cargo_fmt.stat.exists == False
+
+- name: Check if clippy is installed
+  stat:
+    path: '~/.cargo/bin/cargo-clippy'
+  register: clippy
 
 - name: 'Install clippy'
   shell: source $HOME/.cargo/env && rustup component add clippy
+  when: clippy.stat.exists == False
+
+- name: Check if cargo-edit is installed
+  stat:
+    path: '~/.cargo/bin/cargo-add'
+  register: cargo_edit
 
 - name: 'Install cargo-edit'
   shell: source $HOME/.cargo/env && cargo install cargo-edit --force
+  when: cargo_edit.stat.exists == False

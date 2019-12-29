@@ -41,12 +41,24 @@
     warn: false
   when: fisher.stat.exists == False
 
+- name: Check if matchai/spacefish (prompt) is installed
+  stat:
+    path: '~/.config/fisher/github.com/matchai/spacefish'
+  register: spacefish
+
 - name: "Install matchai/spacefish (prompt)"
   shell: "fisher add matchai/spacefish"
   args:
     executable: "/usr/bin/fish"
+  when: spacefish.stat.exists == False
+
+- name: Check if joehillen/to-fish (bookmarks) is installed
+  stat:
+    path: '~/.config/fisher/github.com/joehillen/to-fish'
+  register: to_fish
 
 - name: "Install joehillen/to-fish (bookmarks)"
   shell: "fisher add joehillen/to-fish"
   args:
     executable: "/usr/bin/fish"
+  when: to_fish.stat.exists == False
