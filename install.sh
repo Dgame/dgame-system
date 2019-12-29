@@ -18,7 +18,7 @@ echo "OS is $os"
 
 if [ "$os" = "Manjaro Linux" ]; then
     yes j | sudo pacman -S ansible --needed && \
-    ansible-playbook --check --ask-become-pass -i hosts linux.yml && \
+    ansible-playbook --ask-become-pass -i hosts linux.yml && \
     yes j | sudo pacman -Syu
 else
    echo "Unknow OS: $os"
