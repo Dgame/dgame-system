@@ -1,6 +1,5 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export --path GOPATH:/home/dgame/go
 SETUVAR SPACEFISH_CHAR_SYMBOL:\x24
 SETUVAR SPACEFISH_DOCKER_SYMBOL:Docker\x20
 SETUVAR SPACEFISH_PHP_SYMBOL:PHP\x20
