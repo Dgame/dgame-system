@@ -1,19 +1,4 @@
 #!/usr/bin/env sh
-help() {
-    echo "Usage: ./install [-g arg]"
-    echo "-h (print this message)"
-}
-
-while getopts ':h' opt; do
-    case $opt in
-        h)
-            help
-            ;;
-        ?)
-            echo "Invalid Parameter given. $(help)"
-            ;;
-    esac
-done
 
 if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -32,15 +17,9 @@ fi
 echo "OS is $os"
 
 if [ "$os" = "Manjaro Linux" ]; then
-    branch="$(pacman-mirrors -G)"
-    echo "Branch is $branch";
-    if [ "$branch" != "unstable" ]; then
-        sudo pacman-mirrors --api --set-branch unstable && \
-            sudo pacman-mirrors --fasttrack 5 && \
-            yes j | sudo pacman -Syyu
-    fi
     yes j | sudo pacman -S ansible --needed && \
-        ansible-playbook --ask-become-pass -i hosts linux.yml
+    ansible-playbook --check --ask-become-pass -i hosts linux.yml && \
+    yes j | sudo pacman -Syu
 else
    echo "Unknow OS: $os"
    exit 1

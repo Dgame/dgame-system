@@ -5,3 +5,4 @@
   become: yes
 
 - import_tasks: google_chrome.yml
+  when: ansible_facts['os_family'] == "Archlinux"
