@@ -1,7 +1,4 @@
-#alias dotfiles 'git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-
 #export PATH="$PATH:/$HOME/.config/composer/vendor/bin/"
-#ssh-add
 #source $HOME/.cargo/env
 
 function _current_branch
