@@ -2,7 +2,6 @@
   hosts: localhost
   roles:
     - vim
-    - code
     - git
     - font
     - alacritty
@@ -13,9 +12,10 @@
     - fish
     - profanity
     - keepass
-    - browser
     - credentials
     - taskwarrior
-    - workspace
-    - jetbrains
+    - code
     - sublime
+    - browser
+    - jetbrains
+    - workspace

@@ -32,7 +32,7 @@
   loop:
     - dgame/workspace.toml
   
-- name: 'sync dgame/workspace.toml'
-  shell: source $HOME/.cargo/env && workspace sync
+- name: 'sync and build dgame/workspace.toml'
+  shell: source $HOME/.cargo/env && workspace sync && workspace build
   args:
     chdir: ~/workspace/dgame
