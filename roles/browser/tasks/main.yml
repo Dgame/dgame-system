@@ -1,8 +1,2 @@
-- name: install Brave (Browser)
-  package:
-    name: brave
-    state: present
-  become: yes
-
-- import_tasks: google_chrome.yml
-  when: ansible_facts['os_family'] == "Archlinux"
+- include_tasks: "{{ ansible_os_family }}.yml"
+- include_tasks: "{{ ansible_os_family }}/google-chrome.yml"

@@ -1,2 +1,1 @@
-- import_tasks: arch_linux.yml
-  when: ansible_facts['os_family'] == "Archlinux"
+- include_tasks: "{{ ansible_os_family }}.yml"

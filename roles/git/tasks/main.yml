@@ -1,7 +1,4 @@
-- name: make sure git is installed
-  package:
-    name: git
-    state: present
+- include_tasks: "{{ ansible_os_family }}.yml"
 
 - name: symlink gitconfig
   file:

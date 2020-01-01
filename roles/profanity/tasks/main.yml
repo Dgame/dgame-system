@@ -1,5 +1,1 @@
-- name: make sure profanity is installed
-  package:
-    name: profanity
-    state: present
-  become: yes
+- include_tasks: "{{ ansible_os_family }}.yml"

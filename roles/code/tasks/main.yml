@@ -1,5 +1,1 @@
-- name: install vs-code
-  package:
-    name: code
-    state: present
-  become: yes
+- include_tasks: "{{ ansible_os_family }}.yml"

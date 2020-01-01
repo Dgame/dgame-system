@@ -1,5 +1,1 @@
-- name: install taskwarrior
-  package:
-    name: task
-    state: present
-  become: yes
+- include_tasks: "{{ ansible_os_family }}.yml"
