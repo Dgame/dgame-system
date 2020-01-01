@@ -1,0 +1,11 @@
+- name: install docker
+  package:
+    name: docker
+    state: present
+  become: yes
+
+- name: install docker-compose
+  package:
+    name: docker-compose
+    state: present
+  become: yes

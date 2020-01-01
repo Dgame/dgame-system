@@ -1,0 +1,11 @@
+- name: make sure php is installed
+  package:
+    name: php
+    state: present
+  become: yes
+
+- name: make sure composer is installed
+  package:
+    name: composer
+    state: present
+  become: yes

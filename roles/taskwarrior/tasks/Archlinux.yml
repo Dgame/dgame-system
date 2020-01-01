@@ -1,0 +1,5 @@
+- name: install taskwarrior
+  package:
+    name: task
+    state: present
+  become: yes

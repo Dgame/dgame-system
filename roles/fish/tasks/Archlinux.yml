@@ -1,0 +1,5 @@
+- name: make sure fish is installed
+  package:
+    name: fish
+    state: present
+  become: yes

@@ -1,0 +1,5 @@
+- name: make sure fira-code is installed
+  package:
+    name: otf-fira-code
+    state: present
+  become: yes
