@@ -20,9 +20,9 @@ fi
 echo "OS is $os and the distribution is $distro"
 
 if [ "$distro" == "arch" ]; then
+    yes j | sudo pacman -Syu && \
     yes j | sudo pacman -S ansible --needed && \
-    ansible-playbook --ask-become-pass -i hosts linux.yml && \
-    yes j | sudo pacman -Syu
+    ansible-playbook --ask-become-pass -i hosts linux.yml
 else
    echo "$os ($distro) is not supported"
    exit 1
