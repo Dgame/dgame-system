@@ -1,6 +1,7 @@
 - name: Setup local environment
   hosts: localhost
   roles:
+    - package_manager
     - vim
     - git
     - font

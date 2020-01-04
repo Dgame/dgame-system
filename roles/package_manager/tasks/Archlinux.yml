@@ -1,11 +1,20 @@
-- name: Gather pacman branch facts
-  shell: pacman-mirrors -G
-  register: pacman_branch
+- name: make sure pacman branch is set to unstable
+  block:
+    - name: Gather pacman branch facts
+      shell: pacman-mirrors -G
+      register: pacman_branch
 
-- set_fact: pacman_branch={{ pacman_branch.stdout }}
+    - set_fact: pacman_branch={{ pacman_branch.stdout }}
+      
+    - name: Set pacman branch to unstable and rebuild mirrors
+      shell: |
+        pacman-mirrors --api --set-branch unstable
+        pacman-mirrors --fasttrack 5
+      when: pacman_branch != "unstable"
+  when: not ansible_check_mode
 
-- name: Set pacman branch to unstable and rebuild mirrors
-  shell: |
-    pacman-mirrors --api --set-branch unstable
-    pacman-mirrors --fasttrack 5
-  when: pacman_branch != "unstable"
+- name: make sure yay (aur package manager) is installed
+  aur:
+    name: yay
+    use: makepkg
+    skip_installed: yes
