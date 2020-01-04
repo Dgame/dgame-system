@@ -5,7 +5,7 @@
     path: '~/.tmux/plugins/tpm'
   register: tpm
 
-- name: Install tpm
+- name: make sure tpm is installed
   shell: "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
   changed_when: false
   when: tpm.stat.exists == False

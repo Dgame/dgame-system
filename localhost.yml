@@ -6,10 +6,10 @@
     - font
     - alacritty
     - tmux
+    - fish
     - docker
     - php
     - rust
-    - fish
     - profanity
     - keepass
     - credentials

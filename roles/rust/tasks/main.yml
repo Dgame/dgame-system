@@ -3,7 +3,7 @@
     path: '~/.rustup'
   register: rustup
 
-- name: 'Install rustup, rust & cargo'
+- name: 'make sure rustup, rust & cargo is installed'
   shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
   args:
     warn: false
@@ -14,7 +14,7 @@
     path: '~/.cargo/bin/cargo-fmt'
   register: cargo_fmt
 
-- name: 'Install rustfmt'
+- name: 'make sure rustfmt is installed'
   shell: source $HOME/.cargo/env && rustup component add rustfmt
   when: cargo_fmt.stat.exists == False
 
@@ -23,7 +23,7 @@
     path: '~/.cargo/bin/cargo-clippy'
   register: clippy
 
-- name: 'Install clippy'
+- name: 'make sure clippy is installed'
   shell: source $HOME/.cargo/env && rustup component add clippy
   when: clippy.stat.exists == False
 
@@ -32,6 +32,6 @@
     path: '~/.cargo/bin/cargo-add'
   register: cargo_edit
 
-- name: 'Install cargo-edit'
+- name: 'make sure cargo-edit is installed'
   shell: source $HOME/.cargo/env && cargo install cargo-edit --force
   when: cargo_edit.stat.exists == False

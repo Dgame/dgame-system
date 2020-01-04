@@ -1,10 +1,10 @@
-- name: install docker
+- name: make sure docker is installed
   package:
     name: docker
     state: present
   become: yes
 
-- name: install docker-compose
+- name: make sure docker-compose is installed
   package:
     name: docker-compose
     state: present

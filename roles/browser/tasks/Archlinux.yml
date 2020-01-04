@@ -1,5 +1,10 @@
-- name: install Brave (Browser)
+- name: make sure Brave (Browser) is installed
   package:
     name: brave
     state: present
   become: yes
+
+- name: make sure Google-Chrome (Browser) is installed
+  yay:
+    name: google-chrome
+    state: present

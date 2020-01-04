@@ -1,4 +1,4 @@
-- name: install alacritty
+- name: make sure alacritty is installed
   package:
     name: alacritty
     state: present

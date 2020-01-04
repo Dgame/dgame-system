@@ -1,0 +1,13 @@
+PLAYBOOK = ansible-playbook
+FLAGS = --ask-become-pass -i hosts
+
+check: install_ansible
+	$(PLAYBOOK) --check $(FLAGS) localhost.yml
+install: install_ansible
+	$(PLAYBOOK) $(FLAGS) test.yml
+install_ansible: install_yay
+	yes j | sudo pacman -S ansible --needed
+install_yay:
+	yes j | sudo pacman -S git --needed
+	test -d "yay" || (git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -sic --noconfirm)
+	test -d "library" || (mkdir -p library && cd library && git clone https://github.com/mnussbaum/ansible-yay.git && ln -s ansible-yay/yay yay)

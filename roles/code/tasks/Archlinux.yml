@@ -1,4 +1,4 @@
-- name: install vs-code
+- name: make sure vs-code is installed
   package:
     name: code
     state: present

@@ -3,7 +3,7 @@
     path: '~/.cargo/bin/workspace'
   register: workspace
 
-- name: 'Install workspace'
+- name: 'make sure workspace is installed'
   shell: source $HOME/.cargo/env && cargo install --git https://github.com/Dgame/workspace.git --force
   when: workspace.stat.exists == False
 

@@ -1,3 +1,9 @@
+```Makefile
+make -f arch [check]
+```
+
+----
+
  - [x] git
  - [x] Fira-Code
  - [x] profanity
@@ -15,3 +21,12 @@
  - [x] docker
      - [x] docker-compose
  - [x] vim
+ - [x] credentials
+ - [x] taskwarrior
+ - [x] vs-code
+ - [x] sublime
+ - [x] browser
+     - [x] Brave
+     - [x] Google-Chrome
+ - [x] jetbrains
+ - [x] workspace

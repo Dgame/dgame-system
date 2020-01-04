@@ -9,3 +9,8 @@
     name: composer
     state: present
   become: yes
+
+- name: make sure php-pear for pecl is installed
+  yay:
+    name: php-pear
+    state: present

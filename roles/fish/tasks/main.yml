@@ -31,7 +31,7 @@
     path: '~/.config/fisher'
   register: fisher
 
-- name: "Install fisher"
+- name: "make sure fisher is installed"
   shell: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
   args:
     warn: false
@@ -42,7 +42,7 @@
     path: '~/.config/fisher/github.com/matchai/spacefish'
   register: spacefish
 
-- name: "Install matchai/spacefish (prompt)"
+- name: "make sure matchai/spacefish (prompt) is installed"
   shell: "fisher add matchai/spacefish"
   args:
     executable: "/usr/bin/fish"
@@ -53,7 +53,7 @@
     path: '~/.config/fisher/github.com/joehillen/to-fish'
   register: to_fish
 
-- name: "Install joehillen/to-fish (bookmarks)"
+- name: "make sure joehillen/to-fish (bookmarks) is installed"
   shell: "fisher add joehillen/to-fish"
   args:
     executable: "/usr/bin/fish"

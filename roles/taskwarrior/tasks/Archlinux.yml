@@ -1,4 +1,4 @@
-- name: install taskwarrior
+- name: make sure taskwarrior is installed
   package:
     name: task
     state: present
