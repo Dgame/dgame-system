@@ -4,7 +4,7 @@ FLAGS = --ask-become-pass -i hosts
 check: install_ansible
 	$(PLAYBOOK) --check $(FLAGS) localhost.yml
 install: install_ansible
-	$(PLAYBOOK) $(FLAGS) test.yml
+	$(PLAYBOOK) $(FLAGS) localhost.yml
 install_ansible: install_yay
 	yes j | sudo pacman -S ansible --needed
 install_yay:
