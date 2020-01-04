@@ -10,8 +10,8 @@ AUR_PLUGIN_PATH = ~/.ansible/plugins/modules/aur
 check: install_ansible
 	$(PLAYBOOK) --check $(FLAGS) localhost.yml
 install: install_ansible
-	$(PLAYBOOK) $(FLAGS) test.yml
-install_ansible: install_yay install_aur
+	$(PLAYBOOK) $(FLAGS) localhost.yml
+install_ansible: install_aur install_yay
 	yes j | sudo pacman -S ansible --needed
 install_yay: install_git
 	test -d $(YAY_PLUGIN_PATH) || git clone $(ANSIBLE_YAY_GITHUB) $(YAY_PLUGIN_PATH)
