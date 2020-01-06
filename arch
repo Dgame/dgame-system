@@ -1,21 +1,12 @@
 PLAYBOOK = ansible-playbook
-FLAGS = --ask-become-pass -i hosts
+INVENTORY = -i hosts
+FLAGS = --ask-become-pass
 
-ANSIBLE_YAY_GITHUB = https://github.com/mnussbaum/ansible-yay.git
-YAY_PLUGIN_PATH = ~/.ansible/plugins/modules/yay
-
-ANSIBLE_AUR_GITHUB = https://github.com/kewlfft/ansible-aur.git
-AUR_PLUGIN_PATH = ~/.ansible/plugins/modules/aur
-
-check: install_ansible
-	$(PLAYBOOK) --check $(FLAGS) localhost.yml
-install: install_ansible
+check: install_ansible prepare
+	$(PLAYBOOK) --check $(FLAGS) $(INVENTORY) localhost.yml
+install: install_ansible prepare
 	$(PLAYBOOK) $(FLAGS) localhost.yml
-install_ansible: install_aur install_yay
+prepare: install_ansible
+	$(PLAYBOOK) $(INVENTORY) prepare_localhost.yml
+install_ansible:
 	yes j | sudo pacman -S ansible --needed
-install_yay: install_git
-	test -d $(YAY_PLUGIN_PATH) || git clone $(ANSIBLE_YAY_GITHUB) $(YAY_PLUGIN_PATH)
-install_aur: install_git
-	test -d $(AUR_PLUGIN_PATH) || git clone $(ANSIBLE_AUR_GITHUB) $(AUR_PLUGIN_PATH)
-install_git:
-	yes j | sudo pacman -S git --needed

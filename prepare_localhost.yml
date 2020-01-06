@@ -1,0 +1,4 @@
+- name: Prepare local environment
+  hosts: localhost
+  roles:
+    - plugins

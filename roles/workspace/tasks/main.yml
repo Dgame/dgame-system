@@ -29,10 +29,14 @@
     state: link
     follow: false
     force: yes
-  loop:
-    - dgame/workspace.toml
+  with_items:
+    - "{{workspace.results}}"
+  when: item.stat.exists
   
-- name: 'sync and build dgame/workspace.toml'
+- name: 'sync and build workspace'
   shell: source $HOME/.cargo/env && workspace sync && workspace build
   args:
-    chdir: ~/workspace/dgame
+    chdir: '{{ item.stat.path }}'
+  with_items:
+    - "{{workspace.results}}"
+  when: item.stat.exists
