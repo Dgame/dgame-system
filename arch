@@ -12,9 +12,7 @@ vagrant: install_ansible prepare
 	$(PLAYBOOK) $(INVENTORY) localhost.yml
 prepare: install_ansible
 	$(PLAYBOOK) $(INVENTORY) prepare_localhost.yml
-install_ansible: update_cache install_make
+install_ansible: update_cache
 	yes | LC_ALL=en_US.UTF-8 sudo pacman -S $(ANSIBLE_PKG) --needed
-install_make: update_cache
-	pacman -Qi $(MAKE_PKG) || sudo pacman -S $(MAKE_PKG) --needed --noconfirm
 update_cache:
 	yes | LC_ALL=en_US.UTF-8 sudo pacman -Syu --needed

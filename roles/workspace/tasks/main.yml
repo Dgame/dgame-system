@@ -30,13 +30,12 @@
     follow: false
     force: yes
   with_items:
-    - "{{workspace.results}}"
-  when: item.stat.exists
-  
-- name: 'sync and build workspace'
-  shell: source $HOME/.cargo/env && workspace sync && workspace build
+    - ["dgame/workspace.toml"]
+
+- name: 'sync workspace'
+  shell: 'source $HOME/.cargo/env && workspace sync'
   args:
     chdir: '{{ item.stat.path }}'
+  when: item.stat.exists
   with_items:
     - "{{workspace.results}}"
-  when: item.stat.exists
