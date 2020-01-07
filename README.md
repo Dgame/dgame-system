@@ -1,5 +1,19 @@
+## Install
+
 ```Makefile
-make -f arch [check]
+make -f arch [check|vagrant|install]
+```
+
+## Test with vagrant
+
+```shell
+vagrant up [archlinux|manjaro]
+```
+
+or
+
+```shell
+vagrant provision [archlinux|manjaro] --provision-with test
 ```
 
 ----

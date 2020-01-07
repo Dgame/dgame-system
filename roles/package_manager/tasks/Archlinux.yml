@@ -1,3 +1,8 @@
+- name: check if pacman-mirrors exists
+  shell: type pacman-mirrors
+  ignore_errors: true
+  register: pacman_mirrors
+
 - name: make sure pacman branch is set to unstable
   block:
     - name: Gather pacman branch facts
@@ -11,7 +16,14 @@
         pacman-mirrors --api --set-branch unstable
         pacman-mirrors --fasttrack 5
       when: pacman_branch != "unstable"
-  when: not ansible_check_mode
+      become: yes
+  when: not ansible_check_mode and not pacman_mirrors.failed
+
+- name: Update packages
+  pacman:
+    update_cache: yes
+    upgrade: yes
+  become: yes
 
 - name: make sure yay (aur package manager) is installed
   aur:
