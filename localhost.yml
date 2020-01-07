@@ -17,6 +17,6 @@
     - taskwarrior
     - code
     - sublime
-    # - browser
-    # - jetbrains
+    - browser
+    - jetbrains
     - workspace
