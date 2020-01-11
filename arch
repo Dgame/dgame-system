@@ -6,7 +6,7 @@ FLAGS = --ask-become-pass
 check: install_ansible
 	$(PLAYBOOK) --check $(FLAGS) $(INVENTORY) localhost.yml
 install: install_ansible
-	$(PLAYBOOK) $(FLAGS) $(INVENTORY) localhost.yml -vvvv
+	$(PLAYBOOK) $(FLAGS) $(INVENTORY) localhost.yml
 vagrant: install_ansible
 	$(PLAYBOOK) $(INVENTORY) localhost.yml
 install_ansible: update_cache
