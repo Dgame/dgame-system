@@ -16,6 +16,10 @@ or
 vagrant provision [archlinux|manjaro] --provision-with test
 ```
 
+## Plugins:
+ - `aur` plugin from https://github.com/kewlfft/ansible-aur
+ - `yay` plugin from https://github.com/mnussbaum/ansible-yay
+
 ----
 
  - [x] git

@@ -2,16 +2,13 @@ ANSIBLE_PKG = ansible
 PLAYBOOK = ansible-playbook
 INVENTORY = -i hosts
 FLAGS = --ask-become-pass
-MAKE_PKG = base-devel
 
-check: install_ansible prepare
+check: install_ansible
 	$(PLAYBOOK) --check $(FLAGS) $(INVENTORY) localhost.yml
-install: install_ansible prepare
-	$(PLAYBOOK) $(FLAGS) $(INVENTORY) localhost.yml
-vagrant: install_ansible prepare
+install: install_ansible
+	$(PLAYBOOK) $(FLAGS) $(INVENTORY) localhost.yml -vvvv
+vagrant: install_ansible
 	$(PLAYBOOK) $(INVENTORY) localhost.yml
-prepare: install_ansible
-	$(PLAYBOOK) $(INVENTORY) prepare_localhost.yml
 install_ansible: update_cache
 	yes | LC_ALL=en_US.UTF-8 sudo pacman -S $(ANSIBLE_PKG) --needed
 update_cache:
