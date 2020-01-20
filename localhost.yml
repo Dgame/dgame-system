@@ -8,6 +8,7 @@
     - alacritty
     - tmux
     - fish
+    - yakuake
     - docker
     - php
     - rust
