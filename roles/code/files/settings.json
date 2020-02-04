@@ -1,0 +1,14 @@
+{
+    "editor.renderWhitespace": "all",
+    "rust.mode": "rls",
+    "rust-client.rustupPath": "$HOME/.cargo/bin/rustup",
+    "rust-client.updateOnStartup": true,
+    "rust.all_features": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Monokai",
+    "window.zoomLevel": 1,
+    "editor.fontSize": 15
+}
