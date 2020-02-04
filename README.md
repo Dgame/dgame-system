@@ -1,7 +1,7 @@
 ## Install
 
 ```make
-make -f arch [check|vagrant|install]
+make -f arch [check|install]
 ```
 
 ## Test with vagrant

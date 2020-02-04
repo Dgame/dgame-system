@@ -1,5 +1,4 @@
-#export PATH="$PATH:/$HOME/.config/composer/vendor/bin/"
-#source $HOME/.cargo/env
+export PATH="$PATH:/$HOME/.config/composer/vendor/bin/:/$HOME/.cargo/bin"
 
 function _current_branch
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')

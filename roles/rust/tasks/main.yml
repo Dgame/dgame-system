@@ -9,6 +9,9 @@
     warn: false
   when: rustup.stat.exists == False
 
+- name: 'makre sure rust nightly is installed'
+  shell: "source $HOME/.cargo/env && rustup install nightly"
+
 - name: Check if rustfmt is installed
   stat:
     path: '~/.cargo/bin/cargo-fmt'
@@ -27,6 +30,24 @@
   shell: source $HOME/.cargo/env && rustup component add clippy
   when: clippy.stat.exists == False
 
+- name: Check if rls is installed
+  stat:
+    path: '~/.cargo/bin/rls'
+  register: rls
+
+- name: 'make sure rls & rust-analysis is installed'
+  shell: source $HOME/.cargo/env && rustup component add rls rust-analysis
+  when: rls.stat.exists == False
+
+- name: Check if racer is installed
+  stat:
+    path: '~/.cargo/bin/racer'
+  register: racer
+
+- name: 'make sure racer is installed'
+  shell: source $HOME/.cargo/env && cargo +nightly install racer
+  when: racer.stat.exists == False
+
 - name: Check if cargo-edit is installed
   stat:
     path: '~/.cargo/bin/cargo-add'
@@ -35,3 +56,12 @@
 - name: 'make sure cargo-edit is installed'
   shell: source $HOME/.cargo/env && cargo install cargo-edit --force
   when: cargo_edit.stat.exists == False
+
+- name: Check if cargo-expand is installed
+  stat:
+    path: '~/.cargo/bin/cargo-expand'
+  register: cargo_expand
+
+- name: 'make sure cargo-expand is installed'
+  shell: source $HOME/.cargo/env && cargo install cargo-expand --force
+  when: cargo_expand.stat.exists == False

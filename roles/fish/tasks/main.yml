@@ -1,30 +1,9 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
 
-- name: Add fish to /etc/shells
-  shell: grep -q "/usr/bin/fish" /etc/shells || echo /usr/bin/fish | tee -a /etc/shells
-  become: yes
-
-- name: Set fish as default shell
-  user:
-    name: "{{ ansible_env.USER }}"
-    shell: /usr/bin/fish
-  become: yes
-
 - name: Create fish folder in .config
   file:
     path: ~/.config/fish/
     state: directory
-  
-- name: symlink dotfiles
-  file:
-    src: "{{ ansible_env.PWD }}/roles/fish/files/{{ item }}"
-    path: ~/.config/fish/{{ item }}
-    state: link
-    follow: false
-    force: yes
-  loop:
-    - config.fish
-    - fish_variables
 
 - name: Check if fisher is installed
   stat:
@@ -58,3 +37,24 @@
   args:
     executable: "/usr/bin/fish"
   when: to_fish.stat.exists == False
+
+- name: symlink dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/fish/files/{{ item }}"
+    path: ~/.config/fish/{{ item }}
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - config.fish
+    - fish_variables
+
+- name: Add fish to /etc/shells
+  shell: grep -q "/usr/bin/fish" /etc/shells || echo /usr/bin/fish | tee -a /etc/shells
+  become: yes
+
+- name: Set fish as default shell
+  user:
+    name: "{{ ansible_env.USER }}"
+    shell: /usr/bin/fish
+  become: yes
