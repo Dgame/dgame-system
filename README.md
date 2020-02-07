@@ -16,6 +16,12 @@ or
 vagrant provision [archlinux|manjaro] --provision-with test
 ```
 
+or use the _Makefile_:
+ - `make up [os=$os]` will execute `vagrant up $os`
+ - `make down [os=$os]` will execute `vagrant destroy $os`
+ - `make again [os=$os]` will execute `vagrant reload $os`
+ - `make test [os=$os]` will execute `vagrant provision $os --provision-with test`
+
 ## Plugins:
  - `aur` plugin from https://github.com/kewlfft/ansible-aur
  - `yay` plugin from https://github.com/mnussbaum/ansible-yay

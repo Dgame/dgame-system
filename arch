@@ -8,7 +8,7 @@ check: install_ansible
 install: install_ansible
 	$(PLAYBOOK) $(FLAGS) $(INVENTORY) localhost.yml
 vagrant: install_ansible
-	@grep -q '^vagrant:' /etc/passwd && $(PLAYBOOK) $(INVENTORY) localhost.yml || echo -e "\e[31mNope, you are not on Vagrant\e[0m"
+	@grep -q '^vagrant:' /etc/passwd && ($(PLAYBOOK) $(INVENTORY) localhost.yml || 1) || echo -e "\e[31mNope, you are not on Vagrant\e[0m"
 install_ansible: update_cache
 	yes | LC_ALL=en_US.UTF-8 sudo pacman -S $(ANSIBLE_PKG) --needed
 update_cache:
