@@ -35,25 +35,31 @@ or use the _Makefile_:
  - [x] Fira-Code
  - [x] profanity
  - [x] keepass
- - [x] alacritty
- - [x] fish
+ - [x] terminal
+   - [x] alacritty
+   - [x] tmux
+     - [x] xclip
+   - [x] taskwarrior
+ - [x] shell
+   - [x] fish
      - [x] fisher
      - [x] spacefish (prompt) with fisher
- - [x] tmux
-     - [x] xclip
- - [x] rust
- - [x] php
+ - [x] editor
+   - [x] vim
+   - [x] vs-code
+   - [x] sublime
+ - [x] programming
+   - [x] rust
+   - [x] php
      - [x] composer
      - [x] php-pear / pecl
+   - [x] jetbrains
+   - [x] workspace
  - [x] docker
      - [x] docker-compose
- - [x] vim
  - [x] credentials
- - [x] taskwarrior
- - [x] vs-code
- - [x] sublime
  - [x] browser
      - [x] Brave
      - [x] Google-Chrome
- - [x] jetbrains
- - [x] workspace
+
+
