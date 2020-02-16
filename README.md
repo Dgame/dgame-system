@@ -4,6 +4,7 @@
 git clone https://github.com/Dgame/dgame-system
 sudo pacman -Sy && yes | LC_ALL=en_US.UTF-8 sudo pacman -S make
 make -f arch [check|install]
+yes | LC_ALL=en_US.UTF-8 sudo pacman -Syu
 ```
 
 ## Test with vagrant
