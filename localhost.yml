@@ -2,22 +2,23 @@
   hosts: localhost
   roles:
     - package_manager
-    - vim
+    - editor/vim
+    - editor/vs_code
+    - editor/sublime
     - git
     - font
-    - alacritty
-    - tmux
-    - fish
-    - yakuake
+    - terminal/alacritty
+    - terminal/tmux
+    - terminal/yakuake
+    - terminal/taskwarrior
+    - shell/fish
     - docker
-    - php
-    - rust
+    - programming/php
+    - programming/rust
+    - programming/jetbrains
+    - programming/workspace
     - profanity
     - keepass
     - credentials
-    - taskwarrior
-    - code
-    - sublime
-    - browser
-    - jetbrains
-    - workspace
+    - browser/brave
+    - browser/chrome

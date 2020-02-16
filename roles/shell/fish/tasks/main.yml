@@ -7,7 +7,7 @@
 
 - name: symlink dotfiles
   file:
-    src: "{{ ansible_env.PWD }}/roles/fish/files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/shell/fish/files/{{ item }}"
     path: ~/.config/fish/{{ item }}
     state: link
     follow: false

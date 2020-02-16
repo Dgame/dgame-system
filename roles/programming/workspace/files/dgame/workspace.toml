@@ -1,0 +1,4 @@
+[[workspace]]
+provider = "github"
+path = "Dgame/workspace"
+cmd = ["cargo", "c"]

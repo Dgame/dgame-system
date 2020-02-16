@@ -24,7 +24,7 @@
 
 - name: 'symlink files'
   file:
-    src: "{{ ansible_env.PWD }}/roles/workspace/files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/programming/workspace/files/{{ item }}"
     path: "~/workspace/{{ item }}"
     state: link
     follow: false

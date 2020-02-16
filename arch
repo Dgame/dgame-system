@@ -3,7 +3,7 @@ PLAYBOOK = ansible-playbook
 INVENTORY = -i hosts
 FLAGS = --ask-become-pass
 
-check: install_ansible
+check:# install_ansible
 	$(PLAYBOOK) --check $(FLAGS) $(INVENTORY) localhost.yml
 install: install_ansible
 	$(PLAYBOOK) $(FLAGS) $(INVENTORY) localhost.yml
