@@ -1,4 +1,0 @@
-[[workspace]]
-provider = "github"
-path = "Dgame/php-serde"
-cmd = ["composer", "up"]

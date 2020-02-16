@@ -15,7 +15,7 @@
 
 - name: symlink vs-code settings
   file:
-    src: "{{ ansible_env.PWD }}/roles/code/files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
     path: "~/.config/Code - OSS/User/{{ item }}"
     state: link
     follow: false
@@ -30,7 +30,7 @@
 
 - name: symlink vs-code extension settings
   file:
-    src: "{{ ansible_env.PWD }}/roles/code/files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
     path: "~/.config/Code - OSS/CachedExtensions/{{ item }}"
     state: link
     follow: false

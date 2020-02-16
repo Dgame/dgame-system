@@ -1,8 +1,3 @@
-- name: make sure Brave (Browser) is installed
-  yay:
-    name: brave-bin
-    state: present
-
 - name: make sure Google-Chrome (Browser) is installed
   yay:
     name: google-chrome

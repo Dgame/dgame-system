@@ -2,7 +2,7 @@
 
 - name: symlink php.ini
   file:
-    src: "{{ ansible_env.PWD }}/roles/php/files/php.ini"
+    src: "{{ ansible_env.PWD }}/roles/programming/php/files/php.ini"
     path: /etc/php/php.ini
     state: link
     follow: false
