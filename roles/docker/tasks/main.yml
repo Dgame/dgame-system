@@ -1,1 +1,12 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
+
+- name: Add Docker-Group
+  group:
+    name: docker
+    state: present
+
+- name: Add local User to Docker-Group
+  user:
+    append: yes
+    group: docker
+    user: "{{ ansible_user_id }}"

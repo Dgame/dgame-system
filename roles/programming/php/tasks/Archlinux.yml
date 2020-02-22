@@ -1,16 +1,25 @@
 - name: make sure php is installed
   package:
     name: php
-    state: present
+    state: latest
   become: yes
 
 - name: make sure composer is installed
   package:
     name: composer
-    state: present
+    state: latest
   become: yes
 
 - name: make sure php-pear for pecl is installed
   yay:
     name: php-pear
-    state: present
+    state: latest
+
+- name: install extensions
+  package:
+    name: {{ item }}
+    state: latest
+  with_items:
+    - php-gd
+    - php-sqlite
+    - zip
