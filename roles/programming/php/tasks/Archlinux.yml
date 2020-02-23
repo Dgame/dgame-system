@@ -10,16 +10,12 @@
     state: latest
   become: yes
 
-- name: make sure php-pear for pecl is installed
-  yay:
-    name: php-pear
-    state: latest
-
 - name: install extensions
   package:
-    name: {{ item }}
+    name: "{{ item }}"
     state: latest
   with_items:
     - php-gd
     - php-sqlite
     - zip
+  become: yes
