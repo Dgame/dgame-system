@@ -1,0 +1,11 @@
+- name: setup vagrant
+  package:
+    name:
+      - vagrant
+      - virtualbox
+      - linux55-virtualbox-host-modules
+  become: yes
+
+- name: reload virtualbox
+  shell: vboxreload
+  become: yes
