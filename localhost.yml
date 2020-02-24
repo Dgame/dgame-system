@@ -22,3 +22,4 @@
     - credentials
     - browser/brave
     - browser/chrome
+    - vagrant
