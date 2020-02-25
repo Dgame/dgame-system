@@ -10,5 +10,6 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "One Monokai",
     "window.zoomLevel": 1,
-    "editor.fontSize": 15
+    "editor.fontSize": 15,
+    "terminal.integrated.shell.linux": "/bin/fish"
 }

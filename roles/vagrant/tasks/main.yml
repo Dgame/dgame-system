@@ -1,9 +1,15 @@
+- name: get kernel identifier
+  shell: mhwd-kernel -li | grep -Po '(?<=\*\s)\w+'
+  register: linux_kernel
+
+- set_fact: linux_kernel={{ linux_kernel.stdout }}
+
 - name: setup vagrant
   package:
     name:
       - vagrant
       - virtualbox
-      - linux55-virtualbox-host-modules
+      - "{{ linux_kernel }}-virtualbox-host-modules"
   become: yes
 
 - name: reload virtualbox

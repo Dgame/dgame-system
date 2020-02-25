@@ -18,4 +18,9 @@ install_yay: update_cache install_utilities
 install_utilities: update_cache
 	yes | LC_ALL=en_US.UTF-8 sudo pacman -S binutils gcc pkg-config fakeroot --needed
 update_cache:
-	yes | LC_ALL=en_US.UTF-8 sudo pacman -Sy --needed
+	yes | LC_ALL=en_US.UTF-8 sudo pacman -Sy
+upgrade_packages: update_cache
+	yes | LC_ALL=en_US.UTF-8 sudo pacman -Syu
+clean_packages:
+	yes | LC_ALL=en_US.UTF-8 sudo pacman -Rs $$(pacman -Qdttq)
+	sudo paccache -rk 1

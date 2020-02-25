@@ -20,12 +20,6 @@
       become: yes
   when: not ansible_check_mode and not pacman_mirrors.failed
 
-- name: Update packages
-  pacman:
-    update_cache: yes
-    upgrade: yes
-  become: yes
-
 - name: make sure yay (aur package manager) is installed
   aur:
     name: yay
