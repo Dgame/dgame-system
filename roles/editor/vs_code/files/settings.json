@@ -11,5 +11,7 @@
     "workbench.colorTheme": "One Monokai",
     "window.zoomLevel": 1,
     "editor.fontSize": 15,
-    "terminal.integrated.shell.linux": "/bin/fish"
+    "terminal.integrated.shell.linux": "/bin/fish",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
 }

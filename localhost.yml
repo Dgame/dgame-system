@@ -7,6 +7,7 @@
     - editor/sublime
     - git
     - font
+    - zip
     - terminal/alacritty
     - terminal/tmux
     - terminal/yakuake
