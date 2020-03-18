@@ -12,6 +12,6 @@
 
 - name: "Install unzip"
   package:
-    name: zip
+    name: unzip
     state: present
   become: yes
