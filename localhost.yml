@@ -23,5 +23,6 @@
     - credentials
     - browser/brave
     - browser/chrome
+    - postman
     - vagrant
     - default_apps
