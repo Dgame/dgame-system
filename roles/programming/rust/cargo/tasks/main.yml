@@ -1,0 +1,44 @@
+- name: Check if cargo-edit is installed
+  stat:
+    path: '~/.cargo/bin/cargo-edit'
+  register: cargo_edit
+
+- name: 'make sure cargo-edit is installed'
+  shell: source $HOME/.cargo/env && cargo install cargo-edit
+  when: cargo_edit.stat.exists == False
+
+- name: Check if cargo-expand is installed
+  stat:
+    path: '~/.cargo/bin/cargo-expand'
+  register: cargo_expand
+
+- name: 'make sure cargo-expand is installed'
+  shell: source $HOME/.cargo/env && cargo install cargo-expand
+  when: cargo_expand.stat.exists == False
+
+- name: Check if cargo-watch is installed
+  stat:
+    path: '~/.cargo/bin/cargo-watch'
+  register: cargo_watch
+
+- name: make sure cargo-watch is installed
+  shell: source $HOME/.cargo/env && cargo install cargo-watch
+  when: cargo_watch.stat.exists == False
+
+- name: Check if cargo-whatfeatures is installed
+  stat:
+    path: '~/.cargo/bin/cargo-whatfeatures'
+  register: cargo_whatfeatures
+
+- name: make sure cargo-whatfeatures is installed
+  shell: source $HOME/.cargo/env && cargo install cargo-whatfeatures
+  when: cargo_whatfeatures.stat.exists == False
+
+- name: Check if cargocleaner is installed
+  stat:
+    path: '~/.cargo/bin/cargocleaner'
+  register: cargocleaner
+
+- name: make sure cargocleaner is installed
+  shell: source $HOME/.cargo/env && cargo install cargocleaner
+  when: cargocleaner.stat.exists == False

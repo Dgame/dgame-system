@@ -10,5 +10,5 @@
   become: yes
 
 - name: install hirak/prestissimo for composer
-  shell: composer global require hirak/prestissimo
+  command: composer global require hirak/prestissimo
   changed_when: false

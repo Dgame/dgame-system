@@ -1,18 +1,14 @@
 new-test: kill-test
-	vagrant up $(os)
+	vagrant up
 test-reload:
-ifndef os
-	$(error "No OS supplied")
-endif
-	vagrant reload $(os)
+	vagrant reload
 test-again:
-ifndef os
-	$(error "No OS supplied")
-endif
-	vagrant provision $(os) --provision-with test
+	vagrant provision --provision-with test
 kill-test:
-	vagrant destroy $(os) --force
-install:
-	make -f arch install
+	vagrant destroy --force
 check:
-	make -f arch check
+	make -f arch.mk check
+install:
+	make -f arch.mk install
+vagrant:
+	make -f arch.mk vagrant
