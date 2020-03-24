@@ -1,0 +1,6 @@
+- name: get kernel version
+  shell: uname -r | grep -Po '\d+\.\d+' | sed 's/\.//'
+  register: linux_kernel_version
+
+- set_fact:
+    linux_kernel_version: "{{ linux_kernel_version.stdout }}"
