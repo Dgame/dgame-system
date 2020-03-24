@@ -5,11 +5,12 @@
   become: yes
   register: linux_headers
   ignore_errors: yes
+  when: not ansible_check_mode
 
 - name: make sure linux-headers are installed
   package:
     name: linux-headers
     state: present
   become: yes
-  when: not linux_headers.changed and linux_headers.msg.find('failed to install') != -1
+  when: not ansible_check_mode and linux_headers.failed and linux_headers.msg.find('failed to install') != -1
   ignore_errors: yes
