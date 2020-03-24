@@ -7,11 +7,11 @@
 - name: make sure pacman branch is set to unstable
   block:
     - name: Gather pacman branch facts
-      shell: pacman-mirrors -G
+      command: pacman-mirrors -G
       register: pacman_branch
 
     - set_fact: pacman_branch={{ pacman_branch.stdout }}
-      
+
     - name: Set pacman branch to unstable and rebuild mirrors
       shell: |
         pacman-mirrors --api --set-branch unstable

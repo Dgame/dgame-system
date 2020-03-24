@@ -22,7 +22,7 @@
   register: fisher
 
 - name: "make sure fisher is installed"
-  shell: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
+  command: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
   args:
     warn: false
   when: fisher.stat.exists == False
