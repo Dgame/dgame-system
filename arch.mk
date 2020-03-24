@@ -9,7 +9,7 @@ install: install_ansible
 	$(PLAYBOOK) $(FLAGS) $(INVENTORY) localhost.yml
 install_ansible: update_cache
 	yes | LC_ALL=en_US.UTF-8 sudo pacman -S $(ANSIBLE_PKG) --needed
-install_yay: update_cache #install_utilities
+install_yay: update_cache install_utilities
 	rm -rf yay
 	git clone https://aur.archlinux.org/yay.git
 	cd yay && yes | LC_ALL=en_US.UTF-8 makepkg -si
