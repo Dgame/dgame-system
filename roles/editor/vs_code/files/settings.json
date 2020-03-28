@@ -13,5 +13,7 @@
     "editor.fontSize": 15,
     "terminal.integrated.shell.linux": "/bin/fish",
     "files.trimTrailingWhitespace": true,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "rust-client.trace.server": "verbose",
+    "rust.clippy_preference": "on"
 }
