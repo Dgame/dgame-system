@@ -1,5 +1,7 @@
 export PATH="$PATH:/$HOME/.config/composer/vendor/bin/:/$HOME/.cargo/bin"
 
+alias bipro_doc="php -S 0.0.0.0:8010 -t /home/dgame/Dokumente/BiPRO/bipro-release-paket-2.7.1-20180919-1517/model/htmlReport/Datenmodell/"
+
 function _current_branch
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
 end
