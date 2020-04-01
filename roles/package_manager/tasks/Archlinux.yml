@@ -7,11 +7,11 @@
 - name: make sure pacman branch is set to unstable
   block:
     - name: Gather pacman branch facts
-      shell: pacman-mirrors -G
+      command: pacman-mirrors -G
       register: pacman_branch
 
     - set_fact: pacman_branch={{ pacman_branch.stdout }}
-      
+
     - name: Set pacman branch to unstable and rebuild mirrors
       shell: |
         pacman-mirrors --api --set-branch unstable
@@ -19,12 +19,6 @@
       when: pacman_branch != "unstable"
       become: yes
   when: not ansible_check_mode and not pacman_mirrors.failed
-
-- name: Update packages
-  pacman:
-    update_cache: yes
-    upgrade: yes
-  become: yes
 
 - name: make sure yay (aur package manager) is installed
   aur:

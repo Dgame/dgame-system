@@ -1,0 +1,17 @@
+- name: Check if bat is installed
+  stat:
+    path: '~/.cargo/bin/bat'
+  register: bat
+
+- name: make sure bat is installed
+  shell: source $HOME/.cargo/env && cargo install bat
+  when: bat.stat.exists == False
+
+- name: Check if exa is installed
+  stat:
+    path: '~/.cargo/bin/exa'
+  register: exa
+
+- name: make sure exa is installed
+  shell: source $HOME/.cargo/env && cargo install exa
+  when: exa.stat.exists == False

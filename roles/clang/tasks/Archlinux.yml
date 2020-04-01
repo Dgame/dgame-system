@@ -1,0 +1,5 @@
+- name: make sure clang is installed
+  package:
+    name: clang
+    state: present
+  become: yes

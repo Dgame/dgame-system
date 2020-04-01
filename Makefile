@@ -1,12 +1,14 @@
-up:
-	vagrant up $(os)
-again:
-	vagrant reload $(os)
-test:
-	vagrant provision $(os) --provision-with test
-down:
-	vagrant destroy $(os) --force
-install:
-	make -f arch install
+new-test: kill-test
+	vagrant up
+test-reload:
+	vagrant reload
+test-again:
+	vagrant provision --provision-with test
+kill-test:
+	vagrant destroy --force
 check:
-	make -f arch check
+	make -f arch.mk check
+install:
+	make -f arch.mk install
+vagrant:
+	make -f arch.mk vagrant

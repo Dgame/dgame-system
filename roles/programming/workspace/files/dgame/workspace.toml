@@ -2,3 +2,7 @@
 provider = "github"
 path = "Dgame/workspace"
 cmd = ["cargo", "c"]
+
+[[workspace]]
+provider = "github"
+path = "Dgame/blog"

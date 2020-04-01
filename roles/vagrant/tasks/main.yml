@@ -3,9 +3,11 @@
     name:
       - vagrant
       - virtualbox
-      - linux55-virtualbox-host-modules
+      - "linux{{ linux_kernel_version }}-virtualbox-host-modules"
   become: yes
+  when: not ansible_check_mode
 
 - name: reload virtualbox
-  shell: vboxreload
+  command: vboxreload
   become: yes
+  when: not ansible_check_mode

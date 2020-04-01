@@ -2,11 +2,13 @@
   hosts: localhost
   roles:
     - package_manager
+    - kernel
     - editor/vim
     - editor/vs_code
     - editor/sublime
     - git
     - font
+    - zip
     - terminal/alacritty
     - terminal/tmux
     - terminal/yakuake
@@ -15,6 +17,9 @@
     - docker
     - programming/php
     - programming/rust
+    - programming/rust/cargo
+    - programming/rust/tools
+    - programming/rust/analysis
     - programming/jetbrains
     - programming/workspace
     - profanity
@@ -22,4 +27,6 @@
     - credentials
     - browser/brave
     - browser/chrome
+    - postman
     - vagrant
+    - default_apps
