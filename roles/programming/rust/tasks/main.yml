@@ -9,7 +9,7 @@
     warn: false
   when: rustup.stat.exists == False
 
-- name: 'makre sure rust nightly is installed'
+- name: 'make sure rust nightly is installed'
   shell: "source $HOME/.cargo/env && rustup install nightly"
 
 - name: Check if rustfmt is installed

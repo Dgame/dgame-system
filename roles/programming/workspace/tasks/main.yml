@@ -39,3 +39,13 @@
   when: item.stat.exists
   with_items:
     - "{{workspace.results}}"
+
+- name: Add workspace bookmarks
+  shell: to add
+  args:
+    executable: "/usr/bin/fish"
+    chdir: "~/workspace/dgame/Dgame/{{ item }}"
+  become: yes
+  with_items:
+    - workspace
+    - blog

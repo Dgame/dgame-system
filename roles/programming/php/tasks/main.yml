@@ -1,14 +1,5 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
 
-- name: symlink php.ini
-  file:
-    src: "{{ ansible_env.PWD }}/roles/programming/php/files/php.ini"
-    path: /etc/php/php.ini
-    state: link
-    follow: false
-    force: yes
-  become: yes
-
 - name: install hirak/prestissimo for composer
   command: composer global require hirak/prestissimo
   changed_when: false

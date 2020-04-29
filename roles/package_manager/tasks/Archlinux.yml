@@ -1,5 +1,5 @@
 - name: check if pacman-mirrors exists
-  shell: command -v pacman-mirrors > /dev/null 2>&1
+  command: command -v pacman-mirrors > /dev/null 2>&1
   ignore_errors: yes
   no_log: yes
   register: pacman_mirrors
@@ -13,7 +13,7 @@
     - set_fact: pacman_branch={{ pacman_branch.stdout }}
 
     - name: Set pacman branch to unstable and rebuild mirrors
-      shell: |
+      command: |
         pacman-mirrors --api --set-branch unstable
         pacman-mirrors --fasttrack 5
       when: pacman_branch != "unstable"

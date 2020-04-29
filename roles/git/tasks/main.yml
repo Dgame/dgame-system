@@ -1,8 +1,7 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
 
-- name: symlink gitconfig
-  file:
+- name: copy gitconfig
+  copy:
     src: "{{ ansible_env.PWD }}/roles/git/files/gitconfig"
-    path: ~/.gitconfig
-    state: link
-    force: yes
+    dest: ~/.gitconfig
+    force: no
