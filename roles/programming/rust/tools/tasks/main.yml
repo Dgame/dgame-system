@@ -6,6 +6,7 @@
 - name: make sure bat is installed
   shell: source $HOME/.cargo/env && cargo install bat
   when: bat.stat.exists == False
+  ignore_errors: yes
 
 - name: Check if exa is installed
   stat:
@@ -15,3 +16,4 @@
 - name: make sure exa is installed
   shell: source $HOME/.cargo/env && cargo install exa
   when: exa.stat.exists == False
+  ignore_errors: yes
