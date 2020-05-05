@@ -11,6 +11,7 @@
     dest: ~/.tmux/plugins/tpm
   changed_when: false
   when: tpm.stat.exists == False
+  ignore_errors: yes
 
 - name: symlink .tmux.conf
   file:

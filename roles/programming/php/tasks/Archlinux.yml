@@ -17,5 +17,4 @@
   with_items:
     - php-gd
     - php-sqlite
-    - zip
   become: yes
