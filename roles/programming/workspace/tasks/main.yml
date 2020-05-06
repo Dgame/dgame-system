@@ -4,3 +4,11 @@
   with_items:
     - workspace
     - blog
+
+- name: create terminal bookmarks
+  shell: "cd ~/workspace/dgame/{{ item }} && to add"
+  args:
+    executable: "/usr/bin/fish"
+  with_items:
+    - workspace
+    - blog

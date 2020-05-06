@@ -17,7 +17,7 @@
 
 - name: symlink vs-code extensions
   block:
-    - name: symlink vs-code settings
+    - name: copy vs-code settings
       file:
         src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
         path: "~/.config/Code - OSS/User/{{ item }}"
@@ -32,13 +32,11 @@
         path: ~/.config/Code - OSS/CachedExtensions
         state: directory
 
-    - name: symlink vs-code extension settings
-      file:
+    - name: copy vs-code extension
+      copy:
         src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
-        path: "~/.config/Code - OSS/CachedExtensions/{{ item }}"
-        state: link
-        follow: false
-        force: yes
+        dest: "~/.config/Code - OSS/CachedExtensions/{{ item }}"
+        force: no
       loop:
         - user
   when: not vs_code.failed
