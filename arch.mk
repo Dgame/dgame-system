@@ -14,4 +14,4 @@ install_ansible: update_cache
 install_utilities: update_cache
 	yes | LC_ALL=en_US.UTF-8 sudo pacman -S binutils gcc pkg-config fakeroot --needed
 update_cache:
-	yes | LC_ALL=en_US.UTF-8 sudo pacman -Sy --needed
+	yes | LC_ALL=en_US.UTF-8 sudo pacman -Syu --needed
