@@ -1,9 +1,3 @@
-- name: check if pacman-mirrors exists
-  command: command -v pacman-mirrors > /dev/null 2>&1
-  ignore_errors: yes
-  no_log: yes
-  register: pacman_mirrors
-
 - name: make sure pacman branch is set to unstable
   block:
     - name: Gather pacman branch facts
@@ -13,12 +7,13 @@
     - set_fact: pacman_branch={{ pacman_branch.stdout }}
 
     - name: Set pacman branch to unstable and rebuild mirrors
-      command: |
-        pacman-mirrors --api --set-branch unstable
+      shell: |
+        pacman-mirrors --api -S unstable
         pacman-mirrors --fasttrack 5
+        pacman -Syu
       when: pacman_branch != "unstable"
       become: yes
-  when: not ansible_check_mode and not pacman_mirrors.failed
+  when: not ansible_check_mode
 
 - name: make sure yay (aur package manager) is installed
   aur:
