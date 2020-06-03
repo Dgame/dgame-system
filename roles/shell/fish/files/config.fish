@@ -91,7 +91,7 @@ end
 alias gk 'gitk --all --branches'
 alias gke 'gitk --all (git log -g --pretty=format:%h)'
 
-alias gl 'git pull'
+alias gl 'git pull --rebase'
 alias glg 'git log --stat --color'
 alias glgp 'git log --stat --color -p'
 alias glgg 'git log --graph --color'
