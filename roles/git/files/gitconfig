@@ -13,7 +13,7 @@
     cmsg = commit -m
     co = checkout
     d = diff
-    l = pull
+    l = pull --rebase
     m = merge
     p = push
     s = status
