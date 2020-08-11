@@ -20,3 +20,5 @@
     st = stash
 [rerere]
     enabled = 1
+[pull]
+    rebase = true

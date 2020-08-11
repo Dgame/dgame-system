@@ -1,5 +1,5 @@
 - name: make sure fira-code is installed
   package:
-    name: otf-fira-code
+    name: ttf-fira-code
     state: present
   become: yes

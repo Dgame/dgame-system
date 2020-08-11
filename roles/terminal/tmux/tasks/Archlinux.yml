@@ -3,9 +3,3 @@
     name: tmux
     state: present
   become: yes
-
-- name: make sure xclip is installed
-  package:
-    name: xclip
-    state: present
-  become: yes

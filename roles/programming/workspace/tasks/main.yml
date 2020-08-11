@@ -2,7 +2,6 @@
     repo: https://github.com/Dgame/{{ item }}
     dest: ~/workspace/dgame/{{ item }}
   with_items:
-    - workspace
     - blog
 
 - name: create terminal bookmarks
@@ -10,5 +9,4 @@
   args:
     executable: "/usr/bin/fish"
   with_items:
-    - workspace
     - blog
