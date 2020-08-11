@@ -1,0 +1,26 @@
+- name: Check if starship is installed
+  stat:
+    path: '~/.cargo/bin/starship'
+  register: starship
+
+- name: make sure starship is installed
+  shell: source $HOME/.cargo/env && cargo install starship
+  when: starship.stat.exists == False
+  ignore_errors: yes
+
+- name: Add starship to ~/.config/fish/config.fish
+  lineinfile:
+    state: present
+    path: ~/.config/fish/config.fish
+    insertafter: EOF
+    line: starship init fish | source
+
+- name: symlink starship.toml
+  file:
+    src: "{{ ansible_env.PWD }}/roles/terminal/starship/files/{{ item }}"
+    path: "~/.config/{{ item }}"
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - starship.toml
