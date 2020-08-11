@@ -12,6 +12,7 @@
     - terminal/tmux
     - terminal/yakuake
     - terminal/taskwarrior
+    - terminal/starship
     - shell/fish
     - docker
     - programming/php
