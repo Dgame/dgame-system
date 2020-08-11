@@ -2,28 +2,10 @@
 
 ```make
 git clone https://github.com/Dgame/dgame-system
-sudo pacman -Sy && yes | LC_ALL=en_US.UTF-8 sudo pacman -S make
+sudo pacman -Sy && yes j | sudo pacman -S make
 make [check|install]
-yes | LC_ALL=en_US.UTF-8 sudo pacman -Syu
+update
 ```
-
-## Test with vagrant
-
-```bash
-vagrant up [archlinux|manjaro]
-```
-
-or
-
-```bash
-vagrant provision [archlinux|manjaro] --provision-with test
-```
-
-or use the _Makefile_:
- - `make new-test [os=$os]` will execute `vagrant up $os`
- - `make kill-test [os=$os]` will execute `vagrant destroy $os`
- - `make test-reload os=$os` will execute `vagrant reload $os`
- - `make test-again os=$os` will execute `vagrant provision $os --provision-with test`
 
 ## Plugins:
  - `aur` plugin from https://github.com/kewlfft/ansible-aur
@@ -38,7 +20,6 @@ or use the _Makefile_:
  - [x] terminal
    - [x] alacritty
    - [x] tmux
-     - [x] xclip
    - [x] taskwarrior
  - [x] shell
    - [x] fish
