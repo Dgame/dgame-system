@@ -1,0 +1,4 @@
+- name: make sure postman is installed
+  yay:
+    name: postman
+    state: present
