@@ -5,15 +5,34 @@ add_newline = false
 [character]      # The name of the module we are configuring is "character"
 symbol = "$"     # The "symbol" segment is being set to "➜"
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = false
-
 [aws]
 style = "bold blue"
-symbol = "🅰 "
+symbol = "AWS "
 displayed_items = "region"
-[aws.region_aliases]
+
+[php]
+symbol = "PHP "
 
 [rust]
-symbol = "⚙️ "
+symbol = "Rust "
+
+[hostname]
+ssh_only = true
+prefix = "⟪"
+suffix = "⟫"
+disabled = false
+
+[battery]
+charging_symbol = "⚡️"
+discharging_symbol = "!"
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 10
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
+
+# when capacity is over 30%, the battery indicator will not be displayed
+
