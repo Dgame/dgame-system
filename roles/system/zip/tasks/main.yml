@@ -1,0 +1,17 @@
+- name: "Install gzip"
+  package:
+    name: gzip
+    state: present
+  become: yes
+
+- name: "Install zip"
+  package:
+    name: zip
+    state: present
+  become: yes
+
+- name: "Install unzip"
+  package:
+    name: unzip
+    state: present
+  become: yes
