@@ -1,2 +1,2 @@
 dependencies:
-  - role: base-dev
+  - role: system/base-dev

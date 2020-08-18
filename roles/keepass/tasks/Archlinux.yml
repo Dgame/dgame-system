@@ -1,5 +1,0 @@
-- name: make sure keepass is installed
-  package:
-    name: keepass
-    state: present
-  become: yes

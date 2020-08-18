@@ -1,13 +1,13 @@
 - name: Setup local environment
   hosts: localhost
   roles:
-    - package_manager
+    - system/pkmng
     - editor/vim
     - editor/vs_code
     - editor/sublime
     - git
     - font
-    - zip
+    - system/zip
     - terminal/alacritty
     - terminal/tmux
     - terminal/yakuake
@@ -22,9 +22,8 @@
     - programming/jetbrains
     - programming/workspace
     - profanity
-    - keepass
     - credentials
     - browser/brave
     - browser/chrome
     - postman
-    - default_apps
+    - system/default
