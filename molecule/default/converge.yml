@@ -1,0 +1,33 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  roles:
+    # - system/pacman
+    - system/yay
+    # - editor/vim
+    # - editor/vs_code
+    # - editor/sublime
+    # - git
+    # - font
+    # - system/zip
+    # - terminal/alacritty
+    # - terminal/tmux
+    # - terminal/yakuake
+    # - terminal/taskwarrior
+    # - terminal/starship
+    # - shell/fish
+    # - docker
+    # - programming/php
+    # - programming/rust
+    # - programming/rust/cargo
+    # - programming/rust/tools
+    # - programming/jetbrains
+    # - programming/workspace
+    # - profanity
+    # - credentials
+    # - browser/brave
+    # - browser/chrome
+    # - postman
+    # - system/default

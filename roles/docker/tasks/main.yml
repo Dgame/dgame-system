@@ -12,3 +12,10 @@
     group: docker
     user: "{{ ansible_user_id }}"
   become: yes
+
+- name: Ensure docker is enabled and running
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  become: true

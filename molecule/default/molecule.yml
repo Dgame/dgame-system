@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: docker.io/manjarolinux/base
+    pre_build_image: true
+    privileged: false
+provisioner:
+  name: ansible
+  env:
+    ANSIBLE_ROLES_PATH: ../../roles
+verifier:
+  name: ansible
+scenario:
+  test_sequence:
+    - lint
+    - syntax
+    - create
+    - prepare
+    - converge
+    - idempotence
+    - destroy

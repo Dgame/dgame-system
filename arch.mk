@@ -10,4 +10,4 @@ install: install_ansible
 install_ansible: update_cache
 	yes j | sudo pacman -S $(ANSIBLE_PKG) --needed
 update_cache:
-	yes j | sudo pacman -Syu
+	yes j | sudo pacman -Sy

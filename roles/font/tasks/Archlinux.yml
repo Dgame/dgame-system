@@ -1,11 +1,9 @@
 - name: make sure fira-code is installed
-  package:
+  yay:
     name: ttf-fira-code
     state: present
-  become: yes
 
 - name: make sure fira-code (nerd font) is installed
-  package:
+  yay:
     name: nerd-fonts-fira-code
     state: present
-  become: yes

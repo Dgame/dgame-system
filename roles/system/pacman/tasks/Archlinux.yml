@@ -6,17 +6,13 @@
 
     - set_fact: pacman_branch={{ pacman_branch.stdout }}
 
-    - name: Set pacman branch to unstable and rebuild mirrors
+    - name: Set pacman branch to unstable
       shell: |
         pacman-mirrors --api -S unstable
         pacman-mirrors --fasttrack 5
-        pacman -Syu
       when: pacman_branch != "unstable"
-      become: yes
-  when: not ansible_check_mode
 
-- name: make sure yay (aur package manager) is installed
-  aur:
-    name: yay
-    use: makepkg
-    skip_installed: yes
+    - name: Rebuild mirrors
+      shell: yes | pacman -Syu
+      become: yes
+      when: pacman_branch != "unstable"
