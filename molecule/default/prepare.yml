@@ -4,8 +4,10 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - name: "setup pacman"
+    - name: setup pacman
       command: pacman -Sy
 
-    - name: "install sudo"
-      command: pacman -S sudo --noconfirm
+    - name: install sudo
+      package:
+        name: sudo
+        state: present

@@ -1,4 +1,0 @@
-- name: make sure Google-Chrome (Browser) is installed
-  yay:
-    name: google-chrome
-    state: present

@@ -7,7 +7,7 @@
 
 - name: symlink files
   file:
-    src: "{{ ansible_env.PWD }}/roles/terminal/alacritty/files/{{ item }}"
+    src: "files/{{ item }}"
     path: "~/.config/alacritty/{{ item }}"
     state: link
     follow: false

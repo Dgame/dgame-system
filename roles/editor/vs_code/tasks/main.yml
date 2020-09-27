@@ -19,7 +19,7 @@
   block:
     - name: copy vs-code settings
       file:
-        src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
+        src: "files/{{ item }}"
         path: "~/.config/Code - OSS/User/{{ item }}"
         state: link
         follow: false
@@ -34,9 +34,10 @@
 
     - name: copy vs-code extension
       copy:
-        src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
+        src: "files/{{ item }}"
         dest: "~/.config/Code - OSS/CachedExtensions/{{ item }}"
         force: no
+        mode: 0644
       loop:
         - user
   when: not vs_code.failed

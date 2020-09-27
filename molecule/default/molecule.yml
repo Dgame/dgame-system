@@ -4,14 +4,16 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: docker.io/manjarolinux/base
+  - name: manjaro
+    image: manjarolinux/base
     pre_build_image: true
-    privileged: false
 provisioner:
   name: ansible
   env:
     ANSIBLE_ROLES_PATH: ../../roles
+    ANSIBLE_LIBRARY: ../../library
+  # options:
+    # vvv: true
 verifier:
   name: ansible
 scenario:

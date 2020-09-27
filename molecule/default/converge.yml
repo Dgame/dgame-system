@@ -3,12 +3,13 @@
   hosts: all
   vars:
     ansible_python_interpreter: /usr/bin/python3
+    pacman_use_unstable_branch: no
   roles:
-    # - system/pacman
+    - system/pacman
     - system/yay
-    # - editor/vim
+    - editor/vim
     # - editor/vs_code
-    # - editor/sublime
+    - editor/sublime
     # - git
     # - font
     # - system/zip
@@ -23,11 +24,8 @@
     # - programming/rust
     # - programming/rust/cargo
     # - programming/rust/tools
-    # - programming/jetbrains
     # - programming/workspace
-    # - profanity
+    # - profanitym
     # - credentials
     # - browser/brave
-    # - browser/chrome
-    # - postman
     # - system/default

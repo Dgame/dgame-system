@@ -7,7 +7,7 @@
 
 - name: copy dotfiles
   copy:
-    src: "{{ ansible_env.PWD }}/roles/shell/fish/files/{{ item }}"
+    src: "files/{{ item }}"
     dest: ~/.config/fish/{{ item }}
     force: no
   loop:

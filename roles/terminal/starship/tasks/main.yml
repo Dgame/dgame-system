@@ -17,7 +17,7 @@
 
 - name: symlink starship.toml
   file:
-    src: "{{ ansible_env.PWD }}/roles/terminal/starship/files/{{ item }}"
+    src: "files/{{ item }}"
     path: "~/.config/{{ item }}"
     state: link
     follow: false

@@ -1,4 +1,12 @@
-- name: 'make sure sublime is installed'
-  yay:
-    name: sublime-text-dev
+- name: install sublime-text dependencies
+  package:
+      name: '{{ item }}'
+      state: present
+  loop:
+    - freetype2
+    - mesa
+
+- name: make sure sublime-text is installed
+  package:
+    name: sublime-text
     state: present

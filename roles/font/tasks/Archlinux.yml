@@ -1,9 +1,9 @@
 - name: make sure fira-code is installed
-  yay:
+  package:
     name: ttf-fira-code
     state: present
 
-- name: make sure fira-code (nerd font) is installed
-  yay:
-    name: nerd-fonts-fira-code
+- name: make sure jetbrains-mono is installed
+  package:
+    name: ttf-jetbrains-mono
     state: present
