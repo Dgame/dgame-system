@@ -1,7 +1,10 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
 
 - name: copy gitconfig
-  copy:
-    src: "{{ ansible_env.PWD }}/roles/git/files/gitconfig"
-    dest: ~/.gitconfig
-    force: no
+  file:
+    src: "files/.gitconfig"
+    path: ~/.gitconfig
+    state: link
+    follow: false
+    force: yes
+    mode: 0644

@@ -1,4 +1,0 @@
-- name: make sure jetbrains-toolbox is installed
-  yay:
-    name: jetbrains-toolbox
-    state: present

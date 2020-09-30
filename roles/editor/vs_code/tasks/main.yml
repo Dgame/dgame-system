@@ -1,28 +1,39 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
 
 - name: install vs-code extensions
-  shell: |
-    code --install-extension azemoh.one-monokai
-    code --install-extension bbenoist.vagrant
-    code --install-extension bmalehorn.vscode-fish
-    code --install-extension bmewburn.vscode-intelephense-client
-    code --install-extension bungcip.better-toml
-    code --install-extension kokororin.vscode-phpfmt
-    code --install-extension rust-lang.rust
-    code --install-extension TabNine.tabnine-vscode
-    code --install-extension vscoss.vscode-ansible
-    code --install-extension yzhang.markdown-all-in-one
+  shell: 'code --install-extension {{ item }}'
   ignore_errors: yes
   register: vs_code
+  changed_when: false
+  with_items:
+    - 2gua.rainbow-brackets
+    - azemoh.one-monokai
+    - bbenoist.vagrant
+    - bmalehorn.vscode-fish
+    - bmewburn.vscode-intelephense-client
+    - bungcip.better-toml
+    - Gruntfuggly.todo-tree
+    - kokororin.vscode-phpfmt
+    - matklad.rust-analyzer
+    - mhutchie.git-graph
+    - rust-lang.rust
+    - samverschueren.final-newline
+    - serayuzgur.crates
+    - TabNine.tabnine-vscode
+    - vadimcn.vscode-lldb
+    - vscoss.vscode-ansible
+    - waderyan.gitblame
+    - yzhang.markdown-all-in-one
 
 - name: symlink vs-code extensions
   block:
     - name: copy vs-code settings
+      changed_when: false
       file:
-        src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
+        src: "files/{{ item }}"
         path: "~/.config/Code - OSS/User/{{ item }}"
         state: link
-        follow: false
+        follow: no
         force: yes
       loop:
         - settings.json
@@ -33,10 +44,11 @@
         state: directory
 
     - name: copy vs-code extension
+      changed_when: false
       copy:
-        src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
+        src: "files/{{ item }}"
         dest: "~/.config/Code - OSS/CachedExtensions/{{ item }}"
         force: no
+        mode: 0644
       loop:
         - user
-  when: not vs_code.failed

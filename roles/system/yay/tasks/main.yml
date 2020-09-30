@@ -1,0 +1,5 @@
+- name: "Install yay"
+  package:
+    name: yay
+    state: present
+  become: yes

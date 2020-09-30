@@ -1,9 +1,0 @@
-- name: set default applications
-  file:
-    src: "{{ ansible_env.PWD }}/roles/default_apps/files/{{ item }}"
-    path: "~/.config/{{ item }}"
-    state: link
-    follow: false
-    force: yes
-  loop:
-    - mimeapps.list

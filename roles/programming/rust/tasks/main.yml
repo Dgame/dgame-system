@@ -8,24 +8,3 @@
   args:
     warn: false
   when: rustup.stat.exists == False
-
-- name: 'make sure rust nightly is installed'
-  shell: "source $HOME/.cargo/env && rustup install nightly"
-
-- name: Check if rustfmt is installed
-  stat:
-    path: '~/.cargo/bin/cargo-fmt'
-  register: cargo_fmt
-
-- name: 'make sure rustfmt is installed'
-  shell: source $HOME/.cargo/env && rustup component add rustfmt
-  when: cargo_fmt.stat.exists == False
-
-- name: Check if clippy is installed
-  stat:
-    path: '~/.cargo/bin/cargo-clippy'
-  register: clippy
-
-- name: 'make sure clippy is installed'
-  shell: source $HOME/.cargo/env && rustup component add clippy
-  when: clippy.stat.exists == False

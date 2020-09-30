@@ -1,32 +1,31 @@
 - name: Setup local environment
   hosts: localhost
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    use_unstable_pacman_branch: yes
+    use_starship_prompt: yes
   roles:
-    - package_manager
-    - kernel
+    - system/pacman
+    - system/yay
+    - system/zip
     - editor/vim
     - editor/vs_code
     - editor/sublime
     - git
     - font
-    - zip
+    - shell/fish
+    - shell/starship
     - terminal/alacritty
     - terminal/tmux
     - terminal/yakuake
     - terminal/taskwarrior
-    - shell/fish
     - docker
     - programming/php
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
-    - programming/rust/analysis
-    - programming/jetbrains
     - programming/workspace
     - profanity
-    - keepass
     - credentials
     - browser/brave
-    - browser/chrome
-    - postman
-    - vagrant
-    - default_apps
+    - system/default

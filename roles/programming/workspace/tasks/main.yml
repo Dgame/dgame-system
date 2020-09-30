@@ -2,13 +2,13 @@
     repo: https://github.com/Dgame/{{ item }}
     dest: ~/workspace/dgame/{{ item }}
   with_items:
-    - workspace
     - blog
 
 - name: create terminal bookmarks
+  ignore_errors: yes
+  changed_when: false
   shell: "cd ~/workspace/dgame/{{ item }} && to add"
   args:
     executable: "/usr/bin/fish"
   with_items:
-    - workspace
     - blog

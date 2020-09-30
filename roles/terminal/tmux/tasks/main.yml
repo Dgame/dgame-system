@@ -1,21 +1,9 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
 
-- name: Check if tpm is installed
-  stat:
-    path: '~/.tmux/plugins/tpm'
-  register: tpm
-
-- name: make sure tpm is installed
-  git:
-    repo: https://github.com/tmux-plugins/tpm
-    dest: ~/.tmux/plugins/tpm
-  changed_when: false
-  when: tpm.stat.exists == False
-  ignore_errors: yes
-
 - name: symlink .tmux.conf
   file:
-    src: "{{ ansible_env.PWD }}/roles/terminal/tmux/files/.tmux.conf"
+    src: "files/.tmux.conf"
     path: ~/.tmux.conf
     state: link
+    follow: no
     force: yes

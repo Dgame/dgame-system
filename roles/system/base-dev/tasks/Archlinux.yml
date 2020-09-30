@@ -1,0 +1,11 @@
+- name: make sure base-devel (e.g. binutils) is installed
+  package:
+    name: base-devel
+    state: present
+  become: yes
+
+- name: make sure OpenSSL is installed
+  package:
+    name: openssl
+    state: present
+  become: yes

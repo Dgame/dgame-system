@@ -1,4 +1,4 @@
 - name: make sure Brave (Browser) is installed
-  yay:
-    name: brave-bin
+  package:
+    name: brave
     state: present

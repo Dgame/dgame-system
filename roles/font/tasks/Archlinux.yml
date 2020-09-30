@@ -1,5 +1,9 @@
 - name: make sure fira-code is installed
   package:
-    name: otf-fira-code
+    name: ttf-fira-code
     state: present
-  become: yes
+
+- name: make sure jetbrains-mono is installed
+  package:
+    name: ttf-jetbrains-mono
+    state: present

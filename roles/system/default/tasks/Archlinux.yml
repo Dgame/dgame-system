@@ -1,0 +1,9 @@
+- name: set default applications
+  file:
+    src: "files/{{ item }}"
+    path: "~/.config/{{ item }}"
+    state: link
+    follow: no
+    force: yes
+  loop:
+    - mimeapps.list

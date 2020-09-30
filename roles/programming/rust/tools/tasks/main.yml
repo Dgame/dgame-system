@@ -17,3 +17,14 @@
   shell: source $HOME/.cargo/env && cargo install exa
   when: exa.stat.exists == False
   ignore_errors: yes
+
+- name: Check if ytop is installed
+  stat:
+    path: '~/.cargo/bin/ytop'
+  register: ytop
+
+- name: make sure ytop is installed
+  shell: source $HOME/.cargo/env && cargo install ytop
+  when: ytop.stat.exists == False
+  ignore_errors: yes
+
