@@ -7,10 +7,6 @@ make [check|install]
 update
 ```
 
-## Plugins:
- - `aur` plugin from https://github.com/kewlfft/ansible-aur
- - `yay` plugin from https://github.com/mnussbaum/ansible-yay
-
 ----
 
  - [x] git
@@ -41,6 +37,4 @@ update
  - [x] credentials
  - [x] browser
      - [x] Brave
-     - [x] Google-Chrome
-
 
