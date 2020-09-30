@@ -1,0 +1,9 @@
+addReviewers: true
+
+reviewers:
+  - Dgame
+
+skipKeywords:
+  - wip
+
+numberOfReviewers: 0
