@@ -3,29 +3,29 @@
   hosts: all
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    pacman_use_unstable_branch: no
+    use_unstable_pacman_branch: no
+    use_starship_prompt: yes
   roles:
     - system/pacman
     - system/yay
-    - editor/vim
+    - system/zip
+    # - editor/vim
     # - editor/vs_code
-    - editor/sublime
-    # - git
+    # - editor/sublime
+    - git
     # - font
-    # - system/zip
+    - shell/fish
+    # - shell/starship
     # - terminal/alacritty
     # - terminal/tmux
     # - terminal/yakuake
     # - terminal/taskwarrior
-    # - terminal/starship
-    # - shell/fish
-    # - docker
     # - programming/php
     # - programming/rust
     # - programming/rust/cargo
     # - programming/rust/tools
-    # - programming/workspace
-    # - profanitym
+    - programming/workspace
+    # - profanity
     # - credentials
     # - browser/brave
     # - system/default

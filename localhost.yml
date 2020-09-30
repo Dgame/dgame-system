@@ -2,22 +2,23 @@
   hosts: localhost
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    pacman_use_unstable_branch: yes
+    use_unstable_pacman_branch: yes
+    use_starship_prompt: yes
   roles:
     - system/pacman
     - system/yay
+    - system/zip
     - editor/vim
     - editor/vs_code
     - editor/sublime
     - git
     - font
-    - system/zip
+    - shell/fish
+    - shell/starship
     - terminal/alacritty
     - terminal/tmux
     - terminal/yakuake
     - terminal/taskwarrior
-    - terminal/starship
-    - shell/fish
     - docker
     - programming/php
     - programming/rust

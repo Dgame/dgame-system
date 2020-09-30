@@ -9,7 +9,7 @@
 - name: Add local User to Docker-Group
   user:
     append: yes
-    group: docker
+    groups: docker
     user: "{{ ansible_user_id }}"
   become: yes
 

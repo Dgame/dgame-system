@@ -20,6 +20,7 @@
   register: fisher
 
 - name: "make sure fisher is installed"
+  changed_when: false
   command: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
   args:
     warn: false
@@ -29,12 +30,14 @@
   stat:
     path: '~/.config/fisher/github.com/matchai/spacefish'
   register: spacefish
+  when: not use_starship_prompt
 
 - name: "make sure matchai/spacefish (prompt) is installed"
+  changed_when: false
   shell: "fisher add matchai/spacefish"
   args:
     executable: "/usr/bin/fish"
-  when: spacefish.stat.exists == False
+  when: not use_starship_prompt and spacefish.stat.exists == False
 
 - name: Check if joehillen/to-fish (bookmarks) is installed
   stat:
@@ -42,17 +45,20 @@
   register: to_fish
 
 - name: "make sure joehillen/to-fish (bookmarks) is installed"
+  changed_when: false
   shell: "fisher add joehillen/to-fish"
   args:
     executable: "/usr/bin/fish"
   when: to_fish.stat.exists == False
 
 - name: Add fish to /etc/shells
+  changed_when: false
   command: grep -q "/usr/bin/fish" /etc/shells || echo /usr/bin/fish | tee -a /etc/shells
   become: yes
 
 - name: Set fish as default shell
+  changed_when: false
   user:
-    name: "{{ ansible_env.USER }}"
+    name: "{{ ansible_user_id }}"
     shell: /usr/bin/fish
   become: yes

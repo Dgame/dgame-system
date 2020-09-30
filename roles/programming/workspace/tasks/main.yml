@@ -5,6 +5,8 @@
     - blog
 
 - name: create terminal bookmarks
+  ignore_errors: yes
+  changed_when: false
   shell: "cd ~/workspace/dgame/{{ item }} && to add"
   args:
     executable: "/usr/bin/fish"

@@ -54,7 +54,7 @@
       shell: |
         pacman-mirrors --api -S unstable
         pacman-mirrors --fasttrack 5
-      when: pacman_use_unstable_branch and pacman_branch.stdout != "unstable"
+      when: use_unstable_pacman_branch and pacman_branch.stdout != "unstable"
 
     - name: Rebuild mirrors & update packages
       shell: yes | pacman -Syu

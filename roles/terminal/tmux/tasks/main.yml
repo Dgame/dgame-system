@@ -5,4 +5,5 @@
     src: "files/.tmux.conf"
     path: ~/.tmux.conf
     state: link
+    follow: no
     force: yes
