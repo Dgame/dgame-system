@@ -9,23 +9,23 @@
     - system/pacman
     - system/yay
     - system/zip
-    # - editor/vim
-    # - editor/vs_code
-    # - editor/sublime
+    - editor/vim
+    - editor/vs_code
+    - editor/sublime
     - git
-    # - font
+    - font
     - shell/fish
-    # - shell/starship
-    # - terminal/alacritty
-    # - terminal/tmux
-    # - terminal/yakuake
-    # - terminal/taskwarrior
-    # - programming/php
-    # - programming/rust
-    # - programming/rust/cargo
-    # - programming/rust/tools
+    - shell/starship
+    - terminal/alacritty
+    - terminal/tmux
+    - terminal/yakuake
+    - terminal/taskwarrior
+    - programming/php
+    - programming/rust
+    - programming/rust/cargo
+    - programming/rust/tools
     - programming/workspace
-    # - profanity
-    # - credentials
-    # - browser/brave
-    # - system/default
+    - profanity
+    - credentials
+    - browser/brave
+    - system/default
