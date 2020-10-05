@@ -42,11 +42,13 @@
   shell: source $HOME/.cargo/env && tab --install fish
   when: tab.stat.exists == False
   ignore_errors: yes
+  changed_when: false
 
 - name: configure tab for starship
   shell: source $HOME/.cargo/env && tab --install starship
   when: tab.stat.exists == False and use_starship_prompt
   ignore_errors: yes
+  changed_when: false
 
 - name: Check if ox is installed
   stat:
@@ -54,6 +56,7 @@
   register: ox
 
 - name: make sure ox is installed
-  shell: source $HOME/.cargo/env && cargo install ox
+  shell: source $HOME/.cargo/env && cargo install --git https://github.com/curlpipe/ox
   when: ox.stat.exists == False
   ignore_errors: yes
+  changed_when: false
