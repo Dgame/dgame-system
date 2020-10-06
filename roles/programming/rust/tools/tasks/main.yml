@@ -28,3 +28,35 @@
   when: ytop.stat.exists == False
   ignore_errors: yes
 
+- name: Check if tab is installed
+  stat:
+    path: '~/.cargo/bin/tab'
+  register: tab
+
+- name: make sure tab is installed
+  shell: source $HOME/.cargo/env && cargo install tab
+  when: tab.stat.exists == False
+  ignore_errors: yes
+
+- name: configure tab for fish
+  shell: source $HOME/.cargo/env && tab --install fish
+  when: tab.stat.exists == False
+  ignore_errors: yes
+  changed_when: false
+
+- name: configure tab for starship
+  shell: source $HOME/.cargo/env && tab --install starship
+  when: tab.stat.exists == False and use_starship_prompt
+  ignore_errors: yes
+  changed_when: false
+
+- name: Check if ox is installed
+  stat:
+    path: '~/.cargo/bin/ox'
+  register: ox
+
+- name: make sure ox is installed
+  shell: source $HOME/.cargo/env && cargo install --git https://github.com/curlpipe/ox
+  when: ox.stat.exists == False
+  ignore_errors: yes
+  changed_when: false

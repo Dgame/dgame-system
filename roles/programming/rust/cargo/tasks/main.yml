@@ -1,10 +1,10 @@
 - name: Check if cargo-edit is installed
   stat:
-    path: '~/.cargo/bin/cargo-edit'
+    path: '~/.cargo/bin/cargo-add'
   register: cargo_edit
 
 - name: 'make sure cargo-edit is installed'
-  shell: source $HOME/.cargo/env && cargo install cargo-edit
+  shell: source $HOME/.cargo/env && cargo install cargo-add
   when: cargo_edit.stat.exists == False
 
 - name: Check if cargo-watch is installed
