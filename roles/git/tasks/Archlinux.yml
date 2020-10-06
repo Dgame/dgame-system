@@ -3,3 +3,9 @@
     name: git
     state: present
   become: yes
+
+- name: make sure github-cli is installed
+  package:
+    name: github-cli
+    state: present
+  become: yes
