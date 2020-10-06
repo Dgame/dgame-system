@@ -6,6 +6,6 @@
 
 - name: make sure github-cli is installed
   package:
-    name: gitub-cli
+    name: github-cli
     state: present
   become: yes
