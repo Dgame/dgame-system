@@ -1,0 +1,35 @@
+- name: make sure build-essential (e.g. binutils) is installed
+  package:
+    name: build-essential
+    state: present
+  become: yes
+
+- name: make sure OpenSSL is installed
+  package:
+    name: openssl
+    state: present
+  become: yes
+
+- name: make sure OpenSSL (dev) is installed
+  package:
+    name: libssl-dev
+    state: present
+  become: yes
+
+- name: make sure pkg-config is installed
+  package:
+    name: pkg-config
+    state: present
+  become: yes
+
+- name: make sure curl is installed
+  package:
+    name: curl
+    state: present
+  become: yes
+
+- name: make sure tree is installed
+  package:
+    name: tree
+    state: present
+  become: yes

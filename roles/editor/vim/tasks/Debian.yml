@@ -1,0 +1,5 @@
+- name: make sure vim is installed
+  package:
+    name: "vim"
+    state: present
+  become: yes

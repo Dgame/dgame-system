@@ -1,0 +1,5 @@
+- name: make sure taskwarrior is installed
+  package:
+    name: taskwarrior
+    state: present
+  become: yes
