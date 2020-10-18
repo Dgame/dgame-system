@@ -1,5 +1,0 @@
-- name: make sure gcc is installed
-  package:
-    name: gcc
-    state: present
-  become: yes

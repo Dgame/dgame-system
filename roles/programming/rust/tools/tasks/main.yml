@@ -1,18 +1,9 @@
-- block:
-  - stat:
-      path: '~/.cargo/bin/{{ item }}'
-    register: tool
-
-  - shell: "source $HOME/.cargo/env && cargo install {{ item }}"
-    when: not tool.stat.exists
-    ignore_errors: yes
-    changed_when: false
+- include_tasks: tpl.yml
   with_items:
     - bat
     - exa
     - ytop
     - lfs
-    - tab
 
 - name: Check if ox is installed
   stat:
@@ -20,30 +11,7 @@
   register: ox
 
 - name: make sure ox is installed
-  shell: source $HOME/.cargo/env && cargo install --git https://github.com/curlpipe/ox
+  shell: . $HOME/.cargo/env && cargo install --git https://github.com/curlpipe/ox
   when: ox.stat.exists == False
-  ignore_errors: yes
-  changed_when: false
-
-- name: Check if tab is installed
-  stat:
-    path: '~/.cargo/bin/tab'
-  register: tab
-
-- name: configure tab for fish
-  shell: source $HOME/.cargo/env && tab --install fish
-  when: use_fish and tab.stat.exists
-  ignore_errors: yes
-  changed_when: false
-
-- name: configure tab for zsh
-  shell: source $HOME/.cargo/env && tab --install zsh
-  when: use_zsh and tab.stat.exists
-  ignore_errors: yes
-  changed_when: false
-
-- name: configure tab for starship
-  shell: source $HOME/.cargo/env && tab --install starship
-  when: use_starship_prompt and tab.stat.exists
   ignore_errors: yes
   changed_when: false

@@ -3,19 +3,17 @@
 ### Arch-Linux / Manjaro
 
 ```make
+sudo pacman -Sy && yes j | sudo pacman -S git make
 git clone https://github.com/Dgame/dgame-system
-sudo pacman -Sy && yes j | sudo pacman -S make
 make -f arch.mk [check|install]
-update
 ```
 
 ### Windows 10 WSL (Ubuntu 18.04 / 20.04)
 
 ```make
+sudo apt-get -y update && sudo apt-get -y install git make
 git clone https://github.com/Dgame/dgame-system
-sudo apt-get -y update && sudo apt-get -y install make
 make -f wsl.mk [check|install]
-update
 ```
 
 ----

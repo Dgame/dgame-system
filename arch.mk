@@ -1,6 +1,6 @@
 ANSIBLE_PKG = ansible
 PLAYBOOK = ansible-playbook
-PLAYBOOK_FILE = localhost.yml
+PLAYBOOK_FILE = arch.yml
 INVENTORY = -i hosts
 FLAGS = --ask-become-pass
 
@@ -16,4 +16,6 @@ update:
 	yay --save --nocleanmenu --nodiffmenu --answerclean All --answerdiff All --answeredit All --answerupgrade All
 	yes j | sudo pacman -Syu && yay -Syu
 test:
-	molecule test
+	molecule test -s arch
+converge:
+	molecule converge -s arch

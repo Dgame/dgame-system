@@ -1,7 +1,7 @@
 - include_tasks: "{{ ansible_os_family }}.yml"
 
 - block:
-    - name: Create fish folder in .config
+    - name: Create fish folder in ~/.config
       file:
         path: ~/.config/fish/
         state: directory

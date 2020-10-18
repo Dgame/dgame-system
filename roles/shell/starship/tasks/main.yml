@@ -5,7 +5,7 @@
   when: use_starship_prompt
 
 - name: make sure starship is installed
-  shell: source $HOME/.cargo/env && cargo install starship
+  shell: . $HOME/.cargo/env && cargo install starship
   when: use_starship_prompt and starship.stat.exists == False
   ignore_errors: yes
 
@@ -17,21 +17,25 @@
     line: starship init fish | source
   when: use_fish and use_starship_prompt
 
-- name: Add starship to ~/.bashrc
+- name: Add starship to ~/.zshrc
   lineinfile:
     state: present
-    path: ~/.bashrc
+    path: ~/.zshrc
     insertafter: EOF
-    line: eval "$(starship init bash)"
+    line: eval "$(starship init zsh)"
   when: not use_fish and use_starship_prompt
+
+- name: Create ~/.config folder
+  file:
+    path: ~/.config
+    state: directory
 
 - name: symlink starship.toml
   when: use_starship_prompt
   file:
-    src: "files/{{ item }}"
-    path: "~/.config/{{ item }}"
+    src: "files/starship.toml"
+    path: ~/.config/starship.toml
     state: link
-    follow: no
+    follow: false
     force: yes
-  loop:
-    - starship.toml
+    mode: 0644

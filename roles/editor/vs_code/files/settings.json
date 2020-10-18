@@ -19,5 +19,6 @@
     "debug.allowBreakpointsEverywhere": true,
     "debug.showBreakpointsInOverviewRuler": true,
     "rust-client.channel": "stable",
-    "tabnine.experimentalAutoImports": true
+    "tabnine.experimentalAutoImports": true,
+    "workbench.editor.showTabs": false
 }

@@ -14,6 +14,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        scenario:
+          - arch
+          - wsl
     if: github.event.pull_request.draft == false
     steps:
       - name: Cancel Previous Runs
@@ -26,3 +32,6 @@ jobs:
 
       - name: Test playbook
         uses: gofrolist/molecule-action@v2
+        with:
+          molecule_command: test
+          molecule_args: --scenario-name ${{ matrix.scenario }}

@@ -4,7 +4,7 @@
   register: cargo_edit
 
 - name: 'make sure cargo-edit is installed'
-  shell: source $HOME/.cargo/env && cargo install cargo-add
+  shell: . $HOME/.cargo/env && cargo install cargo-add
   when: cargo_edit.stat.exists == False
 
 - name: Check if cargo-watch is installed
@@ -13,5 +13,5 @@
   register: cargo_watch
 
 - name: make sure cargo-watch is installed
-  shell: source $HOME/.cargo/env && cargo install cargo-watch
+  shell: . $HOME/.cargo/env && cargo install cargo-watch
   when: cargo_watch.stat.exists == False
