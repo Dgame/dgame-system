@@ -15,7 +15,15 @@
     path: ~/.config/fish/config.fish
     insertafter: EOF
     line: starship init fish | source
-  when: use_starship_prompt
+  when: use_fish and use_starship_prompt
+
+- name: Add starship to ~/.bashrc
+  lineinfile:
+    state: present
+    path: ~/.bashrc
+    insertafter: EOF
+    line: eval "$(starship init bash)"
+  when: not use_fish and use_starship_prompt
 
 - name: symlink starship.toml
   when: use_starship_prompt

@@ -1,0 +1,44 @@
+- include_tasks: "{{ ansible_os_family }}.yml"
+
+- block:
+    - name: Check if .oh-my-zsh exists
+      stat:
+        path: ~/.oh-my-zsh
+      register: oh_my_zsh
+
+    - name: install oh-my-zsh
+      shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      changed_when: false
+      when: not oh_my_zsh.stat.exists
+
+    - name: Check if autochthe/to (bookmarks) is installed
+      stat:
+        path: '~/to'
+      register: to
+
+    - name: make sure autochthe/to (bookmarks) is installed
+      git:
+        repo: https://github.com/autochthe/to
+        dest: ~/to
+      when: to.stat.exists == False
+
+    - name: copy dotfiles
+      copy:
+        src: "files/{{ item }}"
+        dest: "~/{{ item }}"
+        force: no
+      loop:
+        - .zshrc
+
+    - name: Add zsh to /etc/shells
+      changed_when: false
+      command: grep -q "/usr/bin/zsh" /etc/shells || echo /usr/bin/zsh | tee -a /etc/shells
+      become: yes
+
+    - name: Set zsh as default shell
+      changed_when: false
+      user:
+        name: "{{ ansible_user_id }}"
+        shell: /usr/bin/zsh
+      become: yes
+  when: use_zsh
