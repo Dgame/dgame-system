@@ -1,0 +1,33 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    use_unstable_pacman_branch: yes
+    use_fish: yes
+    use_zsh: no
+    use_starship_prompt: yes
+  roles:
+    - system/pacman
+    - system/yay
+    - system/zip
+    - editor/vim
+    - editor/vs_code
+    - editor/sublime
+    - git
+    - font
+    - shell/fish
+    - shell/starship
+    - terminal/alacritty
+    - terminal/tmux
+    - terminal/yakuake
+    - terminal/taskwarrior
+    - programming/php
+    - programming/rust
+    - programming/rust/cargo
+    - programming/rust/tools
+    - programming/workspace
+    - profanity
+    - credentials
+    - browser/brave
+    - system/default

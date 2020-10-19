@@ -1,54 +1,9 @@
-- name: Check if bat is installed
-  stat:
-    path: '~/.cargo/bin/bat'
-  register: bat
-
-- name: make sure bat is installed
-  shell: source $HOME/.cargo/env && cargo install bat
-  when: bat.stat.exists == False
-  ignore_errors: yes
-
-- name: Check if exa is installed
-  stat:
-    path: '~/.cargo/bin/exa'
-  register: exa
-
-- name: make sure exa is installed
-  shell: source $HOME/.cargo/env && cargo install exa
-  when: exa.stat.exists == False
-  ignore_errors: yes
-
-- name: Check if ytop is installed
-  stat:
-    path: '~/.cargo/bin/ytop'
-  register: ytop
-
-- name: make sure ytop is installed
-  shell: source $HOME/.cargo/env && cargo install ytop
-  when: ytop.stat.exists == False
-  ignore_errors: yes
-
-- name: Check if tab is installed
-  stat:
-    path: '~/.cargo/bin/tab'
-  register: tab
-
-- name: make sure tab is installed
-  shell: source $HOME/.cargo/env && cargo install tab
-  when: tab.stat.exists == False
-  ignore_errors: yes
-
-- name: configure tab for fish
-  shell: source $HOME/.cargo/env && tab --install fish
-  when: tab.stat.exists == False
-  ignore_errors: yes
-  changed_when: false
-
-- name: configure tab for starship
-  shell: source $HOME/.cargo/env && tab --install starship
-  when: tab.stat.exists == False and use_starship_prompt
-  ignore_errors: yes
-  changed_when: false
+- include_tasks: tpl.yml
+  with_items:
+    - bat
+    - exa
+    - ytop
+    - lfs
 
 - name: Check if ox is installed
   stat:
@@ -56,7 +11,7 @@
   register: ox
 
 - name: make sure ox is installed
-  shell: source $HOME/.cargo/env && cargo install --git https://github.com/curlpipe/ox
+  shell: . $HOME/.cargo/env && cargo install --git https://github.com/curlpipe/ox
   when: ox.stat.exists == False
   ignore_errors: yes
   changed_when: false

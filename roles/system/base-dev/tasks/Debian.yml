@@ -1,12 +1,24 @@
-- name: make sure base-devel (e.g. binutils) is installed
+- name: make sure build-essential (e.g. binutils) is installed
   package:
-    name: base-devel
+    name: build-essential
     state: present
   become: yes
 
 - name: make sure OpenSSL is installed
   package:
     name: openssl
+    state: present
+  become: yes
+
+- name: make sure OpenSSL (dev) is installed
+  package:
+    name: libssl-dev
+    state: present
+  become: yes
+
+- name: make sure pkg-config is installed
+  package:
+    name: pkg-config
     state: present
   become: yes
 

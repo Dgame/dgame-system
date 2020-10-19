@@ -1,3 +1,2 @@
 dependencies:
   - role: system/base-dev
-  - role: programming/rust
