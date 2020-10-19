@@ -12,6 +12,6 @@
 
 - name: make sure ox is installed
   shell: . $HOME/.cargo/env && cargo install --git https://github.com/curlpipe/ox
-  when: ox.stat.exists == False
+  when: not ox.stat.exists
   ignore_errors: yes
   changed_when: false

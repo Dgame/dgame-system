@@ -20,7 +20,7 @@
       git:
         repo: https://github.com/autochthe/to
         dest: ~/to
-      when: to.stat.exists == False
+      when: not to.stat.exists
 
     - name: copy dotfiles
       copy:
