@@ -25,7 +25,7 @@
       command: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
       args:
         warn: false
-      when: fisher.stat.exists == False
+      when: not fisher.stat.exists
 
     - name: Check if matchai/spacefish (prompt) is installed
       stat:
@@ -38,7 +38,7 @@
       shell: "fisher add matchai/spacefish"
       args:
         executable: "/usr/bin/fish"
-      when: not use_starship_prompt and spacefish.stat.exists == False
+      when: not use_starship_prompt and not spacefish.stat.exists
 
     - name: Check if joehillen/to-fish (bookmarks) is installed
       stat:
@@ -50,7 +50,7 @@
       shell: "fisher add joehillen/to-fish"
       args:
         executable: "/usr/bin/fish"
-      when: to_fish.stat.exists == False
+      when: not to_fish.stat.exists
 
     - name: Add fish to /etc/shells
       changed_when: false

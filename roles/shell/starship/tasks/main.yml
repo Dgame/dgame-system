@@ -6,7 +6,7 @@
 
 - name: make sure starship is installed
   shell: . $HOME/.cargo/env && cargo install starship
-  when: use_starship_prompt and starship.stat.exists == False
+  when: use_starship_prompt and not starship.stat.exists
   ignore_errors: yes
 
 - name: Add starship to ~/.config/fish/config.fish
