@@ -1,0 +1,5 @@
+- name: makre sure go is installed
+  package:
+    name: go
+    state: present
+  become: yes

@@ -1,0 +1,26 @@
+- name: Check if cargo-edit is installed
+  stat:
+    path: glow
+  register: glow
+
+- name: clone glow (markdown reader)
+  git:
+    repo: https://github.com/charmbracelet/glow.git
+    dest: glow
+  ignore_errors: yes
+  when: not glow.stat.exists
+
+- name: make sure glow (markdown reader) is installed
+  shell: cd glow && go build
+  changed_when: false
+  ignore_errors: yes
+  when: not glow.stat.exists
+
+- name: move glow to /usr/bin
+  copy:
+    src: glow/glow
+    dest: /usr/bin/
+  become: yes
+  changed_when: false
+  ignore_errors: yes
+  when: not glow.stat.exists
