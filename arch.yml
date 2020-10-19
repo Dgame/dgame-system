@@ -30,4 +30,5 @@
     - profanity
     - credentials
     - browser/brave
+    - browser/firefox
     - system/default

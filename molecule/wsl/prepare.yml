@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: run apt-get update and install python3
+    - name: install python3
       raw: "{{ item }}"
       loop:
         - apt-get update

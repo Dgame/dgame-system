@@ -3,7 +3,7 @@
   hosts: all
   vars:
     ansible_python_interpreter: /usr/bin/python3
-    use_unstable_pacman_branch: yes
+    use_unstable_pacman_branch: no
     use_fish: yes
     use_zsh: no
     use_starship_prompt: yes
@@ -30,4 +30,5 @@
     - profanity
     - credentials
     - browser/brave
+    - browser/firefox
     - system/default

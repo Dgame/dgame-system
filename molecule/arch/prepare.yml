@@ -1,12 +1,19 @@
 ---
+- name: make sure python is installed
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: install python
+      raw: "{{ item }}"
+      loop:
+        - pacman -Sy
+        - yes | pacman -S python
+
 - name: Prepare
   hosts: all
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - name: setup pacman
-      command: pacman -Sy
-
     - name: install sudo
       package:
         name: sudo

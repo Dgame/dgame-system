@@ -1,0 +1,6 @@
+- name: make sure Firefox (Browser) is installed
+  package:
+    name: firefox
+    state: present
+  become: yes
+  ignore_errors: yes
