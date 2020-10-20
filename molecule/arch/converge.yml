@@ -9,7 +9,6 @@
     use_starship_prompt: yes
   roles:
     - system/pacman
-    - system/yay
     - system/zip
     - editor/vim
     - editor/vs_code

@@ -3,6 +3,7 @@
 - name: install vs-code extensions
   shell: 'code --install-extension {{ item }}'
   ignore_errors: yes
+  changed_when: false
   when: not code.failed and code.changed
   with_items:
     - 2gua.rainbow-brackets
