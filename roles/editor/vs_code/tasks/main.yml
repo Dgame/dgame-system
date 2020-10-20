@@ -3,12 +3,11 @@
 - name: install vs-code extensions
   shell: 'code --install-extension {{ item }}'
   ignore_errors: yes
-  register: vs_code
   changed_when: false
+  when: not code.failed and code.changed
   with_items:
     - 2gua.rainbow-brackets
     - azemoh.one-monokai
-    - bbenoist.vagrant
     - bmalehorn.vscode-fish
     - bmewburn.vscode-intelephense-client
     - bungcip.better-toml
@@ -52,3 +51,4 @@
         mode: 0644
       loop:
         - user
+  when: not code.failed and code.changed

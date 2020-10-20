@@ -3,3 +3,5 @@
     name: code
     state: present
   become: yes
+  register: code
+  ignore_errors: yes

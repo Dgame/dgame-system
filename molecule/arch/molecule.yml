@@ -5,14 +5,15 @@ driver:
   name: docker
 platforms:
   - name: manjaro
-    image: manjarolinux/base
+    image: archlinux:latest
     pre_build_image: true
 provisioner:
   name: ansible
   env:
     ANSIBLE_ROLES_PATH: ../../roles
+    MOLECULE_NO_LOG: true
   # options:
-    # vvv: true
+  #   vvv: true
 verifier:
   name: ansible
 scenario:
