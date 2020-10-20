@@ -11,7 +11,7 @@ provisioner:
   name: ansible
   env:
     ANSIBLE_ROLES_PATH: ../../roles
-    MOLECULE_NO_LOG: false
+    MOLECULE_NO_LOG: true
   # options:
   #   vvv: true
 verifier:
