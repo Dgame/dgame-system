@@ -1,9 +1,6 @@
 name: workflow
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     types:
       - opened
@@ -15,10 +12,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         scenario:
           - arch
+          - manjaro
           - wsl
     if: github.event.pull_request.draft == false
     steps:

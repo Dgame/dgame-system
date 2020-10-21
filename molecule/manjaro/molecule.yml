@@ -4,8 +4,8 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: archlinux
-    image: archlinux:latest
+  - name: manjaro
+    image: manjarolinux/base
     pre_build_image: true
 provisioner:
   name: ansible

@@ -1,6 +1,6 @@
 ANSIBLE_PKG = ansible
 PLAYBOOK = ansible-playbook
-PLAYBOOK_NAME = arch
+PLAYBOOK_NAME = manjaro
 INVENTORY = -i hosts
 FLAGS = --ask-become-pass
 
