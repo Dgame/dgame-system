@@ -20,7 +20,7 @@
         path: '~/.config/fisher'
       register: fisher
 
-    - name: "make sure fisher is installed"
+    - name: make sure fisher is installed
       changed_when: false
       command: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
       args:
@@ -33,7 +33,7 @@
       register: spacefish
       when: not use_starship_prompt
 
-    - name: "make sure matchai/spacefish (prompt) is installed"
+    - name: make sure matchai/spacefish (prompt) is installed
       changed_when: false
       shell: "fisher add matchai/spacefish"
       args:
@@ -45,7 +45,7 @@
         path: '~/.config/fisher/github.com/joehillen/to-fish'
       register: to_fish
 
-    - name: "make sure joehillen/to-fish (bookmarks) is installed"
+    - name: make sure joehillen/to-fish (bookmarks) is installed
       changed_when: false
       shell: "fisher add joehillen/to-fish"
       args:

@@ -1,4 +1,4 @@
-- name: "Install yay"
+- name: Install yay
   package:
     name: yay
     state: present

@@ -9,9 +9,9 @@ check: install_ansible
 install: install_ansible
 	$(PLAYBOOK) $(FLAGS) $(INVENTORY) $(PLAYBOOK_NAME).yml
 install_ansible: rebuild_mirrors
-	yes j | sudo pacman -S $(ANSIBLE_PKG) --needed
+	sudo pacman -S $(ANSIBLE_PKG) --needed --noconfirm
 rebuild_mirrors:
-	yes j | sudo pacman -Sy
+	sudo pacman -Sy --noconfirm
 test:
 	molecule test -s $(PLAYBOOK_NAME)
 converge:
