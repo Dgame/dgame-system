@@ -1,12 +1,11 @@
 name: workflow
-
 on:
   pull_request:
     types:
       - opened
       - synchronize
       - reopened
-
+      - ready_for_review
 jobs:
   test:
     runs-on: ubuntu-latest
