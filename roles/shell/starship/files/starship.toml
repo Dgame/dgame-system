@@ -1,6 +1,20 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 
+scan_timeout = 10
+
+[cmd_duration]
+min_time = 500
+format = "took [$duration](bold yellow)"
+
+[git_branch]
+symbol = "🌱 "
+style = "bright-yellow"
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
 [character]
 success_symbol = "[\\$](bold green)"
 error_symbol = "[✖](bold red)"
