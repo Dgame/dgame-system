@@ -1,5 +1,12 @@
+- name: Add git ppa
+  apt_repository:
+    repo: ppa:git-core/ppa
+    state: present
+    update_cache: yes
+  become: yes
+
 - name: make sure git is installed
   package:
     name: git
-    state: present
+    state: latest
   become: yes

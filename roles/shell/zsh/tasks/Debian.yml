@@ -1,6 +1,6 @@
 - name: make sure zsh is installed
   package:
     name: zsh
-    state: present
+    state: latest
   become: yes
   when: use_zsh

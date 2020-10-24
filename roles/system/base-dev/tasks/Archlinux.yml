@@ -9,15 +9,3 @@
     name: openssl
     state: present
   become: yes
-
-- name: make sure curl is installed
-  package:
-    name: curl
-    state: present
-  become: yes
-
-- name: make sure tree is installed
-  package:
-    name: tree
-    state: present
-  become: yes

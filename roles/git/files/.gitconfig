@@ -8,8 +8,8 @@
     editor = vim
 [alias]
     aa = add --all
-    cb = checkout -b
-    cm = checkout master
+    c = commit
+    ca = commit --amend
     cmsg = commit -m
     co = checkout
     d = diff
@@ -18,6 +18,9 @@
     p = push
     s = status
     st = stash
+    sw = switch
+    swc = switch -c
+    swm = switch master
 [rerere]
     enabled = 1
 [pull]

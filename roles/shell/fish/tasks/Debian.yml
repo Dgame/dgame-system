@@ -1,6 +1,6 @@
 - name: make sure fish is installed
   package:
     name: fish
-    state: present
+    state: latest
   become: yes
   when: use_fish
