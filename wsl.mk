@@ -11,8 +11,8 @@ install: install_ansible
 install_ansible: install_ansible_ppa
 	sudo apt-get -y install $(ANSIBLE_PKG)
 install_ansible_ppa: update
-	sudo apt install software-properties-common
-	sudo apt-add-repository -y --update ppa:ansible/ansible
+	sudo apt-get -y install software-properties-common
+	sudo apt-add-repository --update ppa:ansible/ansible
 update:
 	sudo apt-get -y update
 test:
