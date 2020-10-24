@@ -5,7 +5,7 @@ disabled = false
 
 [memory_usage]
 disabled = false
-threshold = -1
+threshold = 50
 style = "bold dimmed green"
 format = "[$ram \\($ram_pct\\)]($style) "
 
