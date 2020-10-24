@@ -2,7 +2,7 @@
 
 - name: copy gitconfig
   file:
-    src: "files/.gitconfig"
+    src: "{{ ansible_env.PWD }}/roles/git/files/.gitconfig"
     path: ~/.gitconfig
     state: link
     follow: false

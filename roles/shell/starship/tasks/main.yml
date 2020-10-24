@@ -9,22 +9,6 @@
   when: use_starship_prompt and not starship.stat.exists
   ignore_errors: yes
 
-- name: Add starship to ~/.config/fish/config.fish
-  lineinfile:
-    state: present
-    path: ~/.config/fish/config.fish
-    insertafter: EOF
-    line: starship init fish | source
-  when: use_fish and use_starship_prompt
-
-- name: Add starship to ~/.zshrc
-  lineinfile:
-    state: present
-    path: ~/.zshrc
-    insertafter: EOF
-    line: eval "$(starship init zsh)"
-  when: not use_fish and use_starship_prompt
-
 - name: Create ~/.config folder
   file:
     path: ~/.config
@@ -33,7 +17,7 @@
 - name: symlink starship.toml
   when: use_starship_prompt
   file:
-    src: "files/starship.toml"
+    src: "{{ ansible_env.PWD }}/roles/shell/starship/files/starship.toml"
     path: ~/.config/starship.toml
     state: link
     follow: false

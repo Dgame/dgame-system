@@ -1,6 +1,6 @@
 - name: set default applications
   file:
-    src: "files/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/system/default/files/{{ item }}"
     path: "~/.config/{{ item }}"
     state: link
     follow: no

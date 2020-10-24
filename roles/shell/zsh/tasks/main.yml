@@ -22,11 +22,13 @@
         dest: ~/to
       when: not to.stat.exists
 
-    - name: copy dotfiles
-      copy:
-        src: "files/{{ item }}"
-        dest: "~/{{ item }}"
-        force: no
+    - name: symlink config files
+      file:
+        src: "{{ ansible_env.PWD }}/roles/shell/zsh/files/{{ item }}"
+        path: "~/{{ item }}"
+        state: link
+        follow: no
+        force: yes
       loop:
         - .zshrc
 
@@ -41,4 +43,14 @@
         name: "{{ ansible_user_id }}"
         shell: /usr/bin/zsh
       become: yes
+
+    - name: install zsh-autosuggestion
+      git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions
+        dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+    - name: install zsh-syntax-highlighting
+      git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+        dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   when: use_zsh
