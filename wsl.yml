@@ -12,7 +12,6 @@
     - font
     - shell/zsh
     - shell/starship
-    - terminal/tmux
     - terminal/glow
     - terminal/taskwarrior
     - docker

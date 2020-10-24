@@ -2,7 +2,7 @@
 
 - name: symlink .tmux.conf
   file:
-    src: "files/.tmux.conf"
+    src: "{{ ansible_env.PWD }}/roles/terminal/tmux/files/.tmux.conf"
     path: ~/.tmux.conf
     state: link
     follow: no

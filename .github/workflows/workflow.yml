@@ -1,5 +1,4 @@
 name: workflow
-
 on:
   pull_request:
     types:
@@ -7,7 +6,6 @@ on:
       - synchronize
       - reopened
       - ready_for_review
-
 jobs:
   test:
     runs-on: ubuntu-latest

@@ -8,13 +8,12 @@ check: install_ansible
 	$(PLAYBOOK) --check $(FLAGS) $(INVENTORY) $(PLAYBOOK_NAME).yml
 install: install_ansible
 	$(PLAYBOOK) $(FLAGS) $(INVENTORY) $(PLAYBOOK_NAME).yml
-install_ansible: install_ansible_ppa
+install_ansible: update
 	sudo apt-get -y install $(ANSIBLE_PKG)
-install_ansible_ppa: update
-	sudo apt install software-properties-common
-	sudo apt-add-repository -y --update ppa:ansible/ansible
 update:
 	sudo apt-get -y update
+upgrade:
+	sudo apt-get -y upgrade && sudo apt-get -y autoremove
 test:
 	molecule test -s $(PLAYBOOK_NAME)
 converge:
