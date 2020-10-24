@@ -24,11 +24,12 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_FORKS: false
-          MERGE_LABELS: "automerge,!work in progress,!wip"
+          MERGE_LABELS: "auto-merge,!work in progress,!wip"
           MERGE_METHOD: "squash"
           MERGE_DELETE_BRANCH: true
           MERGE_RETRIES: 6
           MERGE_RETRY_SLEEP: 300000
+          UPDATE_LABELS: "auto-update"
           UPDATE_METHOD: "rebase"
           UPDATE_RETRIES: 6
           UPDATE_RETRY_SLEEP: 300000
