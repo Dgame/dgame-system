@@ -1,21 +1,18 @@
 ANSIBLE_PKG = ansible
 PLAYBOOK = ansible-playbook
-PLAYBOOK_FILE = arch.yml
+PLAYBOOK_NAME = arch
 INVENTORY = -i hosts
 FLAGS = --ask-become-pass
 
 check: install_ansible
-	$(PLAYBOOK) --check $(FLAGS) $(INVENTORY) $(PLAYBOOK_FILE)
+	$(PLAYBOOK) --check $(FLAGS) $(INVENTORY) $(PLAYBOOK_NAME).yml
 install: install_ansible
-	$(PLAYBOOK) $(FLAGS) $(INVENTORY) $(PLAYBOOK_FILE)
+	$(PLAYBOOK) $(FLAGS) $(INVENTORY) $(PLAYBOOK_NAME).yml
 install_ansible: rebuild_mirrors
-	yes j | sudo pacman -S $(ANSIBLE_PKG) --needed
+	sudo pacman -S $(ANSIBLE_PKG) --needed --noconfirm
 rebuild_mirrors:
-	yes j | sudo pacman -Sy
-update:
-	yay --save --nocleanmenu --nodiffmenu --answerclean All --answerdiff All --answeredit All --answerupgrade All
-	yes j | sudo pacman -Syu && yay -Syu
+	sudo pacman -Sy --noconfirm
 test:
-	molecule test -s arch
+	molecule test -s $(PLAYBOOK_NAME)
 converge:
-	molecule converge -s arch
+	molecule converge -s $(PLAYBOOK_NAME)

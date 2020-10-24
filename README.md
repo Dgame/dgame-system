@@ -1,11 +1,18 @@
 ## Install
 
-### Arch-Linux / Manjaro
+### Arch-Linux
 
 ```make
-sudo pacman -Sy && yes j | sudo pacman -S git make
+sudo pacman -Sy && sudo pacman -S git make --noconfirm
 git clone https://github.com/Dgame/dgame-system
 make -f arch.mk [check|install]
+```
+### Manjaro
+
+```make
+sudo pacman -Sy && sudo pacman -S git make --noconfirm
+git clone https://github.com/Dgame/dgame-system
+make -f manjaro.mk [check|install]
 ```
 
 ### Windows 10 WSL (Ubuntu 18.04 / 20.04)
@@ -30,6 +37,7 @@ make -f wsl.mk [check|install]
    - [x] fish
      - [x] fisher
      - [x] spacefish (prompt) with fisher
+   - [x] starship (prompt)
  - [x] editor
    - [x] vim
    - [x] vs-code
@@ -46,4 +54,4 @@ make -f wsl.mk [check|install]
  - [x] credentials
  - [x] browser
      - [x] Brave
-
+     - [x] Firefox

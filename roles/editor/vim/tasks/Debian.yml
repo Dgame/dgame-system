@@ -1,5 +1,12 @@
+- name: Add vim ppa
+  apt_repository:
+    repo: ppa:jonathonf/vim
+    state: present
+    update_cache: yes
+  become: yes
+
 - name: make sure vim is installed
   package:
-    name: "vim"
-    state: present
+    name: vim
+    state: latest
   become: yes

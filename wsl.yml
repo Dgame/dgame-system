@@ -9,6 +9,7 @@
     - system/zip
     - editor/vim
     - git
+    - font
     - shell/zsh
     - shell/starship
     - terminal/tmux

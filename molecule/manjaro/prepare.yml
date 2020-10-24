@@ -1,0 +1,24 @@
+- name: Prepare
+  hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Update Cache
+      pacman:
+        update_cache: yes
+
+    # - name: install latest glibc
+    #   package:
+    #     name: glibc
+    #     state: latest
+
+    - name: Fix flaws with current manjaro docker image
+      shell: |
+        pacman -S filesystem --noconfirm
+        pacman -S glibc --noconfirm
+        pacman -Syu --noconfirm
+
+    - name: install sudo
+      package:
+        name: sudo
+        state: present
