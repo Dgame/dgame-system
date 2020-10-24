@@ -30,6 +30,6 @@ jobs:
           MERGE_RETRIES: 6
           MERGE_RETRY_SLEEP: 300000
           UPDATE_LABELS: "auto update,!work in progress,!wip"
-          UPDATE_METHOD: "rebase"
+          UPDATE_METHOD: "merge"
           UPDATE_RETRIES: 6
           UPDATE_RETRY_SLEEP: 300000
