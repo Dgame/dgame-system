@@ -5,16 +5,16 @@ on:
       - labeled
       - unlabeled
       - synchronize
-      - opened
-      - edited
-      - reopened
+      - unlocked
   pull_request_review:
     types:
       - submitted
+  check_run:
+    types:
+      - completed
   check_suite:
     types:
       - completed
-  status: {}
 jobs:
   automerge:
     runs-on: ubuntu-latest
@@ -23,3 +23,10 @@ jobs:
         uses: "pascalgn/automerge-action@v0.12.0"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_FORKS: false
+          MERGE_LABELS: "automerge,!work in progress,!wip"
+          MERGE_METHOD: "squash"
+          MERGE_DELETE_BRANCH: true
+          UPDATE_METHOD: "rebase"
+          UPDATE_RETRIES: 6
+          UPDATE_RETRY_SLEEP: 600000
