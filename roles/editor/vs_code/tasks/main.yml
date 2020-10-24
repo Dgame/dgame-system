@@ -23,6 +23,7 @@
     - vscoss.vscode-ansible
     - waderyan.gitblame
     - yzhang.markdown-all-in-one
+    - skyapps.fish-vscode
 
 - name: symlink vs-code extensions
   block:
