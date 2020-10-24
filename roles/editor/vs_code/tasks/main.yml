@@ -29,7 +29,7 @@
     - name: copy vs-code settings
       changed_when: false
       file:
-        src: "files/{{ item }}"
+        src: "{{ ansible_env.PWD }}/roles/editor/vs_code/files/{{ item }}"
         path: "~/.config/Code - OSS/User/{{ item }}"
         state: link
         follow: no

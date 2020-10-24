@@ -33,7 +33,7 @@
 - name: symlink starship.toml
   when: use_starship_prompt
   file:
-    src: "files/starship.toml"
+    src: "{{ ansible_env.PWD }}/roles/shell/starship/files/starship.toml"
     path: ~/.config/starship.toml
     state: link
     follow: false
