@@ -17,12 +17,12 @@ make -f manjaro.mk [check|install]
 
 ### Windows 10 WSL (Ubuntu 18.04 / 20.04)
 
-- [Anleitung](https://docs.microsoft.com/de-de/windows/wsl/install-win10)
+- [Documentation](https://docs.microsoft.com/de-de/windows/wsl/install-win10)
   - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
   - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
   - `wsl --set-default-version 2`
 
-- [Windows-Terminal Anleitung](https://docs.microsoft.com/en-us/windows/terminal/)
+- [Windows-Terminal Documentation](https://docs.microsoft.com/en-us/windows/terminal/)
   - [Settings.json](https://gist.github.com/Dgame/0504db67cfdcac8d8dea01c633ba4db1)
 
 ```make
