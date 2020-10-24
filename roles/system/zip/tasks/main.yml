@@ -1,17 +1,17 @@
 - name: Install gzip
   package:
     name: gzip
-    state: present
+    state: latest
   become: yes
 
 - name: Install zip
   package:
     name: zip
-    state: present
+    state: latest
   become: yes
 
 - name: Install unzip
   package:
     name: unzip
-    state: present
+    state: latest
   become: yes

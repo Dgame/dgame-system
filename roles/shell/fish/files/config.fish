@@ -68,6 +68,10 @@ alias gcount 'git shortlog -sn'
 alias gcp 'git cherry-pick'
 alias gcs 'git commit -S'
 
+alias gsw 'git switch'
+alias gswc 'git switch -c'
+alias gswm 'git switch master'
+
 alias gd 'git diff'
 alias gdca 'git diff --cached'
 alias gdt 'git diff-tree --no-commit-id --name-only -r'

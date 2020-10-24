@@ -1,5 +1,5 @@
 - name: make sure clang is installed
   package:
     name: clang
-    state: present
+    state: latest
   become: yes
