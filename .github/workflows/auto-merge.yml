@@ -1,4 +1,4 @@
-name: automerge
+name: auto-merge
 on:
   pull_request:
     types:
@@ -7,21 +7,8 @@ on:
   pull_request_review:
     types:
       - submitted
-  check_run:
-    types:
-      - completed
-  check_suite:
-    types:
-      - completed
-  status:
-    types:
-      - success
-  workflow_run:
-    workflows: ["molecule"]
-    types:
-      - completed
 jobs:
-  automerge:
+  auto-merge:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
@@ -32,9 +19,9 @@ jobs:
           MERGE_LABELS: "auto merge,!work in progress,!wip"
           MERGE_METHOD: "squash"
           MERGE_DELETE_BRANCH: true
-          MERGE_RETRIES: 6
+          MERGE_RETRIES: 3
           MERGE_RETRY_SLEEP: 300000
           UPDATE_LABELS: "auto update,!work in progress,!wip"
           UPDATE_METHOD: "merge"
-          UPDATE_RETRIES: 6
+          UPDATE_RETRIES: 3
           UPDATE_RETRY_SLEEP: 300000
