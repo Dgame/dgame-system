@@ -4,8 +4,6 @@ on:
     types:
       - labeled
       - unlabeled
-      - synchronize
-      - unlocked
   pull_request_review:
     types:
       - submitted
@@ -13,6 +11,13 @@ on:
     types:
       - completed
   check_suite:
+    types:
+      - completed
+  status:
+    types:
+      - success
+  workflow_run:
+    workflows: ["molecule"]
     types:
       - completed
 jobs:

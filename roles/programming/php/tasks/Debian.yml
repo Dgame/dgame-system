@@ -3,6 +3,6 @@
     name: "{{ item }}"
     state: latest
   with_items:
-    - php-sqlite
+    - php-sqlite3
     - php-gd
   become: yes
