@@ -1,5 +1,7 @@
-- include_tasks: "{{ ansible_os_family }}.yml"
+- name: make sure php is installed
+  package:
+    name: php
+    state: latest
+  become: yes
 
-- name: install hirak/prestissimo for composer
-  command: composer global require hirak/prestissimo
-  changed_when: false
+- include_tasks: "{{ ansible_os_family }}.yml"

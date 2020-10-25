@@ -21,7 +21,6 @@
     - terminal/yakuake
     - terminal/taskwarrior
     - docker
-    - programming/php
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools

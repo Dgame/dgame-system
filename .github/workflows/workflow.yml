@@ -1,4 +1,4 @@
-name: workflow
+name: molecule
 on:
   pull_request:
     types:
@@ -31,3 +31,21 @@ jobs:
         with:
           molecule_command: test
           molecule_args: --scenario-name ${{ matrix.scenario }}
+  auto-merge:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: auto-merge
+        uses: "pascalgn/automerge-action@v0.12.0"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_FORKS: false
+          MERGE_LABELS: "auto merge,!work in progress,!wip"
+          MERGE_METHOD: "squash"
+          MERGE_DELETE_BRANCH: true
+          MERGE_RETRIES: 3
+          MERGE_RETRY_SLEEP: 300000
+          UPDATE_LABELS: "auto update,!work in progress,!wip"
+          UPDATE_METHOD: "merge"
+          UPDATE_RETRIES: 3
+          UPDATE_RETRY_SLEEP: 300000
