@@ -4,8 +4,6 @@ on:
     types:
       - labeled
       - unlabeled
-      - synchronize
-      - unlocked
   pull_request_review:
     types:
       - submitted
@@ -18,6 +16,10 @@ on:
   status:
     types:
       - success
+  workflow_run:
+    workflows: ["molecule"]
+    types:
+      - completed
 jobs:
   automerge:
     runs-on: ubuntu-latest

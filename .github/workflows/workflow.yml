@@ -1,4 +1,4 @@
-name: workflow
+name: molecule
 on:
   pull_request:
     types:
