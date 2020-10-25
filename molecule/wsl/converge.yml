@@ -13,6 +13,7 @@
     - shell/zsh
     - shell/starship
     - terminal/taskwarrior
+    - programming/php
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
