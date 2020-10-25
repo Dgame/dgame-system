@@ -10,18 +10,9 @@
       copy:
         src: "files/{{ item }}"
         dest: "~/.config/fish/{{ item }}"
-        force: no
-      loop:
-        - fish_variables
-
-    - name: symlink config files
-      file:
-        src: "{{ ansible_env.PWD }}/roles/shell/fish/files/{{ item }}"
-        path: "~/.config/fish/{{ item }}"
-        state: link
-        follow: no
         force: yes
       loop:
+        - fish_variables
         - config.fish
 
     - name: Check if fisher is installed

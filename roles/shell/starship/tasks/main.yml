@@ -23,3 +23,19 @@
     follow: false
     force: yes
     mode: 0644
+
+- name: Add starship to ~/.config/fish/config.fish
+  lineinfile:
+    state: present
+    path: "{{ ansible_env.HOME }}/.config/fish/config.fish"
+    insertafter: EOF
+    line: starship init fish | source
+  when: use_fish and use_starship_prompt
+
+- name: Add starship to ~/.zshrc
+  lineinfile:
+    state: present
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    insertafter: EOF
+    line: eval "$(starship init zsh)"
+  when: use_zsh and use_starship_prompt
