@@ -22,12 +22,11 @@
         dest: ~/to
       when: not to.stat.exists
 
-    - name: symlink config files
-      file:
-        src: "{{ ansible_env.PWD }}/roles/shell/zsh/files/{{ item }}"
-        path: "~/{{ item }}"
-        state: link
-        follow: no
+    - name: copy config files
+      changed_when: false
+      copy:
+        src: "files/{{ item }}"
+        dest: "~/{{ item }}"
         force: yes
       loop:
         - .zshrc
