@@ -21,10 +21,17 @@ jobs:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.4.0
         with:
-          ACCESS_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: remove label
+        uses: buildsville/add-remove-label@v1
+        with:
+          token: ${{secrets.REPO_GITHUB_TOKEN}}
+          label: Ready
+          type: remove
 
       - name: Test playbook
         uses: gofrolist/molecule-action@v2
@@ -35,17 +42,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: auto-merge
-        uses: "pascalgn/automerge-action@v0.12.0"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_FORKS: false
-          MERGE_LABELS: "auto merge,!work in progress,!wip"
-          MERGE_METHOD: "squash"
-          MERGE_DELETE_BRANCH: true
-          MERGE_RETRIES: 3
-          MERGE_RETRY_SLEEP: 300000
-          UPDATE_LABELS: "auto update,!work in progress,!wip"
-          UPDATE_METHOD: "merge"
-          UPDATE_RETRIES: 3
-          UPDATE_RETRY_SLEEP: 300000
+      - name: add label
+        uses: buildsville/add-remove-label@v1
+        with:
+          token: ${{secrets.REPO_GITHUB_TOKEN}}
+          label: Ready
+          type: add

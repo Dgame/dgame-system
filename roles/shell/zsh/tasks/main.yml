@@ -23,6 +23,7 @@
       when: not to.stat.exists
 
     - name: copy config files
+      changed_when: false
       copy:
         src: "files/{{ item }}"
         dest: "~/{{ item }}"

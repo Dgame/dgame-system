@@ -1,7 +1,6 @@
 - include_tasks: tpl.yml
   with_items:
     - bat
-    - exa
     - ytop
     - lfs
 
@@ -14,4 +13,17 @@
   shell: . $HOME/.cargo/env && cargo install --git https://github.com/curlpipe/ox
   when: not ox.stat.exists
   ignore_errors: yes
-  changed_when: false
+
+- name: Check if nat is installed
+  stat:
+    path: '~/.cargo/bin/nat'
+  register: nat
+
+- name: make sure nat is installed
+  when: not nat.stat.exists
+  ignore_errors: yes
+  block:
+    - git:
+        repo: https://github.com/willdoescode/nat.git
+        dest: /tmp/nat
+    - shell: . $HOME/.cargo/env && cargo install --path /tmp/nat

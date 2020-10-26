@@ -6,13 +6,20 @@
         path: ~/.config/fish/
         state: directory
 
-    - name: copy files
+    - name: copy fish_variables
+      copy:
+        src: "files/{{ item }}"
+        dest: "~/.config/fish/{{ item }}"
+      loop:
+        - fish_variables
+
+    - name: copy config.fish
+      changed_when: false
       copy:
         src: "files/{{ item }}"
         dest: "~/.config/fish/{{ item }}"
         force: yes
       loop:
-        - fish_variables
         - config.fish
 
     - name: Check if fisher is installed

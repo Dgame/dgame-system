@@ -16,3 +16,5 @@ test:
 	molecule test -s $(PLAYBOOK_NAME)
 converge:
 	molecule converge -s $(PLAYBOOK_NAME)
+idempotence:
+	molecule idempotence -s $(PLAYBOOK_NAME)
