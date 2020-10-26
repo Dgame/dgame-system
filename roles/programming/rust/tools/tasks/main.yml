@@ -1,6 +1,7 @@
 - include_tasks: tpl.yml
   with_items:
     - bat
+    - exa
     - ytop
     - lfs
 
