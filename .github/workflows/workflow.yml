@@ -15,7 +15,7 @@ jobs:
         scenario:
           - arch
           - manjaro
-          - wsl
+          - wsl-ubuntu
     if: github.event.pull_request.draft == false
     steps:
       - name: Cancel Previous Runs

@@ -13,7 +13,9 @@
     - shell/zsh
     - shell/starship
     - terminal/taskwarrior
+    - programming/python
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
     - docker
+    - system/wsl

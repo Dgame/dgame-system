@@ -28,7 +28,7 @@ make -f manjaro.mk [check|install]
 ```make
 sudo apt-get -y update && sudo apt-get -y install git make
 git clone https://github.com/Dgame/dgame-system
-make -f wsl.mk [check|install]
+make -f wsl-ubuntu.mk [check|install]
 ```
 
 ----

@@ -1,6 +1,6 @@
 ANSIBLE_PKG = ansible
 PLAYBOOK = ansible-playbook
-PLAYBOOK_NAME = wsl
+PLAYBOOK_NAME = wsl-ubuntu
 INVENTORY = -i hosts
 FLAGS = --ask-become-pass
 
