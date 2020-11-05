@@ -1,0 +1,18 @@
+- name: make sure mdadm is deinstalled
+  package:
+    name: mdadm
+    state: absent
+  become: yes
+
+- name: make sure sosreport is up-to-date
+  package:
+    name: sosreport
+    state: latest
+  become: yes
+
+- name: Upgrade
+  apt:
+    update_cache: yes
+    upgrade: yes
+    autoremove: yes
+  become: yes

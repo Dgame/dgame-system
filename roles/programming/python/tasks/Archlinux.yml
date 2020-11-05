@@ -1,0 +1,11 @@
+- name: make sure python is installed
+  package:
+    name: python
+    state: present
+  become: yes
+
+- name: make sure pip is installed
+  package:
+    name: python-pip
+    state: present
+  become: yes
