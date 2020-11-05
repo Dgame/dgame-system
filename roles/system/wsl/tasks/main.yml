@@ -1,10 +1,10 @@
-- name: make sure mdadm is deinstalled
+- name: make sure mdadm is deinstalled # https://github.com/microsoft/WSL/issues/4903
   package:
     name: mdadm
     state: absent
   become: yes
 
-- name: make sure sosreport is up-to-date
+- name: make sure sosreport is up-to-date # The following packages have been kept back: sosreport
   package:
     name: sosreport
     state: latest
