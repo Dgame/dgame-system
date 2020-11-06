@@ -1,0 +1,20 @@
+- name: make sure pip is installed
+  package:
+    name: python3-pip
+    state: latest
+  become: yes
+
+- name: install ansible
+  pip:
+    name: ansible
+    state: present
+  become: yes
+
+# Need to update `wheel` or ansible-lint will get installed without the
+# execute bit set (https://bitbucket.org/pypa/wheel/issues/154).
+- name: install wheel
+  pip:
+    name: wheel
+    state: present
+    extra_args: '--upgrade'
+  become: yes

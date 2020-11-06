@@ -21,6 +21,8 @@
     - terminal/yakuake
     - terminal/taskwarrior
     - docker
+    - ansible
+    - ansible/molecule
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools

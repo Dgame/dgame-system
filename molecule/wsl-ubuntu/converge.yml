@@ -7,15 +7,19 @@
     use_zsh: yes
     use_starship_prompt: yes
   roles:
+    - system/apt
     - system/zip
     - editor/vim
     - git
     - shell/zsh
     - shell/starship
     - terminal/taskwarrior
+    - ansible
+    - ansible/molecule
     - programming/python
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
     - docker
+    - profanity
     - system/wsl

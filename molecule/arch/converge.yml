@@ -21,6 +21,8 @@
     - terminal/tmux
     - terminal/yakuake
     - terminal/taskwarrior
+    - ansible
+    - ansible/molecule
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools

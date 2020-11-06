@@ -1,0 +1,23 @@
+- name: make sure pip is installed
+  package:
+    name: python3-pip
+    state: latest
+  become: yes
+
+- name: install python docker library
+  pip:
+    name: docker
+    state: latest
+  become: yes
+
+- name: install molecule
+  pip:
+    name: molecule
+    state: latest
+  become: yes
+
+- name: install molecule-docker
+  pip:
+    name: molecule-docker
+    state: latest
+  become: yes

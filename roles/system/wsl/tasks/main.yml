@@ -13,6 +13,6 @@
 - name: Upgrade
   apt:
     update_cache: yes
-    upgrade: yes
+    upgrade: full
     autoremove: yes
   become: yes

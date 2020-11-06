@@ -3,6 +3,7 @@
     repo: ppa:git-core/ppa
     state: present
     update_cache: yes
+    mode: "0644"
   become: yes
 
 - name: make sure git is installed
@@ -24,6 +25,7 @@
         repo: deb https://cli.github.com/packages stable main
         state: present
         update_cache: yes
+        mode: "0644"
       become: yes
 
     - name: make sure github-cli is installed

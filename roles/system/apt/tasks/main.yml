@@ -1,0 +1,5 @@
+- name: make sure apt-utils is installed
+  package:
+    name: apt-utils
+    state: latest
+  become: yes
