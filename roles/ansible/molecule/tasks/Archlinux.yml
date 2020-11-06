@@ -1,0 +1,17 @@
+- name: make sure pip is installed
+  package:
+    name: python-pip
+    state: present
+  become: yes
+
+- name: make sure molecule is installed
+  package:
+    name: molecule
+    state: present
+  become: yes
+
+- name: install molecule-docker
+  pip:
+    name: molecule-docker
+    state: present
+  become: yes

@@ -19,6 +19,7 @@
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
     state: present
     update_cache: yes
+    mode: "0644"
   become: yes
 
 - name: Update apt packages

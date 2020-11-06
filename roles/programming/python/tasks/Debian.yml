@@ -3,9 +3,3 @@
     name: python3
     state: latest
   become: yes
-
-- name: make sure pip is installed
-  package:
-    name: python3-pip
-    state: latest
-  become: yes

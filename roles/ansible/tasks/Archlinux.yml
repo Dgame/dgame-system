@@ -1,0 +1,5 @@
+- name: make sure ansible is installed
+  package:
+    name: ansible
+    state: present
+  become: yes
