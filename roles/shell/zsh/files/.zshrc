@@ -102,3 +102,5 @@ export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias gpb="git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -d"
