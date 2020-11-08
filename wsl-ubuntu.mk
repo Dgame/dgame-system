@@ -12,8 +12,8 @@ install_ansible: update
 	sudo apt-get -y install $(ANSIBLE_PKG)
 update:
 	sudo apt-get -y update
-upgrade:
-	sudo apt-get -y upgrade && sudo apt-get -y autoremove
+upgrade: update
+	sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove
 test:
 	molecule test -s $(PLAYBOOK_NAME)
 converge:

@@ -90,7 +90,7 @@ source ~/to/to.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 #ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
