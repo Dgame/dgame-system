@@ -20,5 +20,6 @@
     "debug.showBreakpointsInOverviewRuler": true,
     "rust-client.channel": "stable",
     "tabnine.experimentalAutoImports": true,
-    "workbench.editor.showTabs": false
+    "workbench.editor.showTabs": false,
+    "diffEditor.ignoreTrimWhitespace": false
 }
