@@ -2,7 +2,7 @@ export PATH="$PATH:/$HOME/.config/composer/vendor/bin/:/$HOME/.cargo/bin"
 
 #alias bipro_doc="php -S 0.0.0.0:8010 -t /home/dgame/Dokumente/BiPRO/bipro-release-paket-2.7.1-20180919-1517/model/htmlReport/Datenmodell/"
 alias gssh 'eval (ssh-agent -c) && ssh-add'
-alias update 'yes j | sudo pacman -Syu && yay All | yay -Syu && paccache -rk 1 && sudo pacman -Rns (pacman -Qttdq)'
+alias update 'sudo pacman -Syu --noconfirm && yay All | yay -Syu && paccache -rk 1 && sudo pacman -Rns (pacman -Qttdq)'
 alias yc 'yay --save --nocleanmenu --nodiffmenu --answerclean All --answerdiff All --answeredit All --answerupgrade All'
 
 function _current_branch
