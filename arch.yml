@@ -30,4 +30,5 @@
     - profanity
     - credentials
     - browser/firefox
+    - zola
     - system/default

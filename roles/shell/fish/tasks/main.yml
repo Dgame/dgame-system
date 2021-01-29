@@ -43,7 +43,7 @@
 
     - name: make sure matchai/spacefish (prompt) is installed
       changed_when: false
-      shell: "fisher add matchai/spacefish"
+      shell: "fisher install matchai/spacefish"
       args:
         executable: "/usr/bin/fish"
       when: not use_starship_prompt and not spacefish.stat.exists
@@ -55,7 +55,7 @@
 
     - name: make sure joehillen/to-fish (bookmarks) is installed
       changed_when: false
-      shell: "fisher add joehillen/to-fish"
+      shell: "fisher install joehillen/to-fish"
       args:
         executable: "/usr/bin/fish"
       when: not to_fish.stat.exists

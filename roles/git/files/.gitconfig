@@ -6,6 +6,7 @@
 [core]
     autocrlf = false
     editor = vim
+    fileMode = false
 [alias]
     aa = add --all
     c = commit

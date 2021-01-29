@@ -32,4 +32,5 @@
     - credentials
     - browser/brave
     - browser/firefox
+    - zola
     - system/default
