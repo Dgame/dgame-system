@@ -1,4 +1,4 @@
-- name: makre sure zola is installed
+- name: make sure zola is installed
   package:
     name: zola
     state: present
