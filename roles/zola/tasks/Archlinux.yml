@@ -1,0 +1,6 @@
+- name: makre sure zola is installed
+  package:
+    name: zola
+    state: present
+  become: yes
+  ignore_errors: yes
