@@ -177,3 +177,6 @@ alias gvt 'git verify-tag'
 alias gwch 'git whatchanged -p --abbrev-commit --pretty=medium'
 alias gwip 'git add -A; git rm (git ls-files --deleted) 2> /dev/null; git commit -m "--wip--"'
 alias os-detect 'sudo os-prober && sudo update-grub'
+
+export EDITOR='vim'
+export VISUAL='vim'
