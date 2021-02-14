@@ -6,7 +6,15 @@
     - freetype2
     - mesa
 
+
+- name: make sure sublime-text-dev is uninstalled
+  package:
+    name: sublime-text-dev
+    state: absent
+  become: yes
+
 - name: make sure sublime-text is installed
   package:
     name: sublime-text
     state: present
+  become: yes

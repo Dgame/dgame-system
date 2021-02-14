@@ -1,4 +1,4 @@
-- name: make sure Yakuake is installed
+- name: make sure yakuake is installed
   package:
     name: yakuake
     state: present

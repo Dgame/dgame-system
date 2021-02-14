@@ -3,6 +3,7 @@
     dest: ~/workspace/dgame/{{ item }}
   with_items:
     - blog
+  ignore_errors: yes
 
 - name: create terminal bookmarks
   ignore_errors: yes
