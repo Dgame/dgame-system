@@ -25,6 +25,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
 
       - name: remove label
         uses: buildsville/add-remove-label@v1
@@ -36,7 +38,6 @@ jobs:
       - name: Test playbook
         uses: gofrolist/molecule-action@v2
         with:
-          path: "${{ github.repository }}"
           molecule_command: test
           molecule_args: --scenario-name ${{ matrix.scenario }}
   auto-merge:
