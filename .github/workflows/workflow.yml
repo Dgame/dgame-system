@@ -36,6 +36,7 @@ jobs:
       - name: Test playbook
         uses: gofrolist/molecule-action@v2
         with:
+          path: "${{ github.repository }}"
           molecule_command: test
           molecule_args: --scenario-name ${{ matrix.scenario }}
   auto-merge:
