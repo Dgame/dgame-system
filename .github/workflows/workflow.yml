@@ -25,6 +25,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
 
       - name: remove label
         uses: buildsville/add-remove-label@v1

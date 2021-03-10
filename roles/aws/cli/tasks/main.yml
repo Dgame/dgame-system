@@ -1,0 +1,5 @@
+- name: install awscli
+  pip:
+    name: awscli
+    state: present
+  become: yes
