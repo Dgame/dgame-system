@@ -31,3 +31,14 @@
       changed_when: false
     - shell: . $HOME/.cargo/env && cargo install --path /tmp/nat
       changed_when: false
+
+- name: Check if bottom is installed
+  stat:
+    path: "~/.cargo/bin/btm"
+  register: bottom
+
+- name: make sure bottom is installed
+  shell: . $HOME/.cargo/env && cargo install --git https://github.com/ClementTsang/bottom
+  when: not bottom.stat.exists
+  ignore_errors: yes
+  changed_when: false
