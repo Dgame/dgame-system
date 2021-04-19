@@ -6,6 +6,7 @@
     use_fish: no
     use_zsh: yes
     use_starship_prompt: yes
+    docker_compose_version: "1.29.1"
   roles:
     - system/apt
     - system/zip

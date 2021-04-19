@@ -12,7 +12,7 @@
     state: latest
   become: yes
 
-- name: Add Docker s official GPG key
+- name: Add Dockers official GPG key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
@@ -36,4 +36,25 @@
   package:
     name: docker-compose
     state: latest
+  become: yes
+
+- name: Update docker-compose
+  block:
+    - name: "Download docker-compose {{ docker_compose_version }}"
+      uri:
+        url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
+        dest: /usr/local/bin/docker-compose
+    - name: Rename old docker-compose
+      copy:
+        src: /usr/bin/docker-compose
+        dest: /usr/bin/docker-compose-old
+    - name: Delete old docker-compose
+      file:
+        state: absent
+        path: /usr/bin/docker-compose
+    - name: Change chmod
+      file:
+        path: /usr/local/bin/docker-compose
+        mode: +x
+  ignore_errors: yes
   become: yes
