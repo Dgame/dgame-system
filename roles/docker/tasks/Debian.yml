@@ -61,5 +61,4 @@
         path: /usr/local/bin/docker-compose
         mode: +x
   ignore_errors: yes
-  changed_when: false
   become: yes
