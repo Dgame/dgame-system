@@ -48,7 +48,9 @@
       copy:
         src: /usr/bin/docker-compose
         dest: /usr/bin/docker-compose-old
-    - command: docker-compose --version
+      ignore_errors: yes
+    - name: Get docker-compose version
+      command: docker-compose --version
     - name: Delete old docker-compose
       file:
         state: absent
