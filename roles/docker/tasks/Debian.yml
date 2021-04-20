@@ -62,6 +62,7 @@
       when: docker_compose_old.stat.exists
     - name: Get docker-compose version
       shell: docker-compose --version
+      changed_when: false
     - name: Delete old docker-compose
       file:
         state: absent
