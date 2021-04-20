@@ -40,25 +40,37 @@
 
 - name: Update docker-compose
   block:
+    - name: Check if /usr/local/bin/docker-compose exists
+      stat:
+        path: '/usr/local/bin/docker-compose'
+      register: docker_compose
     - name: "Download docker-compose {{ docker_compose_version }}"
       uri:
         url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
         dest: /usr/local/bin/docker-compose
+      when: not docker_compose.stat.exists
+    - name: Check if /usr/bin/docker-compose exists
+      stat:
+        path: '/usr/bin/docker-compose'
+      register: docker_compose_old
     - name: Rename old docker-compose
       copy:
         src: /usr/bin/docker-compose
         dest: /usr/bin/docker-compose-old
         remote_src: yes
       ignore_errors: yes
+      when: docker_compose_old.stat.exists
     - name: Get docker-compose version
-      command: docker-compose --version
+      shell: docker-compose --version
     - name: Delete old docker-compose
       file:
         state: absent
         path: /usr/bin/docker-compose
+      when: docker_compose_old.stat.exists
     - name: Change chmod
       file:
         path: /usr/local/bin/docker-compose
         mode: +x
+      when: not docker_compose.stat.exists
   ignore_errors: yes
   become: yes
