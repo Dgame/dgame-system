@@ -1,5 +1,28 @@
-- name: install awscli
-  pip:
-    name: awscli
-    state: present
-  become: yes
+- set_fact:
+    molecule_mode: "{{ lookup('env', 'MOLECULE_MODE')|default(false)|bool }}"
+
+- set_fact:
+    validate_certs: "{{ False if (molecule_mode) else True }}"
+
+- name: Get current aws-cli version
+  shell: aws --version | grep -oP 'aws-cli/(2\.[1-9]\.[1-9])' | cut -d '/' -f2 | tr -d '.' | xargs
+  ignore_errors: yes
+  register: awscli
+
+- name: Install aws-cli
+  block:
+    - name: Download aws-cli v2 installer.
+      unarchive:
+        src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        dest: /tmp
+        remote_src: yes
+        creates: /tmp/aws
+        mode: 0755
+        validate_certs: "{{ validate_certs }}"
+
+    - name: Run the installer.
+      command:
+        cmd: /tmp/aws/install
+        creates: /usr/local/bin/aws
+      become: true
+  when: awscli.stdout|default(0)|int < 200

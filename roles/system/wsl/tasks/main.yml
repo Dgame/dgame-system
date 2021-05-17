@@ -16,3 +16,26 @@
     upgrade: dist
     autoremove: yes
   become: yes
+
+- name: Install wsl utilities
+  package:
+    name: ubuntu-wsl
+    state: latest
+  become: yes
+
+- name: Get Windows user path
+  command: wslpath "$(wslvar USERPROFILE)"
+  register: user_profile
+  ignore_errors: yes
+
+- name: Symlink .wslconfig
+  file:
+    src: "{{ ansible_env.PWD }}/roles/system/wsl/files/{{ item }}"
+    path: "{{ user_profile.stdout }}/{{ item }}"
+    state: link
+    follow: no
+    force: yes
+  loop:
+    - .wslconfig
+  ignore_errors: yes
+  when: user_profile.rc | default(-1) == 0
