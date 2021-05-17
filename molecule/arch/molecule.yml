@@ -12,6 +12,7 @@ provisioner:
   env:
     ANSIBLE_ROLES_PATH: ../../roles
     MOLECULE_NO_LOG: true
+    MOLECULE_MODE: true
   # options:
   #   vvv: true
 verifier:
