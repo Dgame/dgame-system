@@ -1,5 +1,5 @@
 [wsl2]
 memory=6GB
 processors=4
-pageReporting=true
-idleThreshold =1
+pageReporting=1
+idleThreshold=1
