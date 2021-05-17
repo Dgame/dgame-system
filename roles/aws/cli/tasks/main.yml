@@ -8,10 +8,11 @@
   shell: aws --version | grep -oP 'aws-cli/(2\.[0-9]\.[0-9])' | cut -d '/' -f2 | tr -d '.' | xargs
   ignore_errors: yes
   register: awscli
+  changed_when: false
 
 - name: Install aws-cli
   block:
-    - name: Download aws-cli v2 installer.
+    - name: Download aws-cli v2 installer
       unarchive:
         src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
         dest: /tmp
