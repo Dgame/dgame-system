@@ -12,4 +12,5 @@
 - name: Update rustup
   shell: . $HOME/.cargo/env && rustup update
   ignore_errors: yes
+  changed_when: false
   when: rustup.stat.exists
