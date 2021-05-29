@@ -9,6 +9,16 @@
   when: use_starship_prompt and not starship.stat.exists
   ignore_errors: yes
 
+- name: Install pamac
+  package:
+    name: pamac
+    state: present
+  become: yes
+
+- name: Install Nerd-Fonts
+  command: pamac build nerd-fonts-complete
+  ignore_errors: yes
+
 - name: Create ~/.config folder
   file:
     path: ~/.config
