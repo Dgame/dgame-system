@@ -51,3 +51,10 @@
     insertafter: EOF
     line: eval "$(starship init zsh)"
   when: use_zsh and use_starship_prompt
+
+- name: Update starship
+  shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+  args:
+    executable: "/usr/bin/bash"
+  become: yes
+  ignore_errors: yes
