@@ -9,6 +9,20 @@
   when: use_starship_prompt and not starship.stat.exists
   ignore_errors: yes
 
+- name: Install pamac
+  package:
+    name: pamac
+    state: present
+  become: yes
+  ignore_errors: yes
+  register: pamac
+
+- name: Install Nerd-Fonts
+  command: pamac build nerd-fonts-complete --no-confirm
+  ignore_errors: yes
+  changed_when: false
+  when: pamac is succeeded
+
 - name: Create ~/.config folder
   file:
     path: ~/.config
@@ -41,3 +55,11 @@
     insertafter: EOF
     line: eval "$(starship init zsh)"
   when: use_zsh and use_starship_prompt
+
+- name: Update starship
+  shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" --yes
+  args:
+    executable: "/usr/bin/bash"
+  become: yes
+  ignore_errors: yes
+  changed_when: false
