@@ -14,11 +14,14 @@
     name: pamac
     state: present
   become: yes
+  ignore_errors: yes
+  register: pamac
 
 - name: Install Nerd-Fonts
   command: pamac build nerd-fonts-complete --no-confirm
   ignore_errors: yes
   changed_when: false
+  when: pamac is succeeded
 
 - name: Create ~/.config folder
   file:
