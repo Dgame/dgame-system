@@ -6,5 +6,12 @@
 - name: make sure rustup, rust & cargo is installed
   shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
   args:
-    warn: false
+    warn: no
   when: not rustup.stat.exists
+
+- name: Update rustup
+  command: rustup update
+  ignore_errors: yes
+  when: rustup.stat.exists
+
+- command: rustup --version

@@ -24,9 +24,14 @@
   become: yes
 
 - name: Get Windows user path
-  command: wslpath "$(wslvar USERPROFILE)"
+  shell: wslpath "$(wslvar USERPROFILE)"
+  args:
+    executable: "/usr/bin/bash"
   register: user_profile
   ignore_errors: yes
+
+# - debug:
+#     var: user_profile
 
 - name: Symlink .wslconfig
   file:

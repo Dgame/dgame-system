@@ -16,12 +16,13 @@
   become: yes
   ignore_errors: yes
   register: pamac
+  when: ansible_os_family == "Archlinux"
 
 - name: Install Nerd-Fonts
   command: pamac build nerd-fonts-complete --no-confirm
   ignore_errors: yes
   changed_when: false
-  when: pamac is succeeded
+  when: ansible_os_family == "Archlinux" and pamac is succeeded
 
 - name: Create ~/.config folder
   file:
@@ -57,9 +58,10 @@
   when: use_zsh and use_starship_prompt
 
 - name: Update starship
-  shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" --yes
+  shell: curl -fsSL https://starship.rs/install.sh | sh -s -- -y
   args:
     executable: "/usr/bin/bash"
+    warn: no
   become: yes
   ignore_errors: yes
   changed_when: false
