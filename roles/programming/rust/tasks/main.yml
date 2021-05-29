@@ -10,6 +10,6 @@
   when: not rustup.stat.exists
 
 - name: Update rustup
-  command: rustup update
+  shell: . $HOME/.cargo/env && rustup update
   ignore_errors: yes
   when: rustup.stat.exists
