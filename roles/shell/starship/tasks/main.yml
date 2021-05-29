@@ -16,7 +16,7 @@
   become: yes
 
 - name: Install Nerd-Fonts
-  command: pamac build nerd-fonts-complete
+  command: pamac build nerd-fonts-complete --no-confirm
   ignore_errors: yes
 
 - name: Create ~/.config folder
