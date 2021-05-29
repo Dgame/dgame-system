@@ -29,6 +29,7 @@
     executable: "/usr/bin/bash"
   register: user_profile
   ignore_errors: yes
+  changed_when: false
 
 # - debug:
 #     var: user_profile
