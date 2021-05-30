@@ -32,7 +32,7 @@
       changed_when: false
       command: "curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish"
       args:
-        warn: false
+        warn: no
       when: not fisher.stat.exists
 
     - name: Check if matchai/spacefish (prompt) is installed

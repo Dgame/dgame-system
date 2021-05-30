@@ -10,6 +10,9 @@
   register: awscli
   changed_when: false
 
+# - debug:
+#     var: awscli
+
 - name: Install aws-cli
   block:
     - name: Download aws-cli v2 installer
