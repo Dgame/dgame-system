@@ -14,6 +14,7 @@
     - shell/zsh
     - shell/starship
     - terminal/taskwarrior
+    - terminal/alacritty
     - docker
     - ansible
     - ansible/molecule
