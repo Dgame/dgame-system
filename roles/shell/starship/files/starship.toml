@@ -45,4 +45,35 @@ style = "bold red"
 threshold = 30
 style = "bold yellow"
 
+[[battery.display]]  # "bold yellow" style when capacity is between 30% and 75%
+threshold = 75
+style = "bold green"
+
 # when capacity is over 30%, the battery indicator will not be displayed
+
+[time]
+disabled = false
+format = "at [$time]($style) "
+time_format = "%T"
+utc_time_offset = "-2"
+time_range = "10:00:00-14:00:00"
+
+[terraform]
+format = "[🏎💨 $version$workspace]($style) "
+
+[helm]
+format = "via [⎈ $version](bold white) "
+
+[hostname]
+ssh_only = true
+format =  "on [$hostname](bold red) "
+trim_at = ".companyname.com"
+disabled = false
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = "bold blue"
+symbol = "☁️ "
+
+[docker_context]
+format = "via [🐋 $context](blue bold)"

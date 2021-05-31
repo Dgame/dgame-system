@@ -25,6 +25,8 @@ make -f manjaro.mk [check|install]
 - [Windows-Terminal Documentation](https://docs.microsoft.com/en-us/windows/terminal/)
   - [Settings.json](https://gist.github.com/Dgame/0504db67cfdcac8d8dea01c633ba4db1)
 
+- Install [FiraCode Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip)
+
 ```make
 sudo apt-get -y update && sudo apt-get -y install git make
 git clone https://github.com/Dgame/dgame-system
