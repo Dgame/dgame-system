@@ -1,4 +1,9 @@
+- stat:
+    path: "{{ ansible_os_family }}.yml"
+  register: os_task
+
 - include_tasks: "{{ ansible_os_family }}.yml"
+  when: os_task.stat.exists
 
 - name: Create alacritty folder in .config
   file:

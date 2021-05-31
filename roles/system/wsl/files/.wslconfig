@@ -1,5 +1,3 @@
 [wsl2]
-memory=6GB
+memory=8GB
 processors=4
-pageReporting=1
-idleThreshold=1

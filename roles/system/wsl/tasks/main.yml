@@ -34,11 +34,10 @@
 # - debug:
 #     var: user_profile
 
-- name: Symlink .wslconfig
-  file:
+- name: Copy .wslconfig
+  copy:
     src: "{{ ansible_env.PWD }}/roles/system/wsl/files/{{ item }}"
-    path: "{{ user_profile.stdout }}/{{ item }}"
-    state: link
+    dest: "{{ user_profile.stdout }}/{{ item }}"
     follow: no
     force: yes
   loop:
