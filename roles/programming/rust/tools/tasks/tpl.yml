@@ -5,3 +5,4 @@
 - shell: ". $HOME/.cargo/env && cargo install {{ item }}"
   when: not tool.stat.exists
   ignore_errors: yes
+  changed_when: false

@@ -7,10 +7,9 @@
     - exa
     - lsd
     - natls
-    - fd
+    - fd-find
     - hyperfine
     - topgrade
-    - thin-summer
     - bat
 
 - name: Check if ox is installed
