@@ -52,7 +52,7 @@ style = "bold green"
 # when capacity is over 30%, the battery indicator will not be displayed
 
 [time]
-disabled = false
+disabled = true
 format = "at [$time]($style) "
 time_format = "%T"
 utc_time_offset = "-2"
