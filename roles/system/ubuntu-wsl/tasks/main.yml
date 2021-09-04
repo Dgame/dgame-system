@@ -1,0 +1,46 @@
+- name: make sure mdadm is deinstalled # https://github.com/microsoft/WSL/issues/4903
+  package:
+    name: mdadm
+    state: absent
+  become: yes
+
+- name: make sure sosreport is up-to-date # The following packages have been kept back: sosreport
+  package:
+    name: sosreport
+    state: latest
+  become: yes
+
+- name: Upgrade
+  apt:
+    update_cache: yes
+    upgrade: dist
+    autoremove: yes
+  become: yes
+
+- name: Install wsl utilities
+  package:
+    name: ubuntu-wsl
+    state: latest
+  become: yes
+
+- name: Get Windows user path
+  shell: wslpath "$(wslvar USERPROFILE)"
+  args:
+    executable: "/usr/bin/bash"
+  register: user_profile
+  ignore_errors: yes
+  changed_when: false
+
+# - debug:
+#     var: user_profile
+
+- name: Copy .wslconfig
+  copy:
+    src: "{{ ansible_env.PWD }}/roles/system/wsl/files/{{ item }}"
+    dest: "{{ user_profile.stdout }}/{{ item }}"
+    follow: no
+    force: yes
+  loop:
+    - .wslconfig
+  ignore_errors: yes
+  when: user_profile.rc | default(-1) == 0
