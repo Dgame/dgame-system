@@ -19,17 +19,14 @@
     - terminal/alacritty
     - terminal/tmux
     - terminal/yakuake
-    - terminal/taskwarrior
     - docker
     - ansible
     - ansible/molecule
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
-    - programming/workspace
-    - profanity
-    - credentials
     - browser/brave
     - browser/firefox
     - zola
+    - aws/cli
     - system/default

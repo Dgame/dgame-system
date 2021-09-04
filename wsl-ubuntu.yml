@@ -13,7 +13,6 @@
     - font
     - shell/zsh
     - shell/starship
-    - terminal/taskwarrior
     - terminal/alacritty
     - docker
     - ansible
@@ -22,6 +21,5 @@
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
-    - profanity
-    - system/wsl
+    - system/ubuntu-wsl
     - aws/cli
