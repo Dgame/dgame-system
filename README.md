@@ -45,6 +45,13 @@ make -f ubuntu.mk install-on-wsl
 
 #### Arch-Linux
 
+```sh
+docker pull archlinux
+docker create --name Arch archlinux:latest
+docker export -o archlinux.tar Arch
+wsl.exe --import "Arch" "$PWD/archlinux" "archlinux.tar" --version 2
+```
+
 ```make
 sudo pacman -Sy && sudo pacman -S git make --noconfirm
 git clone https://github.com/Dgame/dgame-system
@@ -52,6 +59,13 @@ make -f arch.mk install-on-wsl
 ```
 
 ### Manjaro
+
+```sh
+docker pull manjarolinux/base
+docker create --name Manjaro manjarolinux/base
+docker export -o manjaro.tar Manjaro
+wsl.exe --import "Manjaro" "$PWD/manjaro" "manjaro.tar" --version 2
+```
 
 ```make
 sudo pacman -Sy && sudo pacman -S git make --noconfirm
