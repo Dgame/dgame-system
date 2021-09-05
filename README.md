@@ -25,6 +25,11 @@ make -f ubuntu.mk [check|install]
 
 ### Windows 10 WSL (Ubuntu 18.04 / 20.04)
 
+- [Installation](https://devblogs.microsoft.com/commandline/install-wsl-with-a-single-command-now-available-in-windows-10-version-2004-and-higher/) 
+  - `wsl.exe --install`
+
+**or**
+
 - [Documentation](https://docs.microsoft.com/de-de/windows/wsl/install-win10)
   - `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
   - `dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart`
