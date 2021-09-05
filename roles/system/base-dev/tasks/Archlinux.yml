@@ -9,3 +9,9 @@
     name: openssl
     state: present
   become: yes
+
+- name: make sure htop is installed
+  package:
+    name: htop
+    state: present
+  become: yes

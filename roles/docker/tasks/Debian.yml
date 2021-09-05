@@ -1,6 +1,7 @@
 - name: Update apt packages
   apt:
     update_cache: yes
+  changed_when: false
   become: yes
 
 - name: Install docker packages
