@@ -13,7 +13,6 @@
     - git
     - shell/zsh
     - shell/starship
-    - terminal/taskwarrior
     - ansible
     - ansible/molecule
     - programming/python
@@ -21,6 +20,5 @@
     - programming/rust/cargo
     - programming/rust/tools
     - docker
-    - profanity
-    - system/wsl
+    - system/ubuntu-wsl
     - aws/cli
