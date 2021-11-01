@@ -5,6 +5,7 @@
     update_cache: yes
     mode: "0644"
   become: yes
+  when: ansible_distribution == "Ubuntu"
 
 - name: make sure git is installed
   package:
@@ -19,6 +20,7 @@
         keyserver: keyserver.ubuntu.com
         id: C99B11DEB97541F0
       become: yes
+      when: ansible_distribution == "Ubuntu"
 
     - name: Add github-cli ppa
       apt_repository:

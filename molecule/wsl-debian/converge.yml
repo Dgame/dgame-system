@@ -20,5 +20,5 @@
     - programming/rust/cargo
     - programming/rust/tools
     - docker
-    - system/ubuntu-wsl
+    - system/debian-wsl
     - aws/cli

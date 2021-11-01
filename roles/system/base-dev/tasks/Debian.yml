@@ -4,6 +4,12 @@
     state: latest
   become: yes
 
+- name: make sure bash is installed
+  package:
+    name: bash
+    state: latest
+  become: yes
+
 - name: make sure OpenSSL is installed
   package:
     name: openssl
