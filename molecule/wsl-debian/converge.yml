@@ -6,6 +6,8 @@
     use_fish: no
     use_zsh: yes
     use_starship_prompt: yes
+    dist_ubuntu: xenial
+    dist_debian: bullseye
   roles:
     - system/apt
     - system/zip
