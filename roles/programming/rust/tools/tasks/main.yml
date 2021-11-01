@@ -11,6 +11,7 @@
     - hyperfine
     - topgrade
     - bat
+    - just
 
 - name: Check if ox is installed
   stat:

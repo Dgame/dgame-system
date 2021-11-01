@@ -58,9 +58,8 @@
   when: use_zsh and use_starship_prompt
 
 - name: Update starship
-  shell: curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+  shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
   args:
-    executable: "/usr/bin/bash"
     warn: no
   become: yes
   ignore_errors: yes
