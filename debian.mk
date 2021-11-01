@@ -1,6 +1,6 @@
 ANSIBLE_PKG = ansible
 PLAYBOOK = ansible-playbook
-OS_NAME = ubuntu
+OS_NAME = debian
 INVENTORY = -i hosts
 FLAGS = --ask-become-pass
 

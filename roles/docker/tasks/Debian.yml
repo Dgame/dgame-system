@@ -13,19 +13,29 @@
     state: latest
   become: yes
 
-- name: Add Docker s official GPG key
+- name: Add Dockers official GPG key
   apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
+    url: "https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg"
     state: present
   become: yes
 
-- name: Set up the stable repository
+- name: Setup the stable repository
   apt_repository:
-    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+    repo: "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ dist_ubuntu }} stable"
     state: present
     update_cache: yes
     mode: "0644"
   become: yes
+  when: ansible_distribution == "Ubuntu"
+
+- name: Setup the stable repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ dist_debian }} stable"
+    state: present
+    update_cache: yes
+    mode: "0644"
+  become: yes
+  when: ansible_distribution == "Debian"
 
 - name: Install docker
   package:

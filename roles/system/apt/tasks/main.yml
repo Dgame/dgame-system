@@ -3,3 +3,9 @@
     name: apt-utils
     state: latest
   become: yes
+
+- name: make sure aptitude is installed
+  package:
+    name: aptitude 
+    state: latest
+  become: yes

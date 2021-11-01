@@ -15,7 +15,7 @@ jobs:
         scenario:
           - arch
           - manjaro
-          - wsl-ubuntu
+          - wsl-debian
           - wsl-arch
           - wsl-manjaro
     if: github.event.pull_request.draft == false
