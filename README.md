@@ -94,7 +94,6 @@ docker export -o manjaro.tar Manjaro
 wsl.exe --import "Manjaro" "$PWD/manjaro" "manjaro.tar" --version 2
 ```
 
-
 and then configure like _Archlinux_.
 
 ```make
@@ -102,6 +101,10 @@ sudo pacman -Sy && sudo pacman -S git make --noconfirm
 git clone https://github.com/Dgame/dgame-system
 cd dgame-system && make -f manjaro.mk install-on-wsl
 ```
+
+### Don't forget to enable the WSL distro in the Docker-Desktop App
+
+![](Docker-Desktop.png)
 
 ----
 
