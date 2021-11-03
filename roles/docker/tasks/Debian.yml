@@ -48,3 +48,4 @@
     name: docker-compose
     state: latest
   become: yes
+  ignore_errors: yes

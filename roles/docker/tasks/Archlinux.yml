@@ -9,3 +9,4 @@
     name: docker-compose
     state: present
   become: yes
+  ignore_errors: yes
