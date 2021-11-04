@@ -5,7 +5,7 @@
 ```make
 sudo pacman -Sy && sudo pacman -S git make --noconfirm
 git clone https://github.com/Dgame/dgame-system
-make -f arch.mk [check|install]
+cd dgame-system && make -f arch.mk [check|install]
 ```
 
 ### Manjaro
@@ -13,19 +13,19 @@ make -f arch.mk [check|install]
 ```make
 sudo pacman -Sy && sudo pacman -S git make --noconfirm
 git clone https://github.com/Dgame/dgame-system
-make -f manjaro.mk [check|install]
+cd dgame-system && make -f manjaro.mk [check|install]
 ```
 
 ### Debian
 
 ```make
 git clone https://github.com/Dgame/dgame-system
-make -f debian.mk [check|install]
+cd dgame-system && make -f debian.mk [check|install]
 ```
 
 ### Windows 10 WSL (Debian, Ubuntu 18.04 / 20.04)
 
-- [Installation](https://devblogs.microsoft.com/commandline/install-wsl-with-a-single-command-now-available-in-windows-10-version-2004-and-higher/) 
+- [Installation](https://devblogs.microsoft.com/commandline/install-wsl-with-a-single-command-now-available-in-windows-10-version-2004-and-higher/)
   - `wsl.exe --install`
 
 **or**
@@ -45,7 +45,7 @@ make -f debian.mk [check|install]
 ```make
 sudo apt-get -y update && sudo apt-get -y install git make
 git clone https://github.com/Dgame/dgame-system
-make -f debian.mk install-on-wsl
+cd dgame-system && make -f debian.mk install-on-wsl
 ```
 
 #### Arch-Linux
@@ -57,10 +57,32 @@ docker export -o archlinux.tar Arch
 wsl.exe --import "Arch" "$PWD/archlinux" "archlinux.tar" --version 2
 ```
 
+and then configure with
+
+```sh
+wsl.exe -d Arch
+pacman-key --init
+pacman -Syu
+useradd -m <username>
+passwd <username>
+pacman -S sudo vim
+export EDITOR=/usr/bin/vim
+visudo
+...
+<username> ALL=(ALL) ALL
+...
+:wq
+
+pwconv
+grpconv
+chmod 0744 /etc/shadow
+chmod 0744 /etc/gshadow
+```
+
 ```make
 sudo pacman -Sy && sudo pacman -S git make --noconfirm
 git clone https://github.com/Dgame/dgame-system
-make -f arch.mk install-on-wsl
+cd dgame-system && make -f arch.mk install-on-wsl
 ```
 
 ### Manjaro
@@ -72,11 +94,17 @@ docker export -o manjaro.tar Manjaro
 wsl.exe --import "Manjaro" "$PWD/manjaro" "manjaro.tar" --version 2
 ```
 
+and then configure like _Archlinux_.
+
 ```make
 sudo pacman -Sy && sudo pacman -S git make --noconfirm
 git clone https://github.com/Dgame/dgame-system
-make -f manjaro.mk install-on-wsl
+cd dgame-system && make -f manjaro.mk install-on-wsl
 ```
+
+### Don't forget to enable the WSL distro in the Docker-Desktop App
+
+![](Docker-Desktop.png)
 
 ----
 
