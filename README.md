@@ -79,6 +79,14 @@ chmod 0744 /etc/shadow
 chmod 0744 /etc/gshadow
 ```
 
+You can enable it by doing
+
+```sh
+wsl.exe -d <distro> --user <username>
+```
+
+And run the Playbook by doing
+
 ```make
 sudo pacman -Sy && sudo pacman -S git make --noconfirm
 git clone https://github.com/Dgame/dgame-system
