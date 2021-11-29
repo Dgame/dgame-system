@@ -89,6 +89,7 @@ And run the Playbook by doing
 
 ```make
 sudo pacman -Sy && sudo pacman -S git make --noconfirm
+cd ~
 git clone https://github.com/Dgame/dgame-system
 cd dgame-system && make -f arch.mk install-on-wsl
 ```
