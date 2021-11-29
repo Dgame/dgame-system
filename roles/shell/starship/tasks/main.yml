@@ -16,7 +16,7 @@
   become: yes
   ignore_errors: yes
   register: pamac
-  when: ansible_os_family == "Archlinux"
+  when: not on_wsl and ansible_os_family == "Archlinux"
 
 - name: Install Nerd-Fonts
   command: pamac build nerd-fonts-complete --no-confirm

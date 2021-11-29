@@ -20,4 +20,4 @@
     enabled: yes
   become: true
   ignore_errors: yes # https://github.com/ansible/ansible/issues/71528
-  when: ansible_distribution != "Ubuntu" and ansible_distribution != "Debian" # https://github.com/ansible/ansible/issues/71528#issuecomment-702178531
+  when: not on_wsl
