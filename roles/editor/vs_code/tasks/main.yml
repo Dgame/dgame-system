@@ -6,24 +6,18 @@
   changed_when: false
   when: not code.failed and code.changed
   with_items:
-    - 2gua.rainbow-brackets
-    - azemoh.one-monokai
     - bmalehorn.vscode-fish
     - bmewburn.vscode-intelephense-client
     - bungcip.better-toml
     - Gruntfuggly.todo-tree
-    - kokororin.vscode-phpfmt
     - matklad.rust-analyzer
     - mhutchie.git-graph
     - rust-lang.rust
-    - samverschueren.final-newline
     - serayuzgur.crates
     - TabNine.tabnine-vscode
     - vadimcn.vscode-lldb
-    - vscoss.vscode-ansible
     - waderyan.gitblame
     - yzhang.markdown-all-in-one
-    - skyapps.fish-vscode
 
 - name: symlink vs-code extensions
   block:
