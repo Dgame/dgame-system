@@ -16,6 +16,7 @@
     - font
     - shell/fish
     - shell/starship
+    - terminal/zellij
     - terminal/tmux
     - docker
     - ansible

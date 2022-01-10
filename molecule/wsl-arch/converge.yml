@@ -16,7 +16,7 @@
     - font
     - shell/fish
     - shell/starship
-    - terminal/alacritty
+    - terminal/zellij
     - terminal/tmux
     - ansible
     - ansible/molecule

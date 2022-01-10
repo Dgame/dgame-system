@@ -17,6 +17,7 @@
     - shell/starship
     - ansible
     - ansible/molecule
+    - terminal/zellij
     - programming/python
     - programming/rust
     - programming/rust/cargo
