@@ -1,0 +1,18 @@
+- include_tasks: roles/programming/rust/tools/tasks/tpl.yml
+  with_items:
+    - zellij
+
+- name: Create zellij folder in .config
+  file:
+    path: ~/.config/zellij/
+    state: directory
+
+- name: symlink files
+  file:
+    src: "{{ ansible_env.PWD }}/roles/terminal/zellij/files/{{ item }}"
+    path: "~/.config/zellij/{{ item }}"
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - config.yaml
