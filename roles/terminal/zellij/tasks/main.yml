@@ -1,5 +1,5 @@
 - stat:
-    path: "~/.cargo/bin/{{ item }}"
+    path: "~/.cargo/bin/zellij"
   register: zellij
 
 - shell: ". $HOME/.cargo/env && cargo install zellij"
