@@ -1,6 +1,11 @@
-- include_tasks: roles/programming/rust/tools/tasks/tpl.yml
-  with_items:
-    - zellij
+- stat:
+    path: "~/.cargo/bin/{{ item }}"
+  register: zellij
+
+- shell: ". $HOME/.cargo/env && cargo install zellij"
+  when: not zellij.stat.exists
+  ignore_errors: yes
+  changed_when: false
 
 - name: Create zellij folder in .config
   file:
