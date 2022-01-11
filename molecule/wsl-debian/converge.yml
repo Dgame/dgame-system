@@ -8,6 +8,7 @@
     use_starship_prompt: yes
     dist_ubuntu: xenial
     dist_debian: bullseye
+    on_wsl: yes
   roles:
     - system/apt
     - system/zip
@@ -17,6 +18,7 @@
     - shell/starship
     - ansible
     - ansible/molecule
+    - terminal/zellij
     - programming/python
     - programming/rust
     - programming/rust/cargo

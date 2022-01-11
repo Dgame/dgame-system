@@ -16,7 +16,8 @@
     - font
     - shell/zsh
     - shell/starship
-    - terminal/alacritty
+    - terminal/zellij
+    - terminal/tmux
     - docker
     - ansible
     - ansible/molecule

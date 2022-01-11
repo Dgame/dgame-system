@@ -7,6 +7,7 @@
     use_fish: yes
     use_zsh: no
     use_starship_prompt: yes
+    on_wsl: no
   roles:
     - system/pacman
     - system/yay
@@ -19,6 +20,7 @@
     - shell/fish
     - shell/starship
     - terminal/alacritty
+    - terminal/zellij
     - terminal/tmux
     - terminal/yakuake
     - terminal/taskwarrior

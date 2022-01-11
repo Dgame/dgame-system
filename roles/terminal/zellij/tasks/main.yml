@@ -1,0 +1,23 @@
+- stat:
+    path: "~/.cargo/bin/zellij"
+  register: zellij
+
+- shell: ". $HOME/.cargo/env && cargo install zellij"
+  when: not zellij.stat.exists
+  ignore_errors: yes
+  changed_when: false
+
+- name: Create zellij folder in .config
+  file:
+    path: ~/.config/zellij/
+    state: directory
+
+- name: symlink files
+  file:
+    src: "{{ ansible_env.PWD }}/roles/terminal/zellij/files/{{ item }}"
+    path: "~/.config/zellij/{{ item }}"
+    state: link
+    follow: false
+    force: yes
+  loop:
+    - config.yaml
