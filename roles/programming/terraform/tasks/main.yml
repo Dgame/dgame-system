@@ -1,0 +1,16 @@
+- git:
+    repo: https://github.com/tfutils/tfenv.git
+    dest:  ~/.tfenv
+  ignore_errors: yes
+
+- name: symlink files
+  file:
+    src: "~/.tfenv/bin/*"
+    path: "/usr/local/bin"
+    state: link
+    follow: no
+    force: yes
+
+- name: make sure the latest terraform is installed
+  changed_when: false
+  command: "tfenv install latest && tfenv use latest"
