@@ -30,6 +30,7 @@
     - programming/rust/cargo
     - programming/rust/tools
     - programming/workspace
+    - programming/terraform
     - profanity
     - credentials
     - browser/brave

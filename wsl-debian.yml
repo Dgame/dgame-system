@@ -25,5 +25,6 @@
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
+    - programming/terraform
     - system/debian-wsl
     - aws/cli

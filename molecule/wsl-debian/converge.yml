@@ -23,6 +23,7 @@
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
+    - programming/terraform
     - docker
     - system/debian-wsl
     - aws/cli

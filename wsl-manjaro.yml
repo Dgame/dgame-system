@@ -24,5 +24,6 @@
     - programming/rust
     - programming/rust/cargo
     - programming/rust/tools
+    - programming/terraform
     - aws/cli
     - system/default
