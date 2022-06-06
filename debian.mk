@@ -11,6 +11,8 @@ install: install_ansible
 install-on-wsl: install_ansible
 	$(PLAYBOOK) $(FLAGS) $(INVENTORY) wsl-$(OS_NAME).yml
 install_ansible: update
+	sudo apt-get -y install software-properties-common
+	sudo add-apt-repository --yes --update ppa:ansible/ansible
 	sudo apt-get -y install $(ANSIBLE_PKG)
 update:
 	sudo apt-get -y update

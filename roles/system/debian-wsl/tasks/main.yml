@@ -35,7 +35,7 @@
 
     - name: Copy .wslconfig
       copy:
-        src: "{{ ansible_env.PWD }}/roles/system/wsl/files/{{ item }}"
+        src: "{{ ansible_env.PWD }}/roles/system/debian-wsl/files/{{ item }}"
         dest: "{{ user_profile.stdout }}/{{ item }}"
         follow: no
         force: yes
