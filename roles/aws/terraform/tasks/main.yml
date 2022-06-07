@@ -3,20 +3,35 @@
     - git:
         repo: https://github.com/tfutils/tfenv.git
         dest:  ~/.tfenv
+        force: yes
       ignore_errors: yes
       changed_when: false
+    
+    - name: chmod tfenv
+      shell: "chmod +x {{ ansible_env.HOME }}/.tfenv/bin/{{ item }}"
+      changed_when: false
+      loop:
+        - tfenv
+        - terraform
+    
+    - name: Change tfenv file permission
+      file:
+        path: "{{ ansible_env.HOME }}/.tfenv/bin/{{ item }}"
+        owner: "{{ ansible_effective_user_id }}"
+        group: "{{ ansible_effective_group_id }}"
+      loop:
+        - tfenv
+        - terraform
 
     - name: symlink files
-      file:
-        src: "~/.tfenv/bin/tfenv"
-        path: "/usr/bin/tfenv"
-        state: link
-        follow: no
-        force: yes
-      changed_when: false
       become: yes
+      command: "ln -sf {{ ansible_env.HOME }}/.tfenv/bin/{{ item }} /usr/bin"
+      loop:
+        - tfenv
+        - terraform
 
     - name: make sure the latest terraform is installed
       changed_when: false
       shell: tfenv install latest && tfenv use latest
+      become: yes
   ignore_errors: yes

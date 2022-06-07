@@ -15,16 +15,16 @@
     - editor/vim
     - curl
     - git
-    # - shell/zsh
-    # - shell/starship
-    # - ansible
-    # - ansible/molecule
-    # - terminal/zellij
-    # - programming/python
-    # - programming/rust
-    # - programming/rust/cargo
-    # - programming/rust/tools
-    # - docker
+    - shell/zsh
+    - shell/starship
+    - ansible
+    - ansible/molecule
+    - terminal/zellij
+    - programming/python
+    - programming/rust
+    - programming/rust/cargo
+    - programming/rust/tools
+    - docker
     - system/debian-wsl
     - aws/terraform
     - aws/cli

@@ -9,23 +9,23 @@
     dist_debian: bullseye
     on_wsl: yes
   roles:
-    - system/apt
-    - system/zip
-    - editor/vim
-    - curl
-    - git
-    - font
-    - shell/zsh
-    - shell/starship
-    - terminal/zellij
-    - terminal/tmux
-    - docker
-    - ansible
-    - ansible/molecule
-    - programming/python
-    - programming/rust
-    - programming/rust/cargo
-    - programming/rust/tools
-    - system/debian-wsl
+    # - system/apt
+    # - system/zip
+    # - editor/vim
+    # - curl
+    # - git
+    # - font
+    # - shell/zsh
+    # - shell/starship
+    # - terminal/zellij
+    # - terminal/tmux
+    # - docker
+    # - ansible
+    # - ansible/molecule
+    # - programming/python
+    # - programming/rust
+    # - programming/rust/cargo
+    # - programming/rust/tools
+    # - system/debian-wsl
     - aws/terraform
-    - aws/cli
+    # - aws/cli
