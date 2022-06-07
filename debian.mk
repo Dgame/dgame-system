@@ -19,10 +19,10 @@ update:
 upgrade: update
 	sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove
 test:
-	molecule test -s $(OS_NAME)
+	molecule test -s wsl-$(OS_NAME)
 converge:
-	molecule converge -s $(OS_NAME)
+	molecule converge -s wsl-$(OS_NAME)
 idempotence:
-	molecule idempotence -s $(OS_NAME)
+	molecule idempotence -s wsl-$(OS_NAME)
 destroy:
-	molecule destroy -s $(OS_NAME)
+	molecule destroy -s wsl-$(OS_NAME)

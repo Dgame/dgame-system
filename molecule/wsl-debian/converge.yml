@@ -13,6 +13,7 @@
     - system/apt
     - system/zip
     - editor/vim
+    - curl
     - git
     - shell/zsh
     - shell/starship
@@ -25,4 +26,5 @@
     - programming/rust/tools
     - docker
     - system/debian-wsl
+    - aws/terraform
     - aws/cli

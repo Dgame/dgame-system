@@ -1,0 +1,38 @@
+- name: Install wget
+  package:
+    name: wget
+    state: latest
+  become: true
+
+- shell: which curl && curl -V | grep -Po "(?<=curl)\\s+([0-9]+\\.[0-9]+)" | xargs
+  register: curl
+  ignore_errors: yes
+  changed_when: false
+
+- name: make sure the latest curl is installed
+  block:
+    - name: Download curl
+      command: wget https://curl.haxx.se/download/curl-7.83.1.zip
+      changed_when: false
+
+    - name: Unzip it
+      command: unzip -o curl-7.83.1.zip
+      changed_when: false
+
+    - name: Build curl
+      shell: |
+        cd curl-7.83.1
+        ./configure --with-openssl && make && make install
+      become: true
+      changed_when: false
+
+    - name: Replace curl with latest
+      command: cp --remove-destination /usr/local/bin/curl /usr/bin/curl
+      become: true
+      changed_when: false
+
+    - name: Remove curl artifacts
+      shell: rm -rf curl*
+      become: true
+  ignore_errors: yes
+  when: curl.stdout_lines[1] is version('7.83', '<')

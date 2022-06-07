@@ -12,6 +12,7 @@
     - system/apt
     - system/zip
     - editor/vim
+    - curl
     - git
     - font
     - shell/zsh
@@ -26,4 +27,5 @@
     - programming/rust/cargo
     - programming/rust/tools
     - system/debian-wsl
+    - aws/terraform
     - aws/cli

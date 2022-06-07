@@ -1,0 +1,3 @@
+dependencies:
+  - role: compiler/gcc
+  - role: system/base-dev # for SSL
