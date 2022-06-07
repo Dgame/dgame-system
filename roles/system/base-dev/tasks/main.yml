@@ -3,11 +3,11 @@
 - name: make sure curl is installed
   package:
     name: curl
-    state: present
+    state: latest
   become: yes
 
 - name: make sure tree is installed
   package:
     name: tree
-    state: present
+    state: latest
   become: yes
