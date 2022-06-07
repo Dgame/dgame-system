@@ -28,6 +28,7 @@ jobs:
           sudo apt-get -y install ansible
           python3 -m pip install --user "molecule"
           python3 -m pip install --user "molecule[docker]"
+          pip install docker
 
       - name: Test playbook
         run: make -f ${{ matrix.scenario }}.mk test
