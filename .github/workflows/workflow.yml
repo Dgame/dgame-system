@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      
+      - name: Prepare
+        run: make -f ${{ matrix.scenario }}.mk install_ansible
 
       - name: Test playbook
         run: make -f ${{ matrix.scenario }}.mk test
