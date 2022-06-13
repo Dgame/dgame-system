@@ -11,3 +11,9 @@
     name: tree
     state: latest
   become: yes
+
+- name: make sure jq is installed
+  package:
+    name: jq
+    state: latest
+  become: yes
