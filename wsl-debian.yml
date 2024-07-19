@@ -17,8 +17,8 @@
     - font
     - shell/zsh
     - shell/starship
-    - terminal/zellij
-    - terminal/tmux
+    # - terminal/zellij
+    # - terminal/tmux
     - docker
     - ansible
     - ansible/molecule
@@ -27,5 +27,5 @@
     - programming/rust/cargo
     - programming/rust/tools
     - system/debian-wsl
-    - aws/terraform
+    # - aws/terraform
     - aws/cli
