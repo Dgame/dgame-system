@@ -4,7 +4,7 @@
     email = rswhite4@googlemail.com
     name = Dgame
 [core]
-	autocrlf = input
+    autocrlf = input
     editor = vim
     fileMode = false
 [alias]
