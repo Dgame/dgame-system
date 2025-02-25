@@ -19,5 +19,4 @@
     - shell/starship
     - docker
     - programming/rust
-    - programming/rust/cargo
     - aws/cli

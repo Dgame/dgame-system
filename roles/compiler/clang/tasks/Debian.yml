@@ -3,3 +3,9 @@
     name: clang
     state: latest
   become: yes
+
+- name: make sure cmake is installed
+  package:
+    name: cmake
+    state: latest
+  become: yes
