@@ -1,12 +1,13 @@
 - name: Check if starship is installed
-  stat:
-    path: '~/.cargo/bin/starship'
+  shell: 'which starship'
   register: starship
+  ignore_errors: yes
+  failed_when: false
   when: use_starship_prompt
 
 - name: make sure starship is installed
-  shell: . $HOME/.cargo/env && cargo install starship
-  when: use_starship_prompt and not starship.stat.exists
+  shell: curl -sS https://starship.rs/install.sh | sh
+  when: use_starship_prompt and starship.rc > 0
   ignore_errors: yes
 
 - name: Install pamac
@@ -59,8 +60,6 @@
 
 - name: Update starship
   shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
-  args:
-    warn: no
   become: yes
   ignore_errors: yes
   changed_when: false

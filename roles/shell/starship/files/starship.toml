@@ -77,3 +77,6 @@ symbol = "☁️ "
 
 [docker_context]
 format = "via [🐋 $context](blue bold)"
+
+[nodejs]
+format = 'via [🤖 $version](bold green) '
