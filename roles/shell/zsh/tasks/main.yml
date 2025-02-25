@@ -8,8 +8,6 @@
 
     - name: install oh-my-zsh
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-      args:
-        warn: no
       changed_when: false
       when: not oh_my_zsh.stat.exists
 

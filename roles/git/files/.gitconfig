@@ -4,7 +4,7 @@
     email = rswhite4@googlemail.com
     name = Dgame
 [core]
-    autocrlf = false
+	autocrlf = input
     editor = vim
     fileMode = false
 [alias]
@@ -26,3 +26,6 @@
     enabled = 1
 [pull]
     rebase = true
+[push]
+    autoSetupRemote = true
+

@@ -1,37 +1,5 @@
-- name: Add git ppa
-  apt_repository:
-    repo: ppa:git-core/ppa
-    state: present
-    update_cache: yes
-    mode: "0644"
-  become: yes
-  when: ansible_distribution == "Ubuntu"
-
 - name: make sure git is installed
   package:
     name: git
     state: latest
   become: yes
-
-- name: install github-cli
-  block:
-    - name: Add apt-key for keyserver.ubuntu.com
-      apt_key:
-        keyserver: keyserver.ubuntu.com
-        id: C99B11DEB97541F0
-      become: yes
-      when: ansible_distribution == "Ubuntu"
-
-    - name: Add github-cli ppa
-      apt_repository:
-        repo: deb https://cli.github.com/packages stable main
-        state: present
-        update_cache: yes
-        mode: "0644"
-      become: yes
-
-    - name: make sure github-cli is installed
-      package:
-        name: gh
-        state: latest
-      become: yes

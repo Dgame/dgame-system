@@ -59,8 +59,6 @@
 
 - name: Update starship
   shell: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
-  args:
-    warn: no
   become: yes
   ignore_errors: yes
   changed_when: false
